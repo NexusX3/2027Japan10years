@@ -2,1638 +2,931 @@
 <html lang="zh-TW">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#0a0a14">
+<meta name="color-scheme" content="dark">
 <title>仙台・北海道 2027.01</title>
 <style>
-* { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+:root{
+  --bg:rgb(10,10,20);
+  --s1:#11112a;
+  --s2:#181836;
+  --line:#20203c;
+  --line2:#2d2d52;
+  --text:#eeeef6;
+  --text2:#a8a8c4;
+  --text3:#7c7c9c;
+  --acc:#aab6ff;
+  --hot:#ff7d8e;
+  --warm:#ffb45e;
+  --ok:#6fdcaf;
+  --f:1;
+  --pad:20px;
+  --ease:cubic-bezier(.16,1,.3,1);
+  color-scheme:dark;
+}
+html{background:var(--bg);scroll-behavior:smooth}
+body{
+  background:var(--bg);color:var(--text);
+  font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display","PingFang TC","Hiragino Sans","Noto Sans TC",sans-serif;
+  font-size:calc(16px * var(--f));line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+  max-width:480px;margin:0 auto;
+  padding:env(safe-area-inset-top) calc(var(--pad) + env(safe-area-inset-right)) calc(110px + env(safe-area-inset-bottom)) calc(var(--pad) + env(safe-area-inset-left));
+}
+::selection{background:var(--acc);color:var(--bg)}
+:focus-visible{outline:1.5px solid var(--acc);outline-offset:2px}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+a{color:inherit}
+svg.i{width:18px;height:18px;flex-shrink:0;fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+.num,.tv,.dd,.ht-d{font-variant-numeric:tabular-nums}
+.lbl{font-size:calc(11px * var(--f));letter-spacing:.18em;color:var(--text3);text-transform:uppercase}
 
-:root {
-  --bg: rgb(10,10,30);
-  --card: #121212;
-  --border: #1e1e1e;
-  --border2: #2a2a2a;
-  --text: #efefef;
-  --muted: #666;
-  --muted2: #888;
-  --accent: #b8964a;
-}
+/* Hero */
+.hero{padding-top:64px}
+.hero h1{font-size:calc(64px * var(--f));font-weight:200;line-height:1.08;letter-spacing:.04em}
+.hero h1 span{display:block;color:var(--hot)}
+.hero-meta{margin-top:30px;padding-top:12px;border-top:1px solid var(--line2);display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap}
+.hero-meta .num{font-size:calc(13.5px * var(--f));color:var(--text2);letter-spacing:.06em}
 
-body {
-  background: var(--bg);
-  color: var(--text);
-  font-family: -apple-system, 'Helvetica Neue', Arial, sans-serif;
-  font-size: 14px;
-  line-height: 1.6;
-  padding-bottom: 32px;
-  max-width: 480px;
-  margin: 0 auto;
-}
+/* Now */
+.now{margin-top:28px;background:var(--s1);border-radius:18px;padding:18px 16px 18px 20px;display:flex;align-items:center;gap:16px}
+.now-b{flex:1;min-width:0}
+.now-l{display:flex;align-items:center;gap:10px;color:var(--hot);font-size:calc(11px * var(--f));letter-spacing:.18em}
+.pulse{width:7px;height:7px;border-radius:50%;background:var(--hot);position:relative;flex-shrink:0}
+.pulse::after{content:"";position:absolute;inset:0;border-radius:50%;background:var(--hot);animation:pulse 2.2s var(--ease) infinite}
+@keyframes pulse{0%{transform:scale(1);opacity:.7}100%{transform:scale(3.2);opacity:0}}
+.now-m{font-size:calc(22px * var(--f));font-weight:600;line-height:1.35;margin-top:8px}
+.now-s{font-size:calc(13.5px * var(--f));color:var(--text2);margin-top:4px;line-height:1.55}
+.now-go{width:48px;height:48px;border-radius:50%;background:var(--acc);color:var(--bg);display:grid;place-items:center;flex-shrink:0}
+.now-go svg{width:20px;height:20px;stroke-width:1.8}
 
-/* ── HEADER ── */
-.hdr {
-  padding: 32px 20px 20px;
-  border-bottom: 1px solid var(--border);
-}
-.hdr-eyebrow {
-  font-size: 10px;
-  letter-spacing: 3px;
-  color: var(--muted);
-  margin-bottom: 8px;
-}
-.hdr h1 {
-  font-size: 26px;
-  font-weight: 300;
-  letter-spacing: 3px;
-  color: var(--text);
-}
-.hdr-sub {
-  font-size: 11px;
-  color: var(--muted);
-  margin-top: 6px;
-  letter-spacing: 1px;
-}
+/* Section */
+section{scroll-margin-top:8px}
+.sec-h{display:flex;justify-content:space-between;align-items:baseline;padding:52px 0 14px;border-bottom:1px solid var(--line2)}
+.sec-h h2{font-size:calc(30px * var(--f));font-weight:200;letter-spacing:.1em}
+.sec-h .lbl{font-size:calc(12px * var(--f))}
 
-/* ── NAV ── */
-.nav {
-  position: sticky;
-  top: 0;
-  background: var(--bg);
-  border-bottom: 1px solid var(--border);
-  display: flex;
-  z-index: 100;
-}
-.nav button {
-  flex: 1;
-  padding: 14px 0 12px;
-  background: none;
-  border: none;
-  border-bottom: 2px solid transparent;
-  color: var(--muted);
-  font-size: 10px;
-  letter-spacing: 0.5px;
-  cursor: pointer;
-  transition: color 0.15s;
-  font-family: inherit;
-}
-.nav button.on {
-  color: var(--text);
-  border-bottom-color: var(--text);
-}
+/* Members */
+.sub-h{display:flex;justify-content:space-between;align-items:baseline;margin-top:36px;padding-bottom:10px;border-bottom:1px solid var(--line)}
+.sub-h .num{font-size:calc(12px * var(--f));color:var(--text3);letter-spacing:.12em}
+.members{display:grid;grid-template-columns:1fr 1fr}
+.mb{padding:14px 0;border-bottom:1px solid var(--line)}
+.mb:nth-child(odd){padding-right:14px;border-right:1px solid var(--line)}
+.mb:nth-child(even){padding-left:16px}
+.mb-n{font-size:calc(17px * var(--f));font-weight:600;line-height:1.45;margin-top:4px}
+.mb-c{font-size:calc(13.5px * var(--f));color:var(--text2)}
 
-/* ── SECTIONS ── */
-.sec { display: none; padding: 20px; }
-.sec.on { display: block; }
+/* Day rows */
+.day{border-bottom:1px solid var(--line)}
+.dh{width:100%;display:grid;grid-template-columns:calc(78px * var(--f)) 1fr 20px;gap:0 12px;align-items:start;padding:20px 0;text-align:left;min-height:44px}
+.dd{font-size:calc(30px * var(--f));font-weight:200;line-height:1.1;letter-spacing:.02em}
+.dw{font-size:calc(11px * var(--f));color:var(--text3);letter-spacing:.18em;margin-top:6px;white-space:nowrap}
+.day.today .dd,.day.today .dw{color:var(--hot)}
+.day.today .dw::after{content:" · TODAY"}
+.dt{font-size:calc(17px * var(--f));font-weight:600;line-height:1.45}
+.ds{font-size:calc(14.5px * var(--f));color:var(--text2);line-height:1.65;margin-top:4px}
+.dst{font-size:calc(12px * var(--f));color:var(--text3);margin-top:8px;letter-spacing:.06em}
+.chev{color:var(--text3);margin-top:8px;transition:transform .5s var(--ease)}
+.day.open .chev{transform:rotate(180deg)}
+.db{display:grid;grid-template-rows:0fr;transition:grid-template-rows .5s var(--ease)}
+.day.open .db{grid-template-rows:1fr}
+.dbi{overflow:hidden}
+.tl{list-style:none;padding:0 0 26px}
 
-/* ── MEMBERS ── */
-.members-block {
-  margin-bottom: 20px;
-  padding-bottom: 20px;
-  border-bottom: 1px solid var(--border);
-}
-.members-eyebrow {
-  font-size: 10px;
-  letter-spacing: 2.5px;
-  color: var(--muted);
-  margin-bottom: 10px;
-}
-.members-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 8px;
-}
-.m-card {
-  border: 1px solid var(--border2);
-  padding: 10px 12px;
-}
-.m-grp {
-  font-size: 9px;
-  letter-spacing: 1.5px;
-  color: var(--muted);
-  display: block;
-  margin-bottom: 4px;
-}
-.m-name {
-  font-size: 13px;
-  font-weight: 500;
-  color: var(--text);
-  display: block;
-  margin-bottom: 2px;
-}
-.m-count {
-  font-size: 11px;
-  color: var(--muted);
-}
+/* Timeline item */
+.it{padding-top:22px}
+.it:first-child{padding-top:2px}
+.tm{display:flex;align-items:center;gap:12px}
+.tv{font-size:calc(24px * var(--f));font-weight:300;line-height:1.2;letter-spacing:.02em;white-space:nowrap}
+.ln{flex:1;height:1px;background:var(--line2)}
+.key .tv,.key .tv2{color:var(--acc)}
+.key .ln{background:var(--acc);opacity:.55}
+.next{font-size:calc(11px * var(--f));font-weight:600;letter-spacing:.16em;background:var(--hot);color:var(--bg);border-radius:20px;padding:2px 10px;line-height:1.6}
+.ti{font-size:calc(17px * var(--f));font-weight:600;line-height:1.45;margin-top:10px}
+.grp{display:inline-block;background:var(--text2);color:var(--bg);font-size:calc(11.5px * var(--f));font-weight:600;letter-spacing:.18em;border-radius:20px;padding:0 8px 0 10px;margin-right:8px;vertical-align:.15em;line-height:1.75}
+.tx{font-size:calc(14.5px * var(--f));color:var(--text2);line-height:1.65;margin-top:6px}
+.tx b,.nt p b,.ck-s b{color:var(--text);font-weight:600}
+.warn{display:flex;gap:8px;font-size:calc(13.5px * var(--f));color:var(--warm);line-height:1.6;margin-top:10px}
+.warn svg{width:16px;height:16px;margin-top:3px}
+.addr{display:flex;align-items:center;gap:10px;margin-top:12px;background:var(--s1);border-radius:12px;padding:11px 14px;min-height:44px;text-decoration:none;font-size:calc(13.5px * var(--f));line-height:1.45;transition:background .2s}
+.addr:active{background:var(--s2)}
+.addr .pin{color:var(--acc)}
+.addr .o{color:var(--text3);margin-left:auto;width:16px;height:16px}
 
-/* ── OVERVIEW ── */
-.tl-item {
-  display: flex;
-  gap: 16px;
-  padding: 16px 0;
-  border-bottom: 1px solid var(--border);
-}
-.tl-item:last-child { border-bottom: none; }
-.tl-left {
-  min-width: 44px;
-  padding-top: 2px;
-}
-.tl-date {
-  font-size: 12px;
-  font-weight: 500;
-  color: var(--text);
-}
-.tl-dow {
-  font-size: 10px;
-  color: var(--muted);
-  letter-spacing: 0.5px;
-}
-.tl-right {}
-.tl-title {
-  font-size: 14px;
-  font-weight: 500;
-  margin-bottom: 3px;
-}
-.tl-desc {
-  font-size: 12px;
-  color: var(--muted2);
-}
-.badge {
-  display: inline-block;
-  font-size: 10px;
-  padding: 2px 8px;
-  border: 1px solid var(--border2);
-  color: var(--muted);
-  margin-top: 6px;
-  letter-spacing: 0.5px;
-}
-.badge-gold {
-  border-color: var(--accent);
-  color: var(--accent);
-}
+/* Transport */
+.seg{padding:30px 0 26px;border-bottom:1px solid var(--line)}
+.seg-h{display:flex;justify-content:space-between;align-items:baseline;gap:6px 12px;flex-wrap:wrap}
+.seg-t{font-size:calc(17px * var(--f));font-weight:600;line-height:1.45}
+.seg-d{font-size:calc(12px * var(--f));color:var(--text3);letter-spacing:.14em}
+.seg.today .seg-d{color:var(--hot)}
+.seg.today .seg-d::after{content:" · TODAY"}
+.leg{padding-top:20px}
+.leg .lbl{display:block;margin-bottom:6px}
+.tv2{font-size:calc(24px * var(--f));font-weight:300;line-height:1.2;font-variant-numeric:tabular-nums;white-space:nowrap}
+.rt{font-size:calc(17px * var(--f));font-weight:600;line-height:1.45;margin-top:10px}
+.rt span{font-weight:400;color:var(--text2);margin-left:6px}
+.conn{display:flex;gap:8px;align-items:flex-start;color:var(--text3);font-size:calc(13.5px * var(--f));line-height:1.6;padding-top:18px}
+.conn svg{width:16px;height:16px;margin-top:3px}
+.pass{display:flex;gap:10px;align-items:baseline;margin-top:20px;padding-top:12px;border-top:1px solid var(--line);font-size:calc(13.5px * var(--f));color:var(--text2);line-height:1.6}
+.pass .lbl{color:var(--acc);flex-shrink:0}
 
-/* ── DAILY ── */
-.day-card {
-  border: 1px solid var(--border);
-  background: var(--card);
-  margin-bottom: 12px;
-}
-.day-hdr {
-  padding: 12px 16px;
-  border-bottom: 1px solid var(--border);
-  display: flex;
-  justify-content: space-between;
-  align-items: baseline;
-  gap: 8px;
-}
-.day-hdr-title {
-  font-size: 12px;
-  font-weight: 500;
-  letter-spacing: 0.5px;
-  white-space: nowrap;
-}
-.day-hdr-sub {
-  font-size: 11px;
-  color: var(--muted);
-  text-align: right;
-  flex-shrink: 1;
-}
-.day-body { padding: 0 16px; }
+/* Hotels */
+.ht{padding:26px 0;border-bottom:1px solid var(--line)}
+.ht-top{display:flex;justify-content:space-between;align-items:center;gap:12px}
+.ht-d{font-size:calc(30px * var(--f));font-weight:200;letter-spacing:.02em;line-height:1.1}
+.tag-ok{font-size:calc(11.5px * var(--f));letter-spacing:.16em;color:var(--ok);background:rgba(111,220,175,.1);border-radius:20px;padding:3px 10px;white-space:nowrap}
+.ht-n{font-size:calc(17px * var(--f));font-weight:600;line-height:1.45;margin-top:14px}
+.ht-en{font-size:calc(13.5px * var(--f));color:var(--text3)}
+.ht dl{display:grid;grid-template-columns:auto 1fr;gap:4px 16px;margin-top:12px;font-size:calc(14.5px * var(--f))}
+.ht dt{color:var(--text3);font-size:calc(12px * var(--f));letter-spacing:.12em;padding-top:.2em}
+.ht dd{color:var(--text2);line-height:1.6}
 
-.slot {
-  display: flex;
-  gap: 12px;
-  padding: 13px 0;
-  border-bottom: 1px solid var(--border);
-}
-.slot:last-child { border-bottom: none; }
-.slot-icon {
-  min-width: 42px;
-  width: 42px;
-  color: var(--muted);
-  font-size: 11px;
-  text-align: right;
-  padding-top: 3px;
-  font-style: normal;
-  letter-spacing: 0.3px;
-  flex-shrink: 0;
-}
-.slot-title {
-  font-size: 13px;
-  font-weight: 500;
-  margin-bottom: 3px;
-}
-.slot-detail {
-  font-size: 12px;
-  color: var(--muted2);
-  line-height: 1.6;
-}
-.slot-detail b { color: var(--text); font-weight: 500; }
-.slot-addr {
-  font-size: 11px;
-  color: var(--muted);
-  margin-top: 5px;
-  padding-left: 10px;
-  border-left: 1px solid var(--border2);
-}
-.slot-note {
-  font-size: 11px;
-  color: var(--accent);
-  margin-top: 5px;
-}
+/* Checklist */
+.pg{padding-top:30px}
+.pg-h{display:flex;justify-content:space-between;align-items:center;padding-bottom:6px}
+.pill{background:var(--text2);color:var(--bg);font-size:calc(11.5px * var(--f));font-weight:600;letter-spacing:.18em;border-radius:20px;padding:2px 10px 2px 12px}
+.pg-c{font-size:calc(12px * var(--f));color:var(--text3);letter-spacing:.1em;font-variant-numeric:tabular-nums;transition:color .3s}
+.pg.done .pg-c{color:var(--ok)}
+.ck{display:flex;gap:14px;padding:16px 0;border-bottom:1px solid var(--line);cursor:pointer;min-height:44px;user-select:none;-webkit-user-select:none}
+.ck:last-child{border-bottom:0}
+.box{width:22px;height:22px;border-radius:6px;border:1.5px solid #4a4a72;flex-shrink:0;display:grid;place-items:center;margin-top:3px;transition:background .3s var(--ease),border-color .3s var(--ease)}
+.box svg{width:14px;height:14px;fill:none;stroke:var(--bg);stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:22;stroke-dashoffset:22;transition:stroke-dashoffset .45s var(--ease)}
+.ck[aria-checked="true"] .box{background:var(--ok);border-color:var(--ok)}
+.ck[aria-checked="true"] .box svg{stroke-dashoffset:0}
+.ck-t{font-size:calc(17px * var(--f));font-weight:600;line-height:1.45;transition:color .3s}
+.ck.urgent .ck-t::before{content:"";display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--warm);margin-right:9px;vertical-align:.22em}
+.ck-s{font-size:calc(14.5px * var(--f));color:var(--text2);line-height:1.65;margin-top:4px;transition:opacity .3s}
+.ck[aria-checked="true"] .ck-t{color:var(--text3);text-decoration:line-through}
+.ck[aria-checked="true"] .ck-s{opacity:.45}
 
-/* ── HOTEL ── */
-.hotel-item {
-  padding: 18px 0;
-  border-bottom: 1px solid var(--border);
-}
-.hotel-item:last-child { border-bottom: none; }
-.hotel-nights {
-  display: inline-block;
-  font-size: 10px;
-  padding: 2px 8px;
-  border: 1px solid var(--accent);
-  color: var(--accent);
-  letter-spacing: 0.5px;
-  margin-bottom: 8px;
-}
-.hotel-name {
-  font-size: 14px;
-  font-weight: 500;
-  margin-bottom: 2px;
-}
-.hotel-en {
-  font-size: 11px;
-  color: var(--muted);
-  margin-bottom: 10px;
-  letter-spacing: 0.3px;
-}
-.hotel-row {
-  display: flex;
-  gap: 8px;
-  font-size: 12px;
-  margin-bottom: 5px;
-}
-.hotel-row .lbl { color: var(--muted); min-width: 32px; flex-shrink: 0; }
-.hotel-row .val { color: var(--muted2); }
-.hotel-note {
-  font-size: 11px;
-  color: var(--accent);
-  margin-top: 8px;
-}
+/* Notes */
+.notes{list-style:none;counter-reset:n}
+.nt{padding:24px 0;border-bottom:1px solid var(--line);counter-increment:n}
+.nt h3{font-size:calc(17px * var(--f));font-weight:600;line-height:1.45;display:flex;gap:12px;align-items:baseline}
+.nt h3::before{content:counter(n,decimal-leading-zero);font-size:calc(12px * var(--f));font-weight:400;color:var(--text3);letter-spacing:.1em;font-variant-numeric:tabular-nums}
+.nt p{font-size:calc(14.5px * var(--f));color:var(--text2);line-height:1.65;margin-top:10px}
+.nt a{text-decoration:none;border-bottom:1px solid var(--line2)}
 
-/* ── PREP ── */
-.prep-grp { margin-bottom: 28px; }
-.prep-grp-title {
-  font-size: 10px;
-  letter-spacing: 2.5px;
-  color: var(--muted);
-  margin-bottom: 10px;
-  padding-bottom: 8px;
-  border-bottom: 1px solid var(--border);
-}
-.prep-item {
-  display: flex;
-  gap: 12px;
-  padding: 12px 0;
-  border-bottom: 1px solid var(--border);
-  align-items: flex-start;
-  cursor: pointer;
-  user-select: none;
-  -webkit-user-select: none;
-  transition: opacity 0.2s;
-}
-.prep-item:last-child { border-bottom: none; }
-.prep-item:active { opacity: 0.6; }
-.prep-box {
-  width: 14px;
-  height: 14px;
-  min-width: 14px;
-  border: 1px solid var(--border2);
-  margin-top: 3px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 10px;
-  flex-shrink: 0;
-  transition: background 0.15s, border-color 0.15s;
-}
-.prep-item.checked .prep-box {
-  background: var(--text);
-  border-color: var(--text);
-  color: var(--bg);
-}
-.prep-item.checked .prep-box::after { content: '✓'; }
-.prep-item.checked .prep-title {
-  text-decoration: line-through;
-  color: var(--muted) !important;
-}
-.prep-item.checked .prep-sub { opacity: 0.4; }
-.prep-title { font-size: 13px; margin-bottom: 3px; }
-.prep-title.urgent { color: var(--accent); }
-.prep-sub { font-size: 11px; color: var(--muted2); line-height: 1.6; }
+.end{padding-top:48px;text-align:center}
 
-/* ── TRANSPORT ── */
-.tr-seg {
-  border: 1px solid var(--border);
-  background: var(--card);
-  margin-bottom: 12px;
-}
-.tr-seg-hdr {
-  padding: 10px 16px;
-  border-bottom: 1px solid var(--border);
-  display: flex;
-  justify-content: space-between;
-  align-items: baseline;
-}
-.tr-seg-title {
-  font-size: 11px;
-  letter-spacing: 1.5px;
-  color: var(--muted);
-}
-.tr-seg-date {
-  font-size: 11px;
-  color: var(--accent);
-}
-.tr-leg {
-  display: flex;
-  gap: 0;
-  padding: 14px 16px;
-  border-bottom: 1px solid var(--border);
-  align-items: flex-start;
-}
-.tr-leg:last-child { border-bottom: none; }
-.tr-icon {
-  min-width: 28px;
-  font-size: 16px;
-  padding-top: 1px;
-  flex-shrink: 0;
-}
-.tr-info { flex: 1; }
-.tr-route {
-  font-size: 13px;
-  font-weight: 500;
-  margin-bottom: 4px;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  flex-wrap: wrap;
-}
-.tr-route .arr { color: var(--muted2); }
-.tr-time {
-  font-size: 12px;
-  color: var(--muted2);
-  margin-bottom: 3px;
-}
-.tr-time b { color: var(--text); font-weight: 500; }
-.tr-meta {
-  font-size: 11px;
-  color: var(--muted);
-  line-height: 1.7;
-}
-.tr-meta b { color: var(--accent); font-weight: 500; }
-.tr-badge {
-  display: inline-block;
-  font-size: 9px;
-  padding: 1px 6px;
-  border: 1px solid var(--border2);
-  color: var(--muted);
-  letter-spacing: 0.5px;
-  vertical-align: middle;
-}
-.tr-connector {
-  padding: 6px 16px 6px 44px;
-  font-size: 11px;
-  color: var(--muted);
-  border-bottom: 1px solid var(--border);
-  letter-spacing: 0.3px;
-}
-.tr-pass-note {
-  margin: 0 16px 14px;
-  padding: 8px 10px;
-  border: 1px solid var(--accent);
-  font-size: 11px;
-  color: var(--accent);
-  line-height: 1.6;
-}
+/* Dock */
+.dock{position:fixed;z-index:50;left:50%;transform:translateX(-50%);bottom:calc(14px + env(safe-area-inset-bottom));width:min(452px,calc(100vw - 28px));display:flex;gap:2px;padding:5px;border-radius:999px;background:rgba(24,24,54,.82);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border:1px solid var(--line2)}
+.dock a{flex:1;min-height:44px;display:grid;place-items:center;border-radius:999px;color:var(--text2);text-decoration:none;font-size:13px;letter-spacing:.04em;white-space:nowrap;transition:background .3s var(--ease),color .3s var(--ease)}
+.dock a.on{background:var(--text);color:var(--bg);font-weight:600}
+.dock .fz{flex:0 0 44px;height:44px;border-radius:50%;color:var(--text2);font-size:14px;letter-spacing:0}
+.dock .fz.big{color:var(--acc)}
 
-/* ── FONT CTRL ── */
-#font-ctrl {
-  position: fixed;
-  bottom: 22px;
-  right: 16px;
-  z-index: 9999;
-  display: flex;
-  align-items: center;
-  background: rgba(14,14,32,0.92);
-  border: 1px solid var(--border2);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  box-shadow: 0 4px 20px rgba(0,0,0,0.6);
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  html{scroll-behavior:auto}
 }
-#font-ctrl button {
-  background: none;
-  border: none;
-  color: var(--muted2);
-  font-size: 14px;
-  cursor: pointer;
-  padding: 8px 11px;
-  line-height: 1;
-  font-family: inherit;
-  font-weight: 400;
-  transition: color 0.15s;
-  user-select: none;
-  -webkit-user-select: none;
-}
-#font-ctrl button:active { color: var(--text); opacity: 0.7; }
-#font-ctrl button:disabled { color: var(--border); cursor: default; }
-#font-ctrl .fc-pct {
-  font-size: 9px;
-  letter-spacing: 1.5px;
-  color: var(--muted);
-  min-width: 30px;
-  text-align: center;
-  border-left: 1px solid var(--border);
-  border-right: 1px solid var(--border);
-  padding: 0 5px;
-  pointer-events: none;
-}
-
-/* flex 換行保護，防大字截斷 */
-.day-hdr { flex-wrap: wrap; }
-.day-hdr-title { white-space: normal; }
-.tr-seg-hdr { flex-wrap: wrap; gap: 4px; }
-
-/* ── NOTES ── */
-.note-item {
-  padding: 16px 0;
-  border-bottom: 1px solid var(--border);
-}
-.note-item:last-child { border-bottom: none; }
-.note-title {
-  font-size: 13px;
-  font-weight: 500;
-  margin-bottom: 7px;
-}
-.note-body {
-  font-size: 12px;
-  color: var(--muted2);
-  line-height: 1.8;
-}
-.note-body b { color: var(--text); font-weight: 500; }
 </style>
 </head>
 <body>
 
-<!-- ─── FONT SIZE CTRL ─── -->
-<div id="font-ctrl">
-  <button id="fc-minus" onclick="adjustScale(-1)" title="縮小字體" aria-label="縮小字體">A−</button>
-  <span class="fc-pct" id="fc-pct">100%</span>
-  <button id="fc-plus" onclick="adjustScale(1)" title="放大字體" aria-label="放大字體">A+</button>
-</div>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="pin" viewBox="0 0 24 24"><path d="M12 21s-6.5-5.6-6.5-11a6.5 6.5 0 0 1 13 0c0 5.4-6.5 11-6.5 11z"/><circle cx="12" cy="10" r="2.3"/></symbol>
+  <symbol id="out" viewBox="0 0 24 24"><path d="M14 5h5v5M19 5l-8 8M18 14v4a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h4"/></symbol>
+  <symbol id="down" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></symbol>
+  <symbol id="arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+  <symbol id="alert" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7.5v5.5M12 16.4v.1"/></symbol>
+</svg>
 
-<!-- ─── NAV ─── -->
-<nav class="nav">
-  <button class="on" onclick="show('overview',this)">總覽</button>
-  <button onclick="show('daily',this)">行程</button>
-  <button onclick="show('transport',this)">交通</button>
-  <button onclick="show('hotel',this)">住宿</button>
-  <button onclick="show('prep',this)">準備</button>
-  <button onclick="show('notes',this)">注意</button>
-</nav>
-
-<div class="hdr">
-  <div class="hdr-eyebrow">TRAVEL PLAN</div>
-  <h1>仙台・北海道</h1>
-  <div class="hdr-sub">2027.01.11 — 01.18 &nbsp;·&nbsp; 8 日 &nbsp;·&nbsp; 4 組 7 人</div>
-</div>
-
-<!-- ═══════════════════════════════════════
-     OVERVIEW
-════════════════════════════════════════ -->
-<div id="overview" class="sec on">
-
-  <div class="members-block">
-    <div class="members-eyebrow">MEMBERS</div>
-    <div class="members-grid">
-      <div class="m-card">
-        <span class="m-grp">GROUP 1</span>
-        <span class="m-name">乃哥</span>
-        <span class="m-count">2 人</span>
-      </div>
-      <div class="m-card">
-        <span class="m-grp">GROUP 2</span>
-        <span class="m-name">姐 &amp; 姐夫</span>
-        <span class="m-count">2 人</span>
-      </div>
-      <div class="m-card">
-        <span class="m-grp">GROUP 3</span>
-        <span class="m-name">Vera &amp; 狼狼</span>
-        <span class="m-count">2 人</span>
-      </div>
-      <div class="m-card">
-        <span class="m-grp">GROUP 4</span>
-        <span class="m-name">KK</span>
-        <span class="m-count">1 人</span>
-      </div>
+<!-- ══════════ 總覽 ══════════ -->
+<section id="s-home">
+  <header class="hero">
+    <h1>仙台<span>北海道</span></h1>
+    <div class="hero-meta">
+      <span class="lbl">Travel Plan · 8 Days</span>
+      <span class="num">2027.01.11 — 01.18</span>
     </div>
+  </header>
+
+  <div class="now" id="now">
+    <div class="now-b">
+      <div class="now-l"><span class="pulse"></span><span id="now-l">COUNTDOWN</span></div>
+      <div class="now-m" id="now-m">—</div>
+      <div class="now-s" id="now-s"></div>
+    </div>
+    <button class="now-go" id="now-go" aria-label="前往行程"><svg class="i"><use href="#arrow"/></svg></button>
   </div>
 
-  <div class="tl-item">
-    <div class="tl-left">
-      <div class="tl-date">1/11</div>
-      <div class="tl-dow">Sat</div>
-    </div>
-    <div class="tl-right">
-      <div class="tl-title">抵達仙台 · 兩路會合</div>
-      <div class="tl-desc">東京組｜長榮 BR184 桃園→成田，N'EX＋新幹線經東京一番街轉入仙台，18:00前抵飯店 ・ 仙台組｜長榮 BR118 桃園→仙台直飛，14:25落地 ・ 善治郎牛舌晚餐會合</div>
-      <span class="badge">KP 仙台車站北 APA飯店</span>
-    </div>
+  <div class="sub-h"><span class="lbl">Members</span><span class="num">4 組 · 7 人</span></div>
+  <div class="members">
+    <div class="mb"><span class="lbl">Group 1</span><div class="mb-n">乃哥</div><div class="mb-c num">2 人</div></div>
+    <div class="mb"><span class="lbl">Group 2</span><div class="mb-n">姐 &amp; 姐夫</div><div class="mb-c num">2 人</div></div>
+    <div class="mb"><span class="lbl">Group 3</span><div class="mb-n">Vera &amp; 狼狼</div><div class="mb-c num">2 人</div></div>
+    <div class="mb"><span class="lbl">Group 4</span><div class="mb-n">KK</div><div class="mb-c num">1 人</div></div>
   </div>
+</section>
 
-  <div class="tl-item">
-    <div class="tl-left">
-      <div class="tl-date">1/12</div>
-      <div class="tl-dow">Sun</div>
-    </div>
-    <div class="tl-right">
-      <div class="tl-title">松島 + 弘前</div>
-      <div class="tl-desc">松島牡蠣吃到飽 · 弘前蘋果派巡禮 · 睡魔資料館</div>
-      <span class="badge">連住 APA</span>
-    </div>
-  </div>
-
-  <div class="tl-item">
-    <div class="tl-left">
-      <div class="tl-date">1/13</div>
-      <div class="tl-dow">Mon</div>
-    </div>
-    <div class="tl-right">
-      <div class="tl-title">銀山溫泉一日遊</div>
-      <div class="tl-desc">KKday 行程 · 大正浪漫雪景溫泉街</div>
-      <span class="badge">連住 APA</span>
-    </div>
-  </div>
-
-  <div class="tl-item">
-    <div class="tl-left">
-      <div class="tl-date">1/14</div>
-      <div class="tl-dow">Tue</div>
-    </div>
-    <div class="tl-right">
-      <div class="tl-title">移動函館</div>
-      <div class="tl-desc">新幹線 はやぶさ · 五稜郭 · 函館山夜景</div>
-      <span class="badge badge-gold">退房 · 入住函館</span>
-    </div>
-  </div>
-
-  <div class="tl-item">
-    <div class="tl-left">
-      <div class="tl-date">1/15</div>
-      <div class="tl-dow">Wed</div>
-    </div>
-    <div class="tl-right">
-      <div class="tl-title">移動札幌</div>
-      <div class="tl-desc">函館朝市 · 特急北斗 · 狸小路 · エビかに合戦帝王蟹</div>
-      <span class="badge badge-gold">退房 · 入住札幌</span>
-    </div>
-  </div>
-
-  <div class="tl-item">
-    <div class="tl-left">
-      <div class="tl-date">1/16</div>
-      <div class="tl-dow">Thu</div>
-    </div>
-    <div class="tl-right">
-      <div class="tl-title">郊外一日遊</div>
-      <div class="tl-desc">洞爺湖 KKday 一日遊（暫定，跟團）</div>
-      <span class="badge">連住札幌</span>
-    </div>
-  </div>
-
-  <div class="tl-item">
-    <div class="tl-left">
-      <div class="tl-date">1/17</div>
-      <div class="tl-dow">Fri</div>
-    </div>
-    <div class="tl-right">
-      <div class="tl-title">小樽</div>
-      <div class="tl-desc">小樽運河 · 堺町通玻璃工藝 · 壽司通</div>
-      <span class="badge">連住札幌</span>
-    </div>
-  </div>
-
-  <div class="tl-item">
-    <div class="tl-left">
-      <div class="tl-date">1/18</div>
-      <div class="tl-dow">Sat</div>
-    </div>
-    <div class="tl-right">
-      <div class="tl-title">返回台灣</div>
-      <div class="tl-desc">分三組返台：虎航組（IT235）／ 亞航組（AirAsia FD243）由新千歲直飛 ・ 加拿大航空組轉機：新千歲→青森→台北</div>
-    </div>
-  </div>
-
-</div>
-
-<!-- ═══════════════════════════════════════
-     DAILY
-════════════════════════════════════════ -->
-<div id="daily" class="sec">
+<!-- ══════════ 行程 ══════════ -->
+<section id="s-days">
+  <div class="sec-h"><h2>行程</h2><span class="lbl num">8 Days</span></div>
 
   <!-- DAY 1 -->
-  <div class="day-card">
-    <div class="day-hdr">
-      <div class="day-hdr-title">1/11 Sat · 抵達仙台（兩路會合）</div>
-      <div class="day-hdr-sub">住 KP 仙台車站北 APA飯店</div>
-    </div>
-    <div class="day-body">
-      <div class="slot">
-        <i class="slot-icon">12:00</i>
-        <div>
-          <div class="slot-title">【東京組】長榮 BR184 桃園 T2 → 成田 T1 落地</div>
-          <div class="slot-detail">出發 07:55 / 抵達 12:00（飛行約 3h 05m）· 辦理入境、提領行李、兌換 JR Pass</div>
-          <div class="slot-note">確認入境日本所需文件 · 護照效期需6個月以上 · 兌換 JR Pass 請預留約30分鐘</div>
-        </div>
+  <div class="day" id="d-2027-01-11" data-date="2027-01-11">
+    <button class="dh" aria-expanded="false">
+      <div><div class="dd">1/11</div><div class="dw">MON</div></div>
+      <div>
+        <div class="dt">抵達仙台 · 兩路會合</div>
+        <div class="ds">東京組經成田、東京一番街轉新幹線；仙台組直飛，14:25 落地。晚上善治郎牛舌會合。</div>
+        <div class="dst">住 KP 仙台車站北 APA 飯店</div>
       </div>
-      <div class="slot">
-        <i class="slot-icon">14:25</i>
-        <div>
-          <div class="slot-title">【仙台組】長榮 BR118 桃園 T2 → 仙台 直飛落地</div>
-          <div class="slot-detail">出發 10:15 / 抵達 14:25（飛行約 3h 10m）· 辦理入境、提領行李</div>
-          <div class="slot-note">此組未經東京，JR Pass 需改在仙台站 JR東日本窗口兌換，抵仙台後請優先辦理 · 時刻依現行同時段 BR118 班表推算，2027年正式班表公布後請再確認</div>
-        </div>
-      </div>
-      <div class="slot">
-        <i class="slot-icon">13:30</i>
-        <div>
-          <div class="slot-title">【東京組】成田 → 東京站</div>
-          <div class="slot-detail">搭乘成田特快 N'EX，約55分鐘抵達東京站 · JR東日本+南北海道パス 適用</div>
-          <div class="slot-note">成田第一、二、三航廈均有 N'EX 停靠 · 座位官網訂票時一併預留</div>
-        </div>
-      </div>
-      <div class="slot">
-        <i class="slot-icon">14:25</i>
-        <div>
-          <div class="slot-title">【東京組】東京車站一番街 稍作停留</div>
-          <div class="slot-detail">東京駅一番街（八重洲地下街）· 東京拉麵激戰區、東京動漫人物街、東京おかしランド 等店家齊聚，逛街購物、簡單用餐皆宜</div>
-          <div class="slot-note">預留約 80 分鐘（14:25–15:50）· 需保留新幹線劃位／轉乘緩衝，逛超時將壓縮抵仙台時間</div>
-        </div>
-      </div>
-      <div class="slot">
-        <i class="slot-icon">15:50</i>
-        <div>
-          <div class="slot-title">【東京組】東京 → 仙台（東北新幹線）</div>
-          <div class="slot-detail">東北新幹線 はやぶさ 東京 → 仙台，約1h30–40m · JR東日本+南北海道パス 適用，官網預訂指定席</div>
-          <div class="slot-note">預估 17:20～17:30 左右抵達仙台，18:00前入住無虞，留有緩衝時間</div>
-        </div>
-      </div>
-      <div class="slot">
-        <i class="slot-icon">抵達後</i>
-        <div>
-          <div class="slot-title">仙台市區 · 兩組會合 Check-in</div>
-          <div class="slot-detail">辦理 KP 仙台車站北 APA飯店 Check-in · 宮城縣仙台市 宮城野区 Nakakecho 201-1</div>
-        </div>
-      </div>
-      <div class="slot">
-        <i class="slot-icon">晚上</i>
-        <div>
-          <div class="slot-title">晚餐 — 善治郎 牛舌</div>
-          <div class="slot-detail">仙台名物牛舌老字號 · 招牌厚切り牛たん定食搭配麥飯、尾椎湯 · 兩組會合首餐</div>
-          <div class="slot-addr">仙台市青葉区（仙台車站周邊）</div>
-          <div class="slot-note">旺季排隊長 · 建議提前確認是否可線上預約或開店前到場取號</div>
-        </div>
-      </div>
-    </div>
+      <svg class="i chev"><use href="#down"/></svg>
+    </button>
+    <div class="db"><div class="dbi"><ol class="tl">
+      <li class="it key" data-t="12:00">
+        <div class="tm"><span class="tv">12:00</span><i class="ln"></i></div>
+        <div class="ti"><span class="grp">東京組</span>長榮 BR184 桃園 T2 → 成田 T1 落地</div>
+        <div class="tx">出發 07:55 / 抵達 12:00（飛行約 3h 05m）· 辦理入境、提領行李、兌換 JR Pass</div>
+        <div class="warn"><svg class="i"><use href="#alert"/></svg><span>確認入境日本所需文件 · 護照效期需 6 個月以上 · 兌換 JR Pass 請預留約 30 分鐘</span></div>
+      </li>
+      <li class="it key" data-t="13:30">
+        <div class="tm"><span class="tv">13:30</span><i class="ln"></i></div>
+        <div class="ti"><span class="grp">東京組</span>成田 → 東京站</div>
+        <div class="tx">搭乘成田特快 N'EX，約 55 分鐘抵達東京站 · JR東日本＋南北海道パス 適用</div>
+        <div class="warn"><svg class="i"><use href="#alert"/></svg><span>成田第一、二、三航廈均有 N'EX 停靠 · 座位官網訂票時一併預留</span></div>
+      </li>
+      <li class="it key" data-t="14:25">
+        <div class="tm"><span class="tv">14:25</span><i class="ln"></i></div>
+        <div class="ti"><span class="grp">仙台組</span>長榮 BR118 桃園 T2 → 仙台 直飛落地</div>
+        <div class="tx">出發 10:15 / 抵達 14:25（飛行約 3h 10m）· 辦理入境、提領行李</div>
+        <div class="warn"><svg class="i"><use href="#alert"/></svg><span>此組未經東京，JR Pass 需改在仙台站 JR東日本窗口兌換，抵仙台後請優先辦理 · 時刻依現行同時段 BR118 班表推算，2027 年正式班表公布後請再確認</span></div>
+      </li>
+      <li class="it" data-t="14:25">
+        <div class="tm"><span class="tv">14:25</span><i class="ln"></i></div>
+        <div class="ti"><span class="grp">東京組</span>東京車站一番街 稍作停留</div>
+        <div class="tx">東京駅一番街（八重洲地下街）· 東京拉麵激戰區、東京動漫人物街、東京おかしランド 等店家齊聚，逛街購物、簡單用餐皆宜</div>
+        <div class="warn"><svg class="i"><use href="#alert"/></svg><span>預留約 80 分鐘（14:25–15:50）· 需保留新幹線劃位／轉乘緩衝，逛超時將壓縮抵仙台時間</span></div>
+      </li>
+      <li class="it key" data-t="15:50">
+        <div class="tm"><span class="tv">15:50</span><i class="ln"></i></div>
+        <div class="ti"><span class="grp">東京組</span>東京 → 仙台（東北新幹線）</div>
+        <div class="tx">東北新幹線 はやぶさ 東京 → 仙台，約 1h 30–40m · JR東日本＋南北海道パス 適用，官網預訂指定席。預估 17:20～17:30 抵達仙台，18:00 前入住無虞。</div>
+      </li>
+      <li class="it">
+        <div class="tm"><span class="tv">抵達後</span><i class="ln"></i></div>
+        <div class="ti">仙台市區 · 兩組會合 Check-in</div>
+        <div class="tx">辦理 KP 仙台車站北 APA 飯店 Check-in</div>
+        <a class="addr" data-q="APA Hotel Sendai Ekikita"><svg class="i pin"><use href="#pin"/></svg><span>宮城縣仙台市 宮城野区 Nakakecho 201-1</span><svg class="i o"><use href="#out"/></svg></a>
+      </li>
+      <li class="it">
+        <div class="tm"><span class="tv">晚上</span><i class="ln"></i></div>
+        <div class="ti">晚餐 — 善治郎 牛舌</div>
+        <div class="tx">仙台名物牛舌老字號 · 招牌厚切り牛たん定食搭配麥飯、尾椎湯 · 兩組會合首餐</div>
+        <div class="warn"><svg class="i"><use href="#alert"/></svg><span>旺季排隊長 · 建議提前確認是否可線上預約或開店前到場取號</span></div>
+        <a class="addr" data-q="善治郎 牛たん 仙台駅"><svg class="i pin"><use href="#pin"/></svg><span>仙台市青葉区（仙台車站周邊）</span><svg class="i o"><use href="#out"/></svg></a>
+      </li>
+    </ol></div></div>
   </div>
 
   <!-- DAY 2 -->
-  <div class="day-card">
-    <div class="day-hdr">
-      <div class="day-hdr-title">1/12 Sun · 松島 + 弘前</div>
-      <div class="day-hdr-sub">連住 APA</div>
-    </div>
-    <div class="day-body">
-      <div class="slot">
-        <i class="slot-icon">08:30</i>
-        <div>
-          <div class="slot-title">仙台 → 松島</div>
-          <div class="slot-detail">搭乘東北本線至松島海岸站，約40分鐘</div>
-        </div>
+  <div class="day" id="d-2027-01-12" data-date="2027-01-12">
+    <button class="dh" aria-expanded="false">
+      <div><div class="dd">1/12</div><div class="dw">TUE</div></div>
+      <div>
+        <div class="dt">松島 + 弘前</div>
+        <div class="ds">松島牡蠣吃到飽 · 弘前蘋果派巡禮 · 睡魔資料館</div>
+        <div class="dst">連住 APA</div>
       </div>
-      <div class="slot">
-        <i class="slot-icon">10:00</i>
-        <div>
-          <div class="slot-title">松島牡蠣吃到飽</div>
-          <div class="slot-detail">松島為日本三景之一，冬季1月為牡蠣盛產期 · 松島さかな市場周邊多家吃到飽 · 烤牡蠣、牡蠣飯、牡蠣湯一次滿足</div>
-          <div class="slot-addr">宮城県宮城郡松島町</div>
-          <div class="slot-note">建議提前預約 · 1月牡蠣季進入尾聲，需確認餐廳有無供應</div>
-        </div>
-      </div>
-      <div class="slot">
-        <i class="slot-icon">13:00</i>
-        <div>
-          <div class="slot-title">松島 → 弘前</div>
-          <div class="slot-detail">松島海岸 → 仙台（東北本線）→ 新幹線 はやぶさ → 新青森，轉 JR 奧羽本線 → 弘前 · 全程約2.5～3小時</div>
-          <div class="slot-note">松島上午限2.5小時內為佳 · 13:00 前出發才能下午抵達弘前</div>
-        </div>
-      </div>
-      <div class="slot">
-        <i class="slot-icon">16:00</i>
-        <div>
-          <div class="slot-title">弘前 蘋果派地圖巡禮</div>
-          <div class="slot-detail">弘前アップルパイ研究会集結全市數十間特色蘋果派店 · 酥皮、奶酥、法式等風格各異</div>
-          <div class="slot-addr">弘前市中心商店街一帯</div>
-          <div class="slot-note">伴手禮推薦弘前產蘋果果凍或蘋果醬</div>
-        </div>
-      </div>
-      <div class="slot">
-        <i class="slot-icon">17:00</i>
-        <div>
-          <div class="slot-title">睡魔之家 WA・RASSE</div>
-          <div class="slot-detail">位於弘前車站附近的青森睡魔祭（ねぶた）資料館 · 展示真實等比例睡魔花車，非祭典期間亦可體驗</div>
-          <div class="slot-addr">青森市安方 1-1-1</div>
-          <div class="slot-note">開放時間 9:00–19:00（因時期而異）· 出發前確認</div>
-        </div>
-      </div>
-      <div class="slot">
-        <i class="slot-icon">夜間</i>
-        <div>
-          <div class="slot-title">返回仙台</div>
-          <div class="slot-detail">搭乘新幹線回仙台 APA · 東北冬季天黑早（約16:00入夜），回程新幹線班次需提前查好</div>
-        </div>
-      </div>
-    </div>
+      <svg class="i chev"><use href="#down"/></svg>
+    </button>
+    <div class="db"><div class="dbi"><ol class="tl">
+      <li class="it" data-t="08:30">
+        <div class="tm"><span class="tv">08:30</span><i class="ln"></i></div>
+        <div class="ti">仙台 → 松島</div>
+        <div class="tx">搭乘東北本線至松島海岸站，約 40 分鐘</div>
+      </li>
+      <li class="it" data-t="10:00">
+        <div class="tm"><span class="tv">10:00</span><i class="ln"></i></div>
+        <div class="ti">松島牡蠣吃到飽</div>
+        <div class="tx">松島為日本三景之一，冬季 1 月為牡蠣盛產期 · 松島さかな市場周邊多家吃到飽 · 烤牡蠣、牡蠣飯、牡蠣湯一次滿足</div>
+        <div class="warn"><svg class="i"><use href="#alert"/></svg><span>建議提前預約 · 1 月牡蠣季進入尾聲，需確認餐廳有無供應</span></div>
+        <a class="addr" data-q="松島さかな市場"><svg class="i pin"><use href="#pin"/></svg><span>宮城県宮城郡松島町</span><svg class="i o"><use href="#out"/></svg></a>
+      </li>
+      <li class="it key" data-t="13:00">
+        <div class="tm"><span class="tv">13:00</span><i class="ln"></i></div>
+        <div class="ti">松島 → 弘前</div>
+        <div class="tx">松島海岸 → 仙台（東北本線）→ 新幹線 はやぶさ → 新青森，轉 JR 奧羽本線 → 弘前 · 全程約 2.5～3 小時</div>
+        <div class="warn"><svg class="i"><use href="#alert"/></svg><span>松島上午限 2.5 小時內為佳 · 13:00 前出發才能下午抵達弘前</span></div>
+      </li>
+      <li class="it" data-t="16:00">
+        <div class="tm"><span class="tv">16:00</span><i class="ln"></i></div>
+        <div class="ti">弘前 蘋果派地圖巡禮</div>
+        <div class="tx">弘前アップルパイ研究会集結全市數十間特色蘋果派店 · 酥皮、奶酥、法式等風格各異。伴手禮推薦弘前產蘋果果凍或蘋果醬。</div>
+        <a class="addr" data-q="弘前市 土手町"><svg class="i pin"><use href="#pin"/></svg><span>弘前市中心商店街一帯</span><svg class="i o"><use href="#out"/></svg></a>
+      </li>
+      <li class="it" data-t="17:00">
+        <div class="tm"><span class="tv">17:00</span><i class="ln"></i></div>
+        <div class="ti">睡魔之家 WA・RASSE</div>
+        <div class="tx">青森睡魔祭（ねぶた）資料館 · 展示真實等比例睡魔花車，非祭典期間亦可體驗</div>
+        <div class="warn"><svg class="i"><use href="#alert"/></svg><span>開放時間 9:00–19:00（因時期而異）· 出發前確認</span></div>
+        <a class="addr" data-q="ねぶたの家 ワ・ラッセ"><svg class="i pin"><use href="#pin"/></svg><span>青森市安方 1-1-1</span><svg class="i o"><use href="#out"/></svg></a>
+      </li>
+      <li class="it">
+        <div class="tm"><span class="tv">夜間</span><i class="ln"></i></div>
+        <div class="ti">返回仙台</div>
+        <div class="tx">搭乘新幹線回仙台 APA · 東北冬季天黑早（約 16:00 入夜），回程新幹線班次需提前查好</div>
+      </li>
+    </ol></div></div>
   </div>
 
   <!-- DAY 3 -->
-  <div class="day-card">
-    <div class="day-hdr">
-      <div class="day-hdr-title">1/13 Mon · 銀山溫泉</div>
-      <div class="day-hdr-sub">KKday 一日遊</div>
-    </div>
-    <div class="day-body">
-      <div class="slot">
-        <i class="slot-icon">全天</i>
-        <div>
-          <div class="slot-title">KKday 銀山溫泉一日遊</div>
-          <div class="slot-detail">銀山温泉位於山形縣 · 日本最具代表性的大正浪漫溫泉街 · 冬季積雪景色如明信片，夜晚燈籠倒映河面 · 行程通常含往返接送</div>
-          <div class="slot-addr">山形県尾花沢市銀山新畑</div>
-          <div class="slot-note">從仙台出發約2～2.5小時 · 非住宿者可在日歸設施泡湯 · 溫泉饅頭、玉こんにゃく為當地名物</div>
-        </div>
+  <div class="day" id="d-2027-01-13" data-date="2027-01-13">
+    <button class="dh" aria-expanded="false">
+      <div><div class="dd">1/13</div><div class="dw">WED</div></div>
+      <div>
+        <div class="dt">銀山溫泉一日遊</div>
+        <div class="ds">KKday 行程 · 大正浪漫雪景溫泉街</div>
+        <div class="dst">連住 APA</div>
       </div>
-      <div class="slot">
-        <i class="slot-icon">晚上</i>
-        <div>
-          <div class="slot-title">返回仙台 · 整理行李</div>
-          <div class="slot-detail">今晚為仙台最後一晚，明日移動函館 · 建議整理行李，確認翌日新幹線時刻</div>
-        </div>
-      </div>
-    </div>
+      <svg class="i chev"><use href="#down"/></svg>
+    </button>
+    <div class="db"><div class="dbi"><ol class="tl">
+      <li class="it">
+        <div class="tm"><span class="tv">全天</span><i class="ln"></i></div>
+        <div class="ti">KKday 銀山溫泉一日遊</div>
+        <div class="tx">銀山温泉位於山形縣 · 日本最具代表性的大正浪漫溫泉街 · 冬季積雪景色如明信片，夜晚燈籠倒映河面 · 行程通常含往返接送</div>
+        <div class="warn"><svg class="i"><use href="#alert"/></svg><span>從仙台出發約 2～2.5 小時 · 非住宿者可在日歸設施泡湯 · 溫泉饅頭、玉こんにゃく為當地名物</span></div>
+        <a class="addr" data-q="銀山温泉"><svg class="i pin"><use href="#pin"/></svg><span>山形県尾花沢市銀山新畑</span><svg class="i o"><use href="#out"/></svg></a>
+      </li>
+      <li class="it">
+        <div class="tm"><span class="tv">晚上</span><i class="ln"></i></div>
+        <div class="ti">返回仙台 · 整理行李</div>
+        <div class="tx">今晚為仙台最後一晚，明日移動函館 · 建議整理行李，確認翌日新幹線時刻</div>
+      </li>
+    </ol></div></div>
   </div>
 
   <!-- DAY 4 -->
-  <div class="day-card">
-    <div class="day-hdr">
-      <div class="day-hdr-title">1/14 Tue · 移動函館</div>
-      <div class="day-hdr-sub">退房 · 入住函館</div>
-    </div>
-    <div class="day-body">
-      <div class="slot">
-        <i class="slot-icon">上午</i>
-        <div>
-          <div class="slot-title">退房 · 仙台 → 函館</div>
-          <div class="slot-detail">新幹線 はやぶさ 仙台 → 新函館北斗，約1小時50分 · 轉 JR 普通列車至函館站，約20分</div>
-          <div class="slot-note">建議使用 JR 北海道・東日本パス，可大幅節省費用</div>
-        </div>
+  <div class="day" id="d-2027-01-14" data-date="2027-01-14">
+    <button class="dh" aria-expanded="false">
+      <div><div class="dd">1/14</div><div class="dw">THU</div></div>
+      <div>
+        <div class="dt">移動函館</div>
+        <div class="ds">新幹線 はやぶさ · 五稜郭 · 函館山夜景</div>
+        <div class="dst">退房 · 入住函館</div>
       </div>
-      <div class="slot">
-        <i class="slot-icon">下午</i>
-        <div>
-          <div class="slot-title">五稜郭</div>
-          <div class="slot-detail">日本唯一五芒星西式城堡遺址 · 冬季積雪呈現壯觀白色星形輪廓 · 五稜郭塔電梯俯瞰全景</div>
-          <div class="slot-addr">北海道函館市五稜郭町 44</div>
-          <div class="slot-note">五稜郭塔入場 ¥900 · 函館冬季平均氣溫 -5°C，注意保暖</div>
-        </div>
-      </div>
-      <div class="slot">
-        <i class="slot-icon">傍晚</i>
-        <div>
-          <div class="slot-title">函館山夜景</div>
-          <div class="slot-detail">日本三大夜景之一 · 冬季空氣清澈視野絕佳 · 搭纜車上山約3分鐘，欣賞函館市區腰形輪廓夜景</div>
-          <div class="slot-addr">北海道函館市函館山</div>
-          <div class="slot-note">纜車來回 ¥1,500 · 冬季因天氣可能停駛，可改搭巴士 · 建議 17:30 前上山</div>
-        </div>
-      </div>
-      <div class="slot">
-        <i class="slot-icon">晚上</i>
-        <div>
-          <div class="slot-title">Check-in · 函館住宿</div>
-          <div class="slot-detail">建議選擇函館站或十字街附近飯店，交通便利</div>
-        </div>
-      </div>
-    </div>
+      <svg class="i chev"><use href="#down"/></svg>
+    </button>
+    <div class="db"><div class="dbi"><ol class="tl">
+      <li class="it key">
+        <div class="tm"><span class="tv">上午</span><i class="ln"></i></div>
+        <div class="ti">退房 · 仙台 → 函館</div>
+        <div class="tx">新幹線 はやぶさ 仙台 → 新函館北斗，約 1 小時 50 分 · 轉 JR 普通列車至函館站，約 20 分 · JR Pass 適用</div>
+      </li>
+      <li class="it">
+        <div class="tm"><span class="tv">下午</span><i class="ln"></i></div>
+        <div class="ti">五稜郭</div>
+        <div class="tx">日本唯一五芒星西式城堡遺址 · 冬季積雪呈現壯觀白色星形輪廓 · 五稜郭塔電梯俯瞰全景</div>
+        <div class="warn"><svg class="i"><use href="#alert"/></svg><span>五稜郭塔入場 ¥900 · 函館冬季平均氣溫 -5°C，注意保暖</span></div>
+        <a class="addr" data-q="五稜郭タワー"><svg class="i pin"><use href="#pin"/></svg><span>北海道函館市五稜郭町 44</span><svg class="i o"><use href="#out"/></svg></a>
+      </li>
+      <li class="it">
+        <div class="tm"><span class="tv">傍晚</span><i class="ln"></i></div>
+        <div class="ti">函館山夜景</div>
+        <div class="tx">日本三大夜景之一 · 冬季空氣清澈視野絕佳 · 搭纜車上山約 3 分鐘，欣賞函館市區腰形輪廓夜景</div>
+        <div class="warn"><svg class="i"><use href="#alert"/></svg><span>纜車來回 ¥1,500 · 冬季因天氣可能停駛，可改搭巴士 · 建議 17:30 前上山</span></div>
+        <a class="addr" data-q="函館山ロープウェイ"><svg class="i pin"><use href="#pin"/></svg><span>北海道函館市函館山</span><svg class="i o"><use href="#out"/></svg></a>
+      </li>
+      <li class="it">
+        <div class="tm"><span class="tv">晚上</span><i class="ln"></i></div>
+        <div class="ti">Check-in · 函館站前 APA 酒店</div>
+        <a class="addr" data-q="APA Hotel Hakodate Ekimae"><svg class="i pin"><use href="#pin"/></svg><span>北海道函館市 Otemachi 19-13</span><svg class="i o"><use href="#out"/></svg></a>
+      </li>
+    </ol></div></div>
   </div>
 
   <!-- DAY 5 -->
-  <div class="day-card">
-    <div class="day-hdr">
-      <div class="day-hdr-title">1/15 Wed · 移動札幌</div>
-      <div class="day-hdr-sub">函館朝市 · 爐端燒午餐 · 帝王蟹吃到飽</div>
-    </div>
-    <div class="day-body">
-      <div class="slot">
-        <i class="slot-icon">06:00</i>
-        <div>
-          <div class="slot-title">函館朝市</div>
-          <div class="slot-detail">清晨5點開市，北海道最著名早市 · 海鮮丼、鮭魚卵、帆立貝等新鮮海產一應俱全</div>
-          <div class="slot-addr">北海道函館市若松町 9-19</div>
-          <div class="slot-note">現撈海鮮丼為招牌 · 趁早前往人少且食材最新鮮</div>
-        </div>
+  <div class="day" id="d-2027-01-15" data-date="2027-01-15">
+    <button class="dh" aria-expanded="false">
+      <div><div class="dd">1/15</div><div class="dw">FRI</div></div>
+      <div>
+        <div class="dt">移動札幌</div>
+        <div class="ds">函館朝市 · 特急北斗 · 爐端燒午餐 · 狸小路 · 帝王蟹吃到飽</div>
+        <div class="dst">退房 · 入住札幌</div>
       </div>
-      <div class="slot">
-        <i class="slot-icon">上午</i>
-        <div>
-          <div class="slot-title">退房 · 函館 → 札幌</div>
-          <div class="slot-detail">JR 特急 北斗號 函館 → 札幌，約3小時30分 · 沿途可欣賞北海道大雪原景色</div>
-          <div class="slot-note">北海道新幹線延伸至札幌預計2030年，目前需搭特急列車 · JR Pass 適用</div>
-        </div>
-      </div>
-      <div class="slot">
-        <i class="slot-icon">12:30</i>
-        <div>
-          <div class="slot-title">午餐 — 炭焼炉ばた くし路 新北海道ビル店</div>
-          <div class="slot-detail">爐端燒定食專門店 · JR札幌駅北口徒步1分，特急北斗抵達後可直接步行前往 · 平日午餐 11:30–14:00（L.O. 13:30）· 日替り定食、烤魚定食、天丼蕎麦套餐等選擇</div>
-          <div class="slot-addr">北海道札幌市 新北海道ビル（JR札幌駅北口）</div>
-          <div class="slot-note">人均約 ¥1,000–1,480 · 午餐僅平日供應，如遇假日異動請改選附近其他爐端燒店備案</div>
-        </div>
-      </div>
-      <div class="slot">
-        <i class="slot-icon">下午</i>
-        <div>
-          <div class="slot-title">Check-in · 狸小路散策</div>
-          <div class="slot-detail">入住札幌飯店後前往狸小路商店街 · 共7丁目全長約900公尺，藥妝、餐廳、土產齊聚 · 室內商店街，雨雪天也可輕鬆逛</div>
-          <div class="slot-addr">北海道札幌市中央区南2条西1–7丁目</div>
-        </div>
-      </div>
-      <div class="slot">
-        <i class="slot-icon">18:30</i>
-        <div>
-          <div class="slot-title">晚餐 — エビかに合戦 帝王蟹吃到飽</div>
-          <div class="slot-detail">北海道知名海鮮吃到飽 · 帝王蟹、毛蟹、雪場蟹應有盡有 · 吃到飽時間通常90～120分鐘</div>
-          <div class="slot-addr">北海道札幌市中央区（狸小路附近）</div>
-          <div class="slot-note">人均約 ¥5,000–8,000 · 強烈建議提前訂位 · Tabelog 或官網預約</div>
-        </div>
-      </div>
-    </div>
+      <svg class="i chev"><use href="#down"/></svg>
+    </button>
+    <div class="db"><div class="dbi"><ol class="tl">
+      <li class="it" data-t="06:00">
+        <div class="tm"><span class="tv">06:00</span><i class="ln"></i></div>
+        <div class="ti">函館朝市</div>
+        <div class="tx">清晨 5 點開市，北海道最著名早市 · 海鮮丼、鮭魚卵、帆立貝等新鮮海產一應俱全 · 趁早前往人少且食材最新鮮</div>
+        <a class="addr" data-q="函館朝市"><svg class="i pin"><use href="#pin"/></svg><span>北海道函館市若松町 9-19</span><svg class="i o"><use href="#out"/></svg></a>
+      </li>
+      <li class="it key">
+        <div class="tm"><span class="tv">上午</span><i class="ln"></i></div>
+        <div class="ti">退房 · 函館 → 札幌</div>
+        <div class="tx">JR 特急 北斗號 函館 → 札幌，約 3 小時 30 分 · 沿途可欣賞北海道大雪原景色 · JR Pass 適用</div>
+      </li>
+      <li class="it" data-t="12:30">
+        <div class="tm"><span class="tv">12:30</span><i class="ln"></i></div>
+        <div class="ti">午餐 — 炭焼炉ばた くし路 新北海道ビル店</div>
+        <div class="tx">爐端燒定食專門店 · JR 札幌駅北口徒步 1 分，特急北斗抵達後可直接步行前往 · 平日午餐 11:30–14:00（L.O. 13:30）· 日替り定食、烤魚定食、天丼蕎麦套餐</div>
+        <div class="warn"><svg class="i"><use href="#alert"/></svg><span>人均約 ¥1,000–1,480 · 午餐僅平日供應，如遇異動請改選附近其他爐端燒店</span></div>
+        <a class="addr" data-q="炭焼炉ばた くし路 新北海道ビル店"><svg class="i pin"><use href="#pin"/></svg><span>北海道札幌市 新北海道ビル（JR 札幌駅北口）</span><svg class="i o"><use href="#out"/></svg></a>
+      </li>
+      <li class="it">
+        <div class="tm"><span class="tv">下午</span><i class="ln"></i></div>
+        <div class="ti">Check-in · 狸小路散策</div>
+        <div class="tx">入住札幌飯店後前往狸小路商店街 · 共 7 丁目全長約 900 公尺，藥妝、餐廳、土產齊聚 · 室內商店街，雨雪天也可輕鬆逛</div>
+        <a class="addr" data-q="狸小路商店街"><svg class="i pin"><use href="#pin"/></svg><span>北海道札幌市中央区南2条西1–7丁目</span><svg class="i o"><use href="#out"/></svg></a>
+      </li>
+      <li class="it" data-t="18:30">
+        <div class="tm"><span class="tv">18:30</span><i class="ln"></i></div>
+        <div class="ti">晚餐 — エビかに合戦 帝王蟹吃到飽</div>
+        <div class="tx">北海道知名海鮮吃到飽 · 帝王蟹、毛蟹、雪場蟹應有盡有 · 吃到飽時間通常 90～120 分鐘</div>
+        <div class="warn"><svg class="i"><use href="#alert"/></svg><span>人均約 ¥5,000–8,000 · 強烈建議提前訂位 · Tabelog 或官網預約</span></div>
+        <a class="addr" data-q="エビかに合戦 札幌"><svg class="i pin"><use href="#pin"/></svg><span>北海道札幌市中央区（狸小路附近）</span><svg class="i o"><use href="#out"/></svg></a>
+      </li>
+    </ol></div></div>
   </div>
 
   <!-- DAY 6 -->
-  <div class="day-card">
-    <div class="day-hdr">
-      <div class="day-hdr-title">1/16 Thu · 郊外一日遊</div>
-      <div class="day-hdr-sub">KKday 洞爺湖行程（暫定）</div>
-    </div>
-    <div class="day-body">
-      <div class="slot">
-        <i class="slot-icon">全天</i>
-        <div>
-          <div class="slot-title">KKday 洞爺湖一日遊（暫定）</div>
-          <div class="slot-detail">
-            <b>洞爺湖</b>　火山口湖，冬季結冰壯觀，湖畔有溫泉旅館與洞爺湖溫泉街，距札幌約2小時<br>
-            備案：<b>支笏湖</b>（不凍湖，1月下旬冰濤祭）／<b>定山渓溫泉</b>（近郊，距札幌約1小時）／<b>白色戀人公園</b>（市區內，雨雪天備案）
-          </div>
-          <div class="slot-note">目前傾向洞爺湖為主，尚待選定並確認 KKday 行程含來回接送</div>
-        </div>
+  <div class="day" id="d-2027-01-16" data-date="2027-01-16">
+    <button class="dh" aria-expanded="false">
+      <div><div class="dd">1/16</div><div class="dw">SAT</div></div>
+      <div>
+        <div class="dt">郊外一日遊</div>
+        <div class="ds">洞爺湖 KKday 一日遊（暫定，跟團）</div>
+        <div class="dst">連住札幌</div>
       </div>
-    </div>
+      <svg class="i chev"><use href="#down"/></svg>
+    </button>
+    <div class="db"><div class="dbi"><ol class="tl">
+      <li class="it">
+        <div class="tm"><span class="tv">全天</span><i class="ln"></i></div>
+        <div class="ti">KKday 洞爺湖一日遊（暫定）</div>
+        <div class="tx"><b>洞爺湖</b>　火山口湖，冬季結冰壯觀，湖畔有溫泉旅館與洞爺湖溫泉街，距札幌約 2 小時<br>備案：<b>支笏湖</b>（不凍湖，1 月下旬冰濤祭）／<b>定山渓溫泉</b>（近郊，距札幌約 1 小時）／<b>白色戀人公園</b>（市區內，雨雪天備案）</div>
+        <div class="warn"><svg class="i"><use href="#alert"/></svg><span>目前傾向洞爺湖為主，尚待選定並確認 KKday 行程含來回接送</span></div>
+      </li>
+    </ol></div></div>
   </div>
 
   <!-- DAY 7 -->
-  <div class="day-card">
-    <div class="day-hdr">
-      <div class="day-hdr-title">1/17 Fri · 小樽</div>
-      <div class="day-hdr-sub">運河 · 玻璃 · 壽司通</div>
-    </div>
-    <div class="day-body">
-      <div class="slot">
-        <i class="slot-icon">09:00</i>
-        <div>
-          <div class="slot-title">札幌 → 小樽</div>
-          <div class="slot-detail">JR 函館本線 · 約35分鐘 · 班次頻繁 · JR Pass 適用</div>
-        </div>
+  <div class="day" id="d-2027-01-17" data-date="2027-01-17">
+    <button class="dh" aria-expanded="false">
+      <div><div class="dd">1/17</div><div class="dw">SUN</div></div>
+      <div>
+        <div class="dt">小樽</div>
+        <div class="ds">小樽運河 · 堺町通玻璃工藝 · 壽司通</div>
+        <div class="dst">連住札幌</div>
       </div>
-      <div class="slot">
-        <i class="slot-icon">10:00</i>
-        <div>
-          <div class="slot-title">小樽運河</div>
-          <div class="slot-detail">北海道最具代表性風景 · 冬季積雪、煤氣燈倒映水面，為攝影勝地 · 沿運河有咖啡廳、餐廳及玻璃工藝品店</div>
-          <div class="slot-addr">北海道小樽市港町</div>
-        </div>
-      </div>
-      <div class="slot">
-        <i class="slot-icon">12:00</i>
-        <div>
-          <div class="slot-title">午餐 — 壽司通</div>
-          <div class="slot-detail">小樽「壽司屋通り」聚集多間高質素握壽司餐廳 · 使用北海道當季海鮮食材 · 午餐時段比晚餐等待時間短</div>
-          <div class="slot-note">政壽司、おたる政寿司等為知名店家，建議事先訂位</div>
-        </div>
-      </div>
-      <div class="slot">
-        <i class="slot-icon">14:00</i>
-        <div>
-          <div class="slot-title">堺町通 · 玻璃工藝</div>
-          <div class="slot-detail">小樽以玻璃工藝聞名 · 北一硝子最大玻璃工藝店，附設煤油燈咖啡館 · 大正硝子亦為知名品牌</div>
-          <div class="slot-addr">北海道小樽市堺町</div>
-        </div>
-      </div>
-      <div class="slot">
-        <i class="slot-icon">傍晚</i>
-        <div>
-          <div class="slot-title">返回札幌</div>
-          <div class="slot-detail">JR 函館本線返回札幌 · 整理行李準備隔天回台</div>
-          <div class="slot-note">狸小路 Don Quijote 24小時營業，適合最後一晚掃貨</div>
-        </div>
-      </div>
-    </div>
+      <svg class="i chev"><use href="#down"/></svg>
+    </button>
+    <div class="db"><div class="dbi"><ol class="tl">
+      <li class="it" data-t="09:00">
+        <div class="tm"><span class="tv">09:00</span><i class="ln"></i></div>
+        <div class="ti">札幌 → 小樽</div>
+        <div class="tx">JR 函館本線 · 約 35 分鐘 · 班次頻繁 · JR Pass 適用</div>
+      </li>
+      <li class="it" data-t="10:00">
+        <div class="tm"><span class="tv">10:00</span><i class="ln"></i></div>
+        <div class="ti">小樽運河</div>
+        <div class="tx">北海道最具代表性風景 · 冬季積雪、煤氣燈倒映水面，為攝影勝地 · 沿運河有咖啡廳、餐廳及玻璃工藝品店</div>
+        <a class="addr" data-q="小樽運河"><svg class="i pin"><use href="#pin"/></svg><span>北海道小樽市港町</span><svg class="i o"><use href="#out"/></svg></a>
+      </li>
+      <li class="it" data-t="12:00">
+        <div class="tm"><span class="tv">12:00</span><i class="ln"></i></div>
+        <div class="ti">午餐 — 壽司通</div>
+        <div class="tx">小樽「壽司屋通り」聚集多間高品質握壽司餐廳 · 使用北海道當季海鮮食材 · 午餐時段比晚餐等待時間短</div>
+        <div class="warn"><svg class="i"><use href="#alert"/></svg><span>おたる政寿司等為知名店家，建議事先訂位</span></div>
+        <a class="addr" data-q="小樽 寿司屋通り"><svg class="i pin"><use href="#pin"/></svg><span>小樽 壽司屋通り</span><svg class="i o"><use href="#out"/></svg></a>
+      </li>
+      <li class="it" data-t="14:00">
+        <div class="tm"><span class="tv">14:00</span><i class="ln"></i></div>
+        <div class="ti">堺町通 · 玻璃工藝</div>
+        <div class="tx">小樽以玻璃工藝聞名 · 北一硝子最大玻璃工藝店，附設煤油燈咖啡館 · 大正硝子亦為知名品牌</div>
+        <a class="addr" data-q="小樽 堺町通り"><svg class="i pin"><use href="#pin"/></svg><span>北海道小樽市堺町</span><svg class="i o"><use href="#out"/></svg></a>
+      </li>
+      <li class="it">
+        <div class="tm"><span class="tv">傍晚</span><i class="ln"></i></div>
+        <div class="ti">返回札幌</div>
+        <div class="tx">JR 函館本線返回札幌 · 整理行李準備隔天回台 · 狸小路 Don Quijote 24 小時營業，適合最後一晚掃貨</div>
+      </li>
+    </ol></div></div>
   </div>
 
   <!-- DAY 8 -->
-  <div class="day-card">
-    <div class="day-hdr">
-      <div class="day-hdr-title">1/18 Sat · 返回台灣</div>
-      <div class="day-hdr-sub">虎航組 · 亞航組 · 加拿大航空組（經青森）</div>
-    </div>
-    <div class="day-body">
-      <div class="slot">
-        <i class="slot-icon">早上</i>
-        <div>
-          <div class="slot-title">前往新千歲機場</div>
-          <div class="slot-detail">JR 快速エアポート 至新千歲機場，約37分鐘，每15分鐘一班 · 建議航班起飛前2.5小時抵達</div>
-        </div>
-      </div>
-      <div class="slot">
-        <i class="slot-icon">12:05</i>
-        <div>
-          <div class="slot-title">【虎航組】IT235 新千歲 → 桃園</div>
-          <div class="slot-detail">表定 12:05 起飛／15:20 抵達桃園（實際約12:20–12:30起飛，15:10–15:30抵達）</div>
-          <div class="slot-note">飛行約3h52m–4h15m · 每日航班</div>
-        </div>
-      </div>
-      <div class="slot">
-        <i class="slot-icon">14:40</i>
-        <div>
-          <div class="slot-title">【亞航組】AirAsia FD243 新千歲 → 桃園</div>
-          <div class="slot-detail">表定 14:40 起飛／18:00 抵達桃園</div>
-          <div class="slot-note">飛行約3h57m · 已於官網確認 1/18 有此航班</div>
-        </div>
-      </div>
-      <div class="slot">
-        <i class="slot-icon">11:40</i>
-        <div>
-          <div class="slot-title">【加拿大航空組】新千歲 → 青森</div>
-          <div class="slot-detail">國內線 新千歲11:40 → 青森12:35 · 推算對應班次為 ANA1898（新千歲11:35→青森12:30）</div>
-          <div class="slot-note">與其他組別分開行動，提早前往新千歲機場國內線航廈辦理登機</div>
-        </div>
-      </div>
-      <div class="slot">
-        <i class="slot-icon">15:30</i>
-        <div>
-          <div class="slot-title">【加拿大航空組】長榮 BR121 青森 → 台北</div>
-          <div class="slot-detail">青森 15:30 起飛／台北 18:40 抵達 · 機票以加拿大航空（Air Canada）開立，實際搭乘長榮航空 BR121 執飛（每日航班）· 中途於青森機場需重新辦理國際線報到與安檢</div>
-          <div class="slot-note">飛行時間約 3h 32m · 2027年1月正式時刻表尚未公布，出發前1個月內請再次確認</div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-</div>
-
-<!-- ═══════════════════════════════════════
-     TRANSPORT
-════════════════════════════════════════ -->
-<div id="transport" class="sec">
-
-  <!-- 去程A 東京組 -->
-  <div class="tr-seg">
-    <div class="tr-seg-hdr">
-      <div class="tr-seg-title">去程A · 台灣 → 仙台（經東京）</div>
-      <div class="tr-seg-date">1/11 Sat</div>
-    </div>
-
-    <div class="tr-leg">
-      <div class="tr-icon">✈</div>
-      <div class="tr-info">
-        <div class="tr-route">長榮 BR184 <span class="arr">桃園 T2 → 成田 T1</span></div>
-        <div class="tr-time"><b>07:55</b> 出發 ／ <b>12:00</b> 抵達</div>
-        <div class="tr-meta">飛行時間約 3h 05m · Boeing 787-10<br>全員需使用 JR Pass，建議抵台後直接前往成田 JR 窗口換票</div>
-      </div>
-    </div>
-
-    <div class="tr-connector">↓ 成田機場站　入境 / 提領行李 ／ 兌換 JR Pass · 預留約 1.5 小時</div>
-
-    <div class="tr-leg">
-      <div class="tr-icon">🚄</div>
-      <div class="tr-info">
-        <div class="tr-route">成田特快 N'EX <span class="arr">成田空港 → 東京</span></div>
-        <div class="tr-time">預估搭乘 <b>13:30</b> 前後班次 ／ 抵達 <b>14:25</b></div>
-        <div class="tr-meta">約 55 分 · JR東日本＋南北海道パス 適用 · <b>官網訂位</b> <br>第1・2・3航廈均有 N'EX 停靠</div>
-      </div>
-    </div>
-
-    <div class="tr-connector">↓ 東京站　一番街稍作停留（約80分鐘，14:25–15:50）</div>
-
-    <div class="tr-leg">
-      <div class="tr-icon">🚄</div>
-      <div class="tr-info">
-        <div class="tr-route">東北新幹線 はやぶさ <span class="arr">東京 → 仙台</span></div>
-        <div class="tr-time">預估搭乘 <b>15:50</b> 前後班次 ／ 抵達仙台 <b>17:20～17:30</b> 前後</div>
-        <div class="tr-meta">約 1h 30–40m · JR東日本＋南北海道パス 適用 · <b>官網訂指定席</b><br>目標 18:00 前抵達仙台飯店，此班次留有緩衝</div>
-      </div>
-    </div>
-    <div class="tr-pass-note">本段全程適用 JR東日本＋南北海道パス · N'EX 及新幹線均需於官網預訂指定席</div>
-  </div>
-
-  <!-- 去程B 仙台組 -->
-  <div class="tr-seg">
-    <div class="tr-seg-hdr">
-      <div class="tr-seg-title">去程B · 台灣 → 仙台（直飛）</div>
-      <div class="tr-seg-date">1/11 Sat</div>
-    </div>
-
-    <div class="tr-leg">
-      <div class="tr-icon">✈</div>
-      <div class="tr-info">
-        <div class="tr-route">長榮 BR118 <span class="arr">桃園 T2 → 仙台</span></div>
-        <div class="tr-time"><b>10:15</b> 出發 ／ <b>14:25</b> 抵達</div>
-        <div class="tr-meta">飛行時間約 3h 10m<br>時刻依現行同時段 BR118 班表推算，2027年正式班表公布後請再次確認訂位</div>
-      </div>
-    </div>
-
-    <div class="tr-connector">↓ 仙台機場　入境 / 提領行李 ／ 於仙台站 JR東日本窗口兌換 JR Pass</div>
-
-    <div class="tr-leg">
-      <div class="tr-icon">🚃</div>
-      <div class="tr-info">
-        <div class="tr-route">仙台空港アクセス線 <span class="arr">仙台空港 → 仙台站</span></div>
-        <div class="tr-time">約 25 分</div>
-        <div class="tr-meta">此段 JR Pass 尚未生效（兌換前），建議先以現金或 IC 卡購票</div>
-      </div>
-    </div>
-    <div class="tr-pass-note">此組未經東京，JR Pass 需改在仙台站兌換，落地後請優先辦理</div>
-  </div>
-
-  <!-- 仙台拠点 日常移動 -->
-  <div class="tr-seg">
-    <div class="tr-seg-hdr">
-      <div class="tr-seg-title">仙台拠点 · 日常移動</div>
-      <div class="tr-seg-date">1/12–1/13</div>
-    </div>
-
-    <div class="tr-leg">
-      <div class="tr-icon">🚃</div>
-      <div class="tr-info">
-        <div class="tr-route">仙台 → 松島 <span class="tr-badge">1/12</span></div>
-        <div class="tr-time">JR 仙石線 <b>松島海岸駅</b>，約 <b>40 分</b></div>
-        <div class="tr-meta">JR Pass 適用 · IC 卡亦可</div>
-      </div>
-    </div>
-
-    <div class="tr-leg">
-      <div class="tr-icon">🚄</div>
-      <div class="tr-info">
-        <div class="tr-route">松島 → 弘前 <span class="tr-badge">1/12</span></div>
-        <div class="tr-time">松島海岸→仙台（東北本線）→ 新幹線→新青森→奥羽本線→弘前，約 <b>2.5–3h</b></div>
-        <div class="tr-meta">JR Pass 適用全段 · 13:00 前出發方能下午抵達弘前</div>
-      </div>
-    </div>
-
-    <div class="tr-leg">
-      <div class="tr-icon">🚌</div>
-      <div class="tr-info">
-        <div class="tr-route">仙台 ⇄ 銀山溫泉 <span class="tr-badge">1/13</span></div>
-        <div class="tr-time">KKday 一日遊含來回接送</div>
-        <div class="tr-meta">無需自行安排交通 · 集合地點依行程單確認</div>
-      </div>
-    </div>
-  </div>
-
-  <!-- 仙台 → 函館 -->
-  <div class="tr-seg">
-    <div class="tr-seg-hdr">
-      <div class="tr-seg-title">仙台 → 函館</div>
-      <div class="tr-seg-date">1/14 Tue</div>
-    </div>
-
-    <div class="tr-leg">
-      <div class="tr-icon">🚄</div>
-      <div class="tr-info">
-        <div class="tr-route">北海道新幹線 はやぶさ <span class="arr">仙台 → 新函館北斗</span></div>
-        <div class="tr-time">上午出發（確認班次後訂座） ／ 約 <b>1h 50m</b></div>
-        <div class="tr-meta">JR東日本＋南北海道パス 適用 · <b>官網訂指定席</b></div>
-      </div>
-    </div>
-
-    <div class="tr-connector">↓ 新函館北斗站　換乘普通列車</div>
-
-    <div class="tr-leg">
-      <div class="tr-icon">🚃</div>
-      <div class="tr-info">
-        <div class="tr-route">JR 函館本線（普通） <span class="arr">新函館北斗 → 函館</span></div>
-        <div class="tr-time">約 <b>20 分</b></div>
-        <div class="tr-meta">JR Pass 適用 · 自由席 · 班次約 30 分一班</div>
-      </div>
-    </div>
-    <div class="tr-pass-note">本段適用 JR東日本＋南北海道パス</div>
-  </div>
-
-  <!-- 函館 → 札幌 -->
-  <div class="tr-seg">
-    <div class="tr-seg-hdr">
-      <div class="tr-seg-title">函館 → 札幌</div>
-      <div class="tr-seg-date">1/15 Wed</div>
-    </div>
-
-    <div class="tr-leg">
-      <div class="tr-icon">🚄</div>
-      <div class="tr-info">
-        <div class="tr-route">JR 特急北斗 <span class="arr">函館 → 札幌</span></div>
-        <div class="tr-time">函館朝市後出發（上午班次） ／ 約 <b>3h 30m</b></div>
-        <div class="tr-meta">JR東日本＋南北海道パス 適用 · <b>官網訂指定席</b><br>沿途可欣賞北海道大雪原景色<br>※ 北海道新幹線延伸至札幌預計 2030 年，目前仍需搭特急</div>
-      </div>
-    </div>
-    <div class="tr-pass-note">本段適用 JR東日本＋南北海道パス</div>
-  </div>
-
-  <!-- 札幌拠点 日常移動 -->
-  <div class="tr-seg">
-    <div class="tr-seg-hdr">
-      <div class="tr-seg-title">札幌拠点 · 日常移動</div>
-      <div class="tr-seg-date">1/16–1/17</div>
-    </div>
-
-    <div class="tr-leg">
-      <div class="tr-icon">🚌</div>
-      <div class="tr-info">
-        <div class="tr-route">札幌 ⇄ 郊外一日遊 <span class="tr-badge">1/16</span></div>
-        <div class="tr-time">KKday 行程含來回接送（洞爺湖 / 支笏湖 / 定山渓）</div>
-        <div class="tr-meta">無需自行安排 · 集合地點依行程單確認</div>
-      </div>
-    </div>
-
-    <div class="tr-leg">
-      <div class="tr-icon">🚃</div>
-      <div class="tr-info">
-        <div class="tr-route">札幌 ⇄ 小樽 <span class="tr-badge">1/17</span></div>
-        <div class="tr-time">JR 函館本線，約 <b>35 分</b>，班次頻繁</div>
-        <div class="tr-meta">JR Pass 適用</div>
-      </div>
-    </div>
-  </div>
-
-  <!-- 回程 -->
-  <div class="tr-seg">
-    <div class="tr-seg-hdr">
-      <div class="tr-seg-title">回程 · 虎航組／亞航組（新千歲→桃園）</div>
-      <div class="tr-seg-date">1/18 Sat</div>
-    </div>
-
-    <div class="tr-leg">
-      <div class="tr-icon">🚃</div>
-      <div class="tr-info">
-        <div class="tr-route">JR 快速エアポート <span class="arr">札幌 → 新千歲機場</span></div>
-        <div class="tr-time">約 <b>37 分</b> · 每 15 分一班</div>
-        <div class="tr-meta">JR Pass 適用 · 航班起飛前 <b>2.5 小時</b>抵達機場為宜</div>
-      </div>
-    </div>
-
-    <div class="tr-leg">
-      <div class="tr-icon">✈</div>
-      <div class="tr-info">
-        <div class="tr-route">虎航 IT235 <span class="arr">新千歲 → 桃園</span></div>
-        <div class="tr-time">表定 <b>12:05</b> 起飛 ／ <b>15:20</b> 抵達（實際約12:20–12:30起飛，15:10–15:30抵達）</div>
-        <div class="tr-meta">飛行時間約 3h52m–4h15m · 每日航班 · 建議提前 2.5 小時抵達機場</div>
-      </div>
-    </div>
-
-    <div class="tr-leg">
-      <div class="tr-icon">✈</div>
-      <div class="tr-info">
-        <div class="tr-route">AirAsia FD243 <span class="arr">新千歲 → 桃園</span></div>
-        <div class="tr-time">表定 <b>14:40</b> 起飛 ／ <b>18:00</b> 抵達</div>
-        <div class="tr-meta">飛行時間約 3h57m · 已於官網確認 1/18 有此航班</div>
-      </div>
-    </div>
-  </div>
-
-  <!-- 回程 仙台組經青森 -->
-  <div class="tr-seg">
-    <div class="tr-seg-hdr">
-      <div class="tr-seg-title">回程 · 加拿大航空組（經青森轉機）</div>
-      <div class="tr-seg-date">1/18 Sat</div>
-    </div>
-
-    <div class="tr-leg">
-      <div class="tr-icon">✈</div>
-      <div class="tr-info">
-        <div class="tr-route">國內線 <span class="arr">新千歲 → 青森</span></div>
-        <div class="tr-time"><b>11:40</b> 出發 ／ <b>12:35</b> 抵達</div>
-        <div class="tr-meta">推算對應班次為 <b>ANA1898</b>（新千歲11:35→青森12:30，時間相近）· 與其他組別分開行動</div>
-      </div>
-    </div>
-
-    <div class="tr-connector">↓ 青森機場　轉機／重新辦理國際線報到與安檢 · 約 2h 55m 緩衝</div>
-
-    <div class="tr-leg">
-      <div class="tr-icon">✈</div>
-      <div class="tr-info">
-        <div class="tr-route">長榮 BR121 <span class="arr">青森 → 台北</span></div>
-        <div class="tr-time"><b>15:30</b> 出發 ／ <b>18:40</b> 抵達</div>
-        <div class="tr-meta">飛行時間約 3h 32m · 機票以加拿大航空（Air Canada）開立，實際搭乘長榮航空 BR121 執飛，每日航班<br>2027年1月正式時刻表尚未公布，出發前1個月內請再次確認班次與時間</div>
-      </div>
-    </div>
-  </div>
-
-</div>
-
-<!-- ═══════════════════════════════════════
-     HOTEL
-════════════════════════════════════════ -->
-<div id="hotel" class="sec">
-
-  <div class="hotel-item">
-    <div class="hotel-nights">3 晚 · 1/11–1/14</div>
-    <div class="hotel-name">KP 仙台車站北 APA飯店</div>
-    <div class="hotel-en">APA Hotel Sendai Ekikita</div>
-    <div class="hotel-row"><span class="lbl">地點</span><span class="val">宮城縣仙台市 宮城野区 Nakakecho 201-1</span></div>
-    <div class="hotel-row"><span class="lbl">入住</span><span class="val">1月11日（六）</span></div>
-    <div class="hotel-row"><span class="lbl">退房</span><span class="val">1月14日（二）</span></div>
-    <div class="hotel-row"><span class="lbl">備注</span><span class="val">已確認 · 東京組與仙台組於此會合</span></div>
-  </div>
-
-  <div class="hotel-item">
-    <div class="hotel-nights">1 晚 · 1/14–1/15</div>
-    <div class="hotel-name">函館站前APA酒店</div>
-    <div class="hotel-en">APA Hotel Hakodate Ekimae</div>
-    <div class="hotel-row"><span class="lbl">地點</span><span class="val">北海道函館市 Otemachi 19-13</span></div>
-    <div class="hotel-row"><span class="lbl">入住</span><span class="val">1月14日（二）</span></div>
-    <div class="hotel-row"><span class="lbl">退房</span><span class="val">1月15日（三）</span></div>
-    <div class="hotel-row"><span class="lbl">備注</span><span class="val">已確認</span></div>
-  </div>
-
-  <div class="hotel-item">
-    <div class="hotel-nights">3 晚 · 1/15–1/18</div>
-    <div class="hotel-name">APA Hotel Sapporo Odori Ekimae Nishi</div>
-    <div class="hotel-en">APA Hotel 札幌大通站前西</div>
-    <div class="hotel-row"><span class="lbl">地點</span><span class="val">北海道札幌市 中央区南1条西9-15-1</span></div>
-    <div class="hotel-row"><span class="lbl">入住</span><span class="val">1月15日（三）</span></div>
-    <div class="hotel-row"><span class="lbl">退房</span><span class="val">1月18日（六）</span></div>
-    <div class="hotel-row"><span class="lbl">備注</span><span class="val">已確認 · 7人房間分配請提早於飯店確認</span></div>
-  </div>
-
-</div>
-
-<!-- ═══════════════════════════════════════
-     PREP
-════════════════════════════════════════ -->
-<div id="prep" class="sec">
-
-  <div class="prep-grp">
-    <div class="prep-grp-title">立即處理</div>
-
-    <div class="prep-item" id="c1" onclick="toggle('c1')">
-      <div class="prep-box"></div>
+  <div class="day" id="d-2027-01-18" data-date="2027-01-18">
+    <button class="dh" aria-expanded="false">
+      <div><div class="dd">1/18</div><div class="dw">MON</div></div>
       <div>
-        <div class="prep-title">函館站前APA酒店 · 訂房確認</div>
-        <div class="prep-sub">已選定 · 1晚（1/14–1/15）· Otemachi 19-13 · 請確認訂單確認碼與付款狀態</div>
+        <div class="dt">返回台灣</div>
+        <div class="ds">虎航組 IT235、亞航組 FD243 由新千歲直飛 · 加拿大航空組經青森轉機</div>
       </div>
-    </div>
+      <svg class="i chev"><use href="#down"/></svg>
+    </button>
+    <div class="db"><div class="dbi"><ol class="tl">
+      <li class="it">
+        <div class="tm"><span class="tv">早上</span><i class="ln"></i></div>
+        <div class="ti">前往新千歲機場</div>
+        <div class="tx">JR 快速エアポート 至新千歲機場，約 37 分鐘，每 15 分鐘一班 · 建議航班起飛前 2.5 小時抵達</div>
+      </li>
+      <li class="it key" data-t="11:40">
+        <div class="tm"><span class="tv">11:40</span><i class="ln"></i></div>
+        <div class="ti"><span class="grp">加航組</span>新千歲 → 青森</div>
+        <div class="tx">國內線 新千歲 11:40 → 青森 12:35 · 推算對應班次為 ANA1898（新千歲 11:35 → 青森 12:30）</div>
+        <div class="warn"><svg class="i"><use href="#alert"/></svg><span>與其他組別分開行動，提早前往新千歲機場國內線航廈辦理登機</span></div>
+      </li>
+      <li class="it key" data-t="12:05">
+        <div class="tm"><span class="tv">12:05</span><i class="ln"></i></div>
+        <div class="ti"><span class="grp">虎航組</span>IT235 新千歲 → 桃園</div>
+        <div class="tx">表定 12:05 起飛／15:20 抵達桃園（實際約 12:20–12:30 起飛，15:10–15:30 抵達）· 飛行約 3h52m–4h15m · 每日航班</div>
+      </li>
+      <li class="it key" data-t="14:40">
+        <div class="tm"><span class="tv">14:40</span><i class="ln"></i></div>
+        <div class="ti"><span class="grp">亞航組</span>AirAsia FD243 新千歲 → 桃園</div>
+        <div class="tx">表定 14:40 起飛／18:00 抵達桃園 · 飛行約 3h57m · 已於官網確認 1/18 有此航班</div>
+      </li>
+      <li class="it key" data-t="15:30">
+        <div class="tm"><span class="tv">15:30</span><i class="ln"></i></div>
+        <div class="ti"><span class="grp">加航組</span>長榮 BR121 青森 → 台北</div>
+        <div class="tx">青森 15:30 起飛／台北 18:40 抵達 · 機票以加拿大航空（Air Canada）開立，實際搭乘長榮航空 BR121 執飛（每日航班）· 中途於青森機場需重新辦理國際線報到與安檢</div>
+        <div class="warn"><svg class="i"><use href="#alert"/></svg><span>飛行時間約 3h 32m · 2027 年 1 月正式時刻表尚未公布，出發前 1 個月內請再次確認</span></div>
+      </li>
+    </ol></div></div>
+  </div>
+</section>
 
-    <div class="prep-item" id="c2" onclick="toggle('c2')">
-      <div class="prep-box"></div>
-      <div>
-        <div class="prep-title">APA Hotel Sapporo Odori Ekimae Nishi · 訂房確認</div>
-        <div class="prep-sub">已選定 · 3晚（1/15–1/18）· 南1条西9-15-1 · 7人房間分配需提早確認</div>
-      </div>
-    </div>
+<!-- ══════════ 交通 ══════════ -->
+<section id="s-move">
+  <div class="sec-h"><h2>交通</h2><span class="lbl">JR East + South Hokkaido Pass</span></div>
 
-    <div class="prep-item" id="c3" onclick="toggle('c3')">
-      <div class="prep-box"></div>
-      <div>
-        <div class="prep-title urgent">エビかに合戦 訂位</div>
-        <div class="prep-sub">7人用餐建議至少1個月前訂位 · Tabelog 或官網預約 · 1/15（三）晚餐時段</div>
-      </div>
+  <div class="seg" data-date="2027-01-11">
+    <div class="seg-h"><div class="seg-t">去程 A · 台灣 → 仙台（經東京）</div><div class="seg-d num">1/11 MON</div></div>
+    <div class="leg key">
+      <span class="lbl">Flight</span>
+      <div class="tm"><span class="tv">07:55</span><i class="ln"></i><span class="tv2">12:00</span></div>
+      <div class="rt">長榮 BR184<span>桃園 T2 → 成田 T1</span></div>
+      <div class="tx">飛行時間約 3h 05m · Boeing 787-10 · 全員需使用 JR Pass，建議抵日後直接前往成田 JR 窗口換票</div>
     </div>
+    <div class="conn"><svg class="i"><use href="#down"/></svg><span>成田機場站　入境／提領行李／兌換 JR Pass · 預留約 1.5 小時</span></div>
+    <div class="leg key">
+      <span class="lbl">Rail · N'EX</span>
+      <div class="tm"><span class="tv">13:30</span><i class="ln"></i><span class="tv2">14:25</span></div>
+      <div class="rt">成田特快 N'EX<span>成田空港 → 東京</span></div>
+      <div class="tx">約 55 分 · <b>官網訂位</b> · 第 1・2・3 航廈均有 N'EX 停靠</div>
+    </div>
+    <div class="conn"><svg class="i"><use href="#down"/></svg><span>東京站　一番街稍作停留（約 80 分鐘，14:25–15:50）</span></div>
+    <div class="leg key">
+      <span class="lbl">Shinkansen</span>
+      <div class="tm"><span class="tv">15:50</span><i class="ln"></i><span class="tv2">17:25</span></div>
+      <div class="rt">東北新幹線 はやぶさ<span>東京 → 仙台</span></div>
+      <div class="tx">約 1h 30–40m，預估 17:20～17:30 抵達 · <b>官網訂指定席</b> · 目標 18:00 前抵達仙台飯店</div>
+    </div>
+    <div class="pass"><span class="lbl">JR Pass</span><span>本段全程適用 · N'EX 及新幹線均需於官網預訂指定席</span></div>
+  </div>
 
-    <div class="prep-item" id="c4" onclick="toggle('c4')">
-      <div class="prep-box"></div>
-      <div>
-        <div class="prep-title urgent">KKday 銀山溫泉一日遊 預訂</div>
-        <div class="prep-sub">1/13（一）全天行程 · 1月冬季旺季名額有限 · 確認行程含仙台來回接送</div>
-      </div>
+  <div class="seg" data-date="2027-01-11">
+    <div class="seg-h"><div class="seg-t">去程 B · 台灣 → 仙台（直飛）</div><div class="seg-d num">1/11 MON</div></div>
+    <div class="leg key">
+      <span class="lbl">Flight</span>
+      <div class="tm"><span class="tv">10:15</span><i class="ln"></i><span class="tv2">14:25</span></div>
+      <div class="rt">長榮 BR118<span>桃園 T2 → 仙台</span></div>
+      <div class="tx">飛行時間約 3h 10m</div>
+      <div class="warn"><svg class="i"><use href="#alert"/></svg><span>時刻依現行同時段 BR118 班表推算，2027 年正式班表公布後請再次確認訂位</span></div>
+    </div>
+    <div class="conn"><svg class="i"><use href="#down"/></svg><span>仙台機場　入境／提領行李</span></div>
+    <div class="leg">
+      <span class="lbl">Rail</span>
+      <div class="tm"><span class="tv">約 25 分</span><i class="ln"></i></div>
+      <div class="rt">仙台空港アクセス線<span>仙台空港 → 仙台站</span></div>
+      <div class="tx">此段 JR Pass 尚未生效（兌換前），建議先以現金或 IC 卡購票</div>
+    </div>
+    <div class="pass"><span class="lbl">JR Pass</span><span>此組未經東京，需改在仙台站 JR東日本窗口兌換，落地後請優先辦理</span></div>
+  </div>
+
+  <div class="seg" data-date="2027-01-12,2027-01-13">
+    <div class="seg-h"><div class="seg-t">仙台拠点 · 日常移動</div><div class="seg-d num">1/12 — 1/13</div></div>
+    <div class="leg">
+      <span class="lbl">Rail · 1/12</span>
+      <div class="tm"><span class="tv">約 40 分</span><i class="ln"></i></div>
+      <div class="rt">仙台 → 松島<span>JR 仙石線 松島海岸駅</span></div>
+      <div class="tx">JR Pass 適用 · IC 卡亦可</div>
+    </div>
+    <div class="leg key">
+      <span class="lbl">Shinkansen · 1/12</span>
+      <div class="tm"><span class="tv">2.5–3h</span><i class="ln"></i></div>
+      <div class="rt">松島 → 弘前</div>
+      <div class="tx">松島海岸 → 仙台（東北本線）→ 新幹線 → 新青森 → 奥羽本線 → 弘前 · JR Pass 適用全段</div>
+      <div class="warn"><svg class="i"><use href="#alert"/></svg><span>13:00 前出發方能下午抵達弘前</span></div>
+    </div>
+    <div class="leg">
+      <span class="lbl">Bus · 1/13</span>
+      <div class="tm"><span class="tv">全天</span><i class="ln"></i></div>
+      <div class="rt">仙台 ⇄ 銀山溫泉</div>
+      <div class="tx">KKday 一日遊含來回接送，無需自行安排交通 · 集合地點依行程單確認</div>
     </div>
   </div>
 
-  <div class="prep-grp">
-    <div class="prep-grp-title">出發前 1 個月內</div>
-
-    <div class="prep-item" id="c5" onclick="toggle('c5')">
-      <div class="prep-box"></div>
-      <div>
-        <div class="prep-title">JR東日本＋南北海道パス 購買＆訂座</div>
-        <div class="prep-sub">JR東日本官網購買 · 同時於官網預訂各段指定席 · 覆蓋：成田特快 N'EX（成田→東京）、東北新幹線（東京→仙台）、北海道新幹線（仙台→新函館北斗）、特急北斗（函館→札幌）、JR 快速エアポート（新千歲）</div>
-      </div>
+  <div class="seg" data-date="2027-01-14">
+    <div class="seg-h"><div class="seg-t">仙台 → 函館</div><div class="seg-d num">1/14 THU</div></div>
+    <div class="leg key">
+      <span class="lbl">Shinkansen</span>
+      <div class="tm"><span class="tv">上午</span><i class="ln"></i><span class="tv2">1h 50m</span></div>
+      <div class="rt">北海道新幹線 はやぶさ<span>仙台 → 新函館北斗</span></div>
+      <div class="tx">確認班次後訂座 · <b>官網訂指定席</b></div>
     </div>
-
-    <div class="prep-item" id="c6" onclick="toggle('c6')">
-      <div class="prep-box"></div>
-      <div>
-        <div class="prep-title">善治郎牛舌 訂位確認</div>
-        <div class="prep-sub">確認是否可 Google Map 線上預約 · 或規劃開店前到場排隊策略 · 1/11（六）晚餐</div>
-      </div>
+    <div class="conn"><svg class="i"><use href="#down"/></svg><span>新函館北斗站　換乘普通列車</span></div>
+    <div class="leg">
+      <span class="lbl">Rail</span>
+      <div class="tm"><span class="tv">約 20 分</span><i class="ln"></i></div>
+      <div class="rt">JR 函館本線（普通）<span>新函館北斗 → 函館</span></div>
+      <div class="tx">自由席 · 班次約 30 分一班</div>
     </div>
+    <div class="pass"><span class="lbl">JR Pass</span><span>本段適用 JR東日本＋南北海道パス</span></div>
+  </div>
 
-    <div class="prep-item" id="c7" onclick="toggle('c7')">
-      <div class="prep-box"></div>
-      <div>
-        <div class="prep-title">松島牡蠣餐廳預約</div>
-        <div class="prep-sub">1/12（日）上午 · 1月牡蠣季尾聲，需確認餐廳有無供應 · 松島さかな市場周邊多家可選</div>
-      </div>
+  <div class="seg" data-date="2027-01-15">
+    <div class="seg-h"><div class="seg-t">函館 → 札幌</div><div class="seg-d num">1/15 FRI</div></div>
+    <div class="leg key">
+      <span class="lbl">Limited Express</span>
+      <div class="tm"><span class="tv">上午</span><i class="ln"></i><span class="tv2">3h 30m</span></div>
+      <div class="rt">JR 特急北斗<span>函館 → 札幌</span></div>
+      <div class="tx">函館朝市後出發 · <b>官網訂指定席</b> · 沿途可欣賞北海道大雪原景色 · 北海道新幹線延伸至札幌預計 2030 年，目前仍需搭特急</div>
     </div>
+    <div class="pass"><span class="lbl">JR Pass</span><span>本段適用 JR東日本＋南北海道パス</span></div>
+  </div>
 
-    <div class="prep-item" id="c8" onclick="toggle('c8')">
-      <div class="prep-box"></div>
-      <div>
-        <div class="prep-title">KKday 1/16 洞爺湖一日遊 預訂</div>
-        <div class="prep-sub">暫定洞爺湖為主 · 尚待正式選定與預訂 · 確認行程含札幌來回接送</div>
-      </div>
+  <div class="seg" data-date="2027-01-16,2027-01-17">
+    <div class="seg-h"><div class="seg-t">札幌拠点 · 日常移動</div><div class="seg-d num">1/16 — 1/17</div></div>
+    <div class="leg">
+      <span class="lbl">Bus · 1/16</span>
+      <div class="tm"><span class="tv">全天</span><i class="ln"></i></div>
+      <div class="rt">札幌 ⇄ 郊外一日遊</div>
+      <div class="tx">KKday 行程含來回接送（洞爺湖／支笏湖／定山渓）· 集合地點依行程單確認</div>
     </div>
-
-    <div class="prep-item" id="c9" onclick="toggle('c9')">
-      <div class="prep-box"></div>
-      <div>
-        <div class="prep-title">日本 SIM 卡 / eSIM</div>
-        <div class="prep-sub">台灣出發前於 KKday / Klook 購入 · 或 IIJmio 短期方案 · 建議選8天方案</div>
-      </div>
-    </div>
-
-    <div class="prep-item" id="c10" onclick="toggle('c10')">
-      <div class="prep-box"></div>
-      <div>
-        <div class="prep-title">Visit Japan Web 填寫</div>
-        <div class="prep-sub">日本入境電子申報 · 出發前完成可加快入境速度 · 所有組員均需完成</div>
-      </div>
-    </div>
-
-    <div class="prep-item" id="c16" onclick="toggle('c16')">
-      <div class="prep-box"></div>
-      <div>
-        <div class="prep-title urgent">仙台組（去）／加拿大航空組（回）航班時刻二次確認</div>
-        <div class="prep-sub">去程 BR118（桃園→仙台）、回程新千歲→青森轉機班次與長榮 BR121（青森→台北，加拿大航空開票）均依現行同期班表推算 · 2027年1月正式時刻表公布後請重新核對並完成訂位</div>
-      </div>
+    <div class="leg">
+      <span class="lbl">Rail · 1/17</span>
+      <div class="tm"><span class="tv">約 35 分</span><i class="ln"></i></div>
+      <div class="rt">札幌 ⇄ 小樽<span>JR 函館本線</span></div>
+      <div class="tx">班次頻繁 · JR Pass 適用</div>
     </div>
   </div>
 
-  <div class="prep-grp">
-    <div class="prep-grp-title">隨身攜帶</div>
-
-    <div class="prep-item" id="c11" onclick="toggle('c11')">
-      <div class="prep-box"></div>
-      <div>
-        <div class="prep-title">護照 + 信用卡 / 現金日圓</div>
-        <div class="prep-sub">護照效期6個月以上 · 建議每人備妥至少 ¥30,000 現金備用</div>
-      </div>
+  <div class="seg" data-date="2027-01-18">
+    <div class="seg-h"><div class="seg-t">回程 · 虎航組／亞航組</div><div class="seg-d num">1/18 MON</div></div>
+    <div class="leg">
+      <span class="lbl">Rail</span>
+      <div class="tm"><span class="tv">約 37 分</span><i class="ln"></i></div>
+      <div class="rt">JR 快速エアポート<span>札幌 → 新千歲機場</span></div>
+      <div class="tx">每 15 分一班 · JR Pass 適用 · 航班起飛前 <b>2.5 小時</b>抵達機場為宜</div>
     </div>
-
-    <div class="prep-item" id="c12" onclick="toggle('c12')">
-      <div class="prep-box"></div>
-      <div>
-        <div class="prep-title">厚羽絨外套 + 防水防滑雪靴</div>
-        <div class="prep-sub">仙台 1月均溫 -2°C ～ 3°C · 函館 -8°C ～ -1°C · 札幌 -10°C ～ -3°C · 街道可能結冰，防滑雪靴必備</div>
-      </div>
+    <div class="leg key">
+      <span class="lbl">Flight · 虎航組</span>
+      <div class="tm"><span class="tv">12:05</span><i class="ln"></i><span class="tv2">15:20</span></div>
+      <div class="rt">虎航 IT235<span>新千歲 → 桃園</span></div>
+      <div class="tx">實際約 12:20–12:30 起飛，15:10–15:30 抵達 · 飛行約 3h52m–4h15m · 每日航班</div>
     </div>
-
-    <div class="prep-item" id="c13" onclick="toggle('c13')">
-      <div class="prep-box"></div>
-      <div>
-        <div class="prep-title">手套、毛帽、圍巾、保暖內衣</div>
-        <div class="prep-sub">Heattech 或同等級保暖內衣 · 暖暖包可在日本當地便利店購買</div>
-      </div>
-    </div>
-
-    <div class="prep-item" id="c14" onclick="toggle('c14')">
-      <div class="prep-box"></div>
-      <div>
-        <div class="prep-title">IC 卡（Suica / ICOCA）</div>
-        <div class="prep-sub">用於市區地鐵、巴士 · 可在仙台、函館、札幌的 JR 站購買 · 建議各自充值 ¥5,000</div>
-      </div>
-    </div>
-
-    <div class="prep-item" id="c15" onclick="toggle('c15')">
-      <div class="prep-box"></div>
-      <div>
-        <div class="prep-title">每日換殼計畫 — 手機殼 × 8</div>
-        <div class="prep-sub">8 天每天換不同手機殼，出發前備齊並編排順序 · 可配合當日景點或城市主題挑選配色</div>
-      </div>
+    <div class="leg key">
+      <span class="lbl">Flight · 亞航組</span>
+      <div class="tm"><span class="tv">14:40</span><i class="ln"></i><span class="tv2">18:00</span></div>
+      <div class="rt">AirAsia FD243<span>新千歲 → 桃園</span></div>
+      <div class="tx">飛行約 3h57m · 已於官網確認 1/18 有此航班</div>
     </div>
   </div>
 
-</div>
-
-<!-- ═══════════════════════════════════════
-     NOTES
-════════════════════════════════════════ -->
-<div id="notes" class="sec">
-
-  <div class="note-item">
-    <div class="note-title">仙台・北海道冬季氣候</div>
-    <div class="note-body">
-      <b>仙台 1月</b>：平均氣溫 -2°C ～ 3°C，偶有降雪但積雪量不如北海道<br>
-      <b>函館 1月</b>：平均氣溫 -8°C ～ -1°C，風大、積雪明顯<br>
-      <b>札幌 1月</b>：平均氣溫 -10°C ～ -3°C，全旅程最寒冷城市<br><br>
-      市區街道可能有結冰，穿防滑雪靴為必要。日本室內暖氣充足，進出室內需注意溫差。
+  <div class="seg" data-date="2027-01-18">
+    <div class="seg-h"><div class="seg-t">回程 · 加拿大航空組（經青森）</div><div class="seg-d num">1/18 MON</div></div>
+    <div class="leg key">
+      <span class="lbl">Flight · 國內線</span>
+      <div class="tm"><span class="tv">11:40</span><i class="ln"></i><span class="tv2">12:35</span></div>
+      <div class="rt">新千歲 → 青森</div>
+      <div class="tx">推算對應班次為 <b>ANA1898</b>（新千歲 11:35 → 青森 12:30）· 與其他組別分開行動</div>
+    </div>
+    <div class="conn"><svg class="i"><use href="#down"/></svg><span>青森機場　轉機／重新辦理國際線報到與安檢 · 約 2h 55m 緩衝</span></div>
+    <div class="leg key">
+      <span class="lbl">Flight</span>
+      <div class="tm"><span class="tv">15:30</span><i class="ln"></i><span class="tv2">18:40</span></div>
+      <div class="rt">長榮 BR121<span>青森 → 台北</span></div>
+      <div class="tx">飛行約 3h 32m · 機票以加拿大航空開立，實際由長榮航空 BR121 執飛，每日航班</div>
+      <div class="warn"><svg class="i"><use href="#alert"/></svg><span>2027 年 1 月正式時刻表尚未公布，出發前 1 個月內請再次確認班次與時間</span></div>
     </div>
   </div>
+</section>
 
-  <div class="note-item">
-    <div class="note-title">JR Pass 適用 / 不適用範圍</div>
-    <div class="note-body">
-      <b>使用方案：</b>JR東日本＋南北海道パス · 於 JR東日本官網購買並預訂指定席<br><br>
-      <b>適用：</b>成田特快 N'EX（成田→東京）、東北新幹線（東京→仙台）、北海道新幹線（仙台→新函館北斗）、JR 特急 北斗（函館→札幌）、JR 快速エアポート（新千歲機場）<br><br>
-      <b>不適用：</b>仙台地下鐵、函館市電、札幌市営地下鉄、機場巴士
-    </div>
+<!-- ══════════ 住宿 ══════════ -->
+<section id="s-stay">
+  <div class="sec-h"><h2>住宿</h2><span class="lbl num">7 Nights</span></div>
+
+  <div class="ht">
+    <div class="ht-top"><span class="ht-d">1/11 — 1/14</span><span class="tag-ok">已確認 · 3 晚</span></div>
+    <div class="ht-n">KP 仙台車站北 APA 飯店</div>
+    <div class="ht-en">APA Hotel Sendai Ekikita</div>
+    <dl><dt>入住</dt><dd>1 月 11 日（一）</dd><dt>退房</dt><dd>1 月 14 日（四）</dd><dt>備註</dt><dd>東京組與仙台組於此會合</dd></dl>
+    <a class="addr" data-q="APA Hotel Sendai Ekikita"><svg class="i pin"><use href="#pin"/></svg><span>宮城縣仙台市 宮城野区 Nakakecho 201-1</span><svg class="i o"><use href="#out"/></svg></a>
   </div>
 
-  <div class="note-item">
-    <div class="note-title">1/11 兩組出發注意</div>
-    <div class="note-body">
-      <b>東京組</b>：BR184 成田落地後，於東京站一番街僅預留約80分鐘，務必抓緊時間，最晚 <b>15:50</b> 前需登上往仙台新幹線，才能於 <b>18:00</b> 前抵達飯店。<br><br>
-      <b>仙台組</b>：BR118 直飛仙台，因未經東京，JR Pass 需改在 <b>仙台站</b> JR東日本窗口兌換，落地後請優先辦理，避免影響隔日行程。<br><br>
-      兩組預計於仙台飯店 Check-in 後、善治郎牛舌晚餐時會合。
-    </div>
+  <div class="ht">
+    <div class="ht-top"><span class="ht-d">1/14 — 1/15</span><span class="tag-ok">已確認 · 1 晚</span></div>
+    <div class="ht-n">函館站前 APA 酒店</div>
+    <div class="ht-en">APA Hotel Hakodate Ekimae</div>
+    <dl><dt>入住</dt><dd>1 月 14 日（四）</dd><dt>退房</dt><dd>1 月 15 日（五）</dd></dl>
+    <a class="addr" data-q="APA Hotel Hakodate Ekimae"><svg class="i pin"><use href="#pin"/></svg><span>北海道函館市 Otemachi 19-13</span><svg class="i o"><use href="#out"/></svg></a>
   </div>
 
-  <div class="note-item">
-    <div class="note-title">1/12 行程注意（松島 + 弘前同天）</div>
-    <div class="note-body">
-      松島和弘前同天行程跨距大，松島上午限2～3小時為佳，<b>13:00前出發</b>才能下午到弘前。<br><br>
-      弘前（蘋果派）與青森市（睡魔資料館）有段距離，若時間不夠，可只逛弘前市區，省略青森市。<br><br>
-      東北冬季天黑早，<b>16:00 即入夜</b>，回仙台新幹線班次需提前查好，避免趕不上末班車。
-    </div>
+  <div class="ht">
+    <div class="ht-top"><span class="ht-d">1/15 — 1/18</span><span class="tag-ok">已確認 · 3 晚</span></div>
+    <div class="ht-n">APA Hotel Sapporo Odori Ekimae Nishi</div>
+    <div class="ht-en">APA Hotel 札幌大通站前西</div>
+    <dl><dt>入住</dt><dd>1 月 15 日（五）</dd><dt>退房</dt><dd>1 月 18 日（一）</dd><dt>備註</dt><dd>7 人房間分配請提早於飯店確認</dd></dl>
+    <a class="addr" data-q="APA Hotel Sapporo Odori Ekimae Nishi"><svg class="i pin"><use href="#pin"/></svg><span>北海道札幌市 中央区南1条西9-15-1</span><svg class="i o"><use href="#out"/></svg></a>
+  </div>
+</section>
+
+<!-- ══════════ 準備 ══════════ -->
+<section id="s-prep">
+  <div class="sec-h"><h2>準備</h2><span class="lbl num" id="prep-all">0 / 16</span></div>
+
+  <div class="pg">
+    <div class="pg-h"><span class="pill">立即處理</span><span class="pg-c"></span></div>
+    <div class="ck" data-id="c1"><div class="box"><svg viewBox="0 0 16 16"><path d="M3.5 8.5l3 3 6-7"/></svg></div><div><div class="ck-t">函館站前 APA 酒店 · 訂房確認</div><div class="ck-s">已選定 · 1 晚（1/14–1/15）· Otemachi 19-13 · 請確認訂單確認碼與付款狀態</div></div></div>
+    <div class="ck" data-id="c2"><div class="box"><svg viewBox="0 0 16 16"><path d="M3.5 8.5l3 3 6-7"/></svg></div><div><div class="ck-t">APA Hotel Sapporo Odori Ekimae Nishi · 訂房確認</div><div class="ck-s">已選定 · 3 晚（1/15–1/18）· 南1条西9-15-1 · 7 人房間分配需提早確認</div></div></div>
+    <div class="ck urgent" data-id="c3"><div class="box"><svg viewBox="0 0 16 16"><path d="M3.5 8.5l3 3 6-7"/></svg></div><div><div class="ck-t">エビかに合戦 訂位</div><div class="ck-s">7 人用餐建議至少 1 個月前訂位 · Tabelog 或官網預約 · 1/15（五）晚餐時段</div></div></div>
+    <div class="ck urgent" data-id="c4"><div class="box"><svg viewBox="0 0 16 16"><path d="M3.5 8.5l3 3 6-7"/></svg></div><div><div class="ck-t">KKday 銀山溫泉一日遊 預訂</div><div class="ck-s">1/13（三）全天行程 · 1 月冬季旺季名額有限 · 確認行程含仙台來回接送</div></div></div>
   </div>
 
-  <div class="note-item">
-    <div class="note-title">飲食 · 訂位建議</div>
-    <div class="note-body">
-      <b>善治郎牛舌（仙台）</b>：旺季排隊長，建議開店前到場或確認線上預約管道<br>
-      <b>くし路 新北海道ビル店（札幌）</b>：1/15 中午爐端燒午餐，平日限定 11:30–14:00，人少可不訂位<br>
-      <b>エビかに合戦（札幌）</b>：7人用餐建議至少1個月前訂位，可透過 Tabelog 或官網預約<br>
-      <b>小樽壽司通</b>：午餐時段比晚餐等待時間短，午餐前往較佳<br>
-      北海道海鮮物價偏高，吃到飽行程整體較划算
-    </div>
+  <div class="pg">
+    <div class="pg-h"><span class="pill">出發前 1 個月內</span><span class="pg-c"></span></div>
+    <div class="ck" data-id="c5"><div class="box"><svg viewBox="0 0 16 16"><path d="M3.5 8.5l3 3 6-7"/></svg></div><div><div class="ck-t">JR東日本＋南北海道パス 購買＆訂座</div><div class="ck-s">JR東日本官網購買 · 同時預訂各段指定席 · 覆蓋：N'EX（成田→東京）、東北新幹線（東京→仙台）、北海道新幹線（仙台→新函館北斗）、特急北斗（函館→札幌）、快速エアポート（新千歲）</div></div></div>
+    <div class="ck" data-id="c6"><div class="box"><svg viewBox="0 0 16 16"><path d="M3.5 8.5l3 3 6-7"/></svg></div><div><div class="ck-t">善治郎牛舌 訂位確認</div><div class="ck-s">確認是否可 Google Map 線上預約 · 或規劃開店前到場排隊策略 · 1/11（一）晚餐</div></div></div>
+    <div class="ck" data-id="c7"><div class="box"><svg viewBox="0 0 16 16"><path d="M3.5 8.5l3 3 6-7"/></svg></div><div><div class="ck-t">松島牡蠣餐廳預約</div><div class="ck-s">1/12（二）上午 · 1 月牡蠣季尾聲，需確認餐廳有無供應 · 松島さかな市場周邊多家可選</div></div></div>
+    <div class="ck" data-id="c8"><div class="box"><svg viewBox="0 0 16 16"><path d="M3.5 8.5l3 3 6-7"/></svg></div><div><div class="ck-t">KKday 1/16 洞爺湖一日遊 預訂</div><div class="ck-s">暫定洞爺湖為主 · 尚待正式選定與預訂 · 確認行程含札幌來回接送</div></div></div>
+    <div class="ck" data-id="c9"><div class="box"><svg viewBox="0 0 16 16"><path d="M3.5 8.5l3 3 6-7"/></svg></div><div><div class="ck-t">日本 SIM 卡 / eSIM</div><div class="ck-s">台灣出發前於 KKday / Klook 購入 · 或 IIJmio 短期方案 · 建議選 8 天方案</div></div></div>
+    <div class="ck" data-id="c10"><div class="box"><svg viewBox="0 0 16 16"><path d="M3.5 8.5l3 3 6-7"/></svg></div><div><div class="ck-t">Visit Japan Web 填寫</div><div class="ck-s">日本入境電子申報 · 出發前完成可加快入境速度 · 所有組員均需完成</div></div></div>
+    <div class="ck urgent" data-id="c16"><div class="box"><svg viewBox="0 0 16 16"><path d="M3.5 8.5l3 3 6-7"/></svg></div><div><div class="ck-t">仙台組（去）／加航組（回）航班時刻二次確認</div><div class="ck-s">去程 BR118（桃園→仙台）、回程新千歲→青森轉機班次與長榮 BR121（青森→台北，加拿大航空開票）均依現行同期班表推算 · 2027 年 1 月正式時刻表公布後請重新核對並完成訂位</div></div></div>
   </div>
 
-  <div class="note-item">
-    <div class="note-title">購物 · 伴手禮建議</div>
-    <div class="note-body">
-      <b>仙台</b>：萩の月（最著名仙台銘菓）、牛舌真空包裝<br>
-      <b>弘前</b>：蘋果派、蘋果酒、蘋果果凍<br>
-      <b>函館</b>：いかめし（魷魚飯）真空包、昆布加工品<br>
-      <b>札幌 / 小樽</b>：白色戀人餅乾、六花亭甜點、北海道牛乳糖<br><br>
-      狸小路的 Don Quijote 24小時營業，適合 <b>1/17 晚</b>最後一晚集中掃貨。
-    </div>
+  <div class="pg">
+    <div class="pg-h"><span class="pill">隨身攜帶</span><span class="pg-c"></span></div>
+    <div class="ck" data-id="c11"><div class="box"><svg viewBox="0 0 16 16"><path d="M3.5 8.5l3 3 6-7"/></svg></div><div><div class="ck-t">護照 + 信用卡 / 現金日圓</div><div class="ck-s">護照效期 6 個月以上 · 建議每人備妥至少 ¥30,000 現金備用</div></div></div>
+    <div class="ck" data-id="c12"><div class="box"><svg viewBox="0 0 16 16"><path d="M3.5 8.5l3 3 6-7"/></svg></div><div><div class="ck-t">厚羽絨外套 + 防水防滑雪靴</div><div class="ck-s">仙台 1 月均溫 -2°C ～ 3°C · 函館 -8°C ～ -1°C · 札幌 -10°C ～ -3°C · 街道可能結冰，防滑雪靴必備</div></div></div>
+    <div class="ck" data-id="c13"><div class="box"><svg viewBox="0 0 16 16"><path d="M3.5 8.5l3 3 6-7"/></svg></div><div><div class="ck-t">手套、毛帽、圍巾、保暖內衣</div><div class="ck-s">Heattech 或同等級保暖內衣 · 暖暖包可在日本當地便利店購買</div></div></div>
+    <div class="ck" data-id="c14"><div class="box"><svg viewBox="0 0 16 16"><path d="M3.5 8.5l3 3 6-7"/></svg></div><div><div class="ck-t">IC 卡（Suica / ICOCA）</div><div class="ck-s">用於市區地鐵、巴士 · 可在仙台、函館、札幌的 JR 站購買 · 建議各自充值 ¥5,000</div></div></div>
+    <div class="ck" data-id="c15"><div class="box"><svg viewBox="0 0 16 16"><path d="M3.5 8.5l3 3 6-7"/></svg></div><div><div class="ck-t">每日換殼計畫 — 手機殼 × 8</div><div class="ck-s">8 天每天換不同手機殼，出發前備齊並編排順序 · 可配合當日景點或城市主題挑選配色</div></div></div>
   </div>
+</section>
 
-  <div class="note-item">
-    <div class="note-title">緊急聯絡 · 實用資訊</div>
-    <div class="note-body">
-      <b>日本緊急號碼</b>：警察 110 / 救護車、消防 119<br>
-      <b>外交部急難救助</b>：+886-800-085-095<br>
-      <b>台灣交流協會仙台</b>：+81-22-297-7172<br>
-      <b>台灣交流協會札幌</b>：+81-11-222-2930<br><br>
-      日本多數便利店（7-11、FamilyMart、Lawson）有 ATM 可領現金，接受 Visa / Master。
-    </div>
-  </div>
+<!-- ══════════ 注意 ══════════ -->
+<section id="s-note">
+  <div class="sec-h"><h2>注意</h2><span class="lbl num">7 Notes</span></div>
+  <ol class="notes">
+    <li class="nt">
+      <h3>仙台・北海道冬季氣候</h3>
+      <p><b>仙台 1 月</b>　平均 -2°C ～ 3°C，偶有降雪但積雪量不如北海道<br><b>函館 1 月</b>　平均 -8°C ～ -1°C，風大、積雪明顯<br><b>札幌 1 月</b>　平均 -10°C ～ -3°C，全旅程最寒冷城市</p>
+      <p>市區街道可能有結冰，穿防滑雪靴為必要。日本室內暖氣充足，進出室內需注意溫差。</p>
+    </li>
+    <li class="nt">
+      <h3>JR Pass 適用 / 不適用範圍</h3>
+      <p><b>使用方案</b>　JR東日本＋南北海道パス · 於 JR東日本官網購買並預訂指定席</p>
+      <p><b>適用</b>　成田特快 N'EX（成田→東京）、東北新幹線（東京→仙台）、北海道新幹線（仙台→新函館北斗）、JR 特急北斗（函館→札幌）、JR 快速エアポート（新千歲機場）</p>
+      <p><b>不適用</b>　仙台地下鐵、函館市電、札幌市営地下鉄、機場巴士</p>
+    </li>
+    <li class="nt">
+      <h3>1/11 兩組出發注意</h3>
+      <p><b>東京組</b>　BR184 成田落地後，於東京站一番街僅預留約 80 分鐘，務必抓緊時間，最晚 <b>15:50</b> 前需登上往仙台新幹線，才能於 <b>18:00</b> 前抵達飯店。</p>
+      <p><b>仙台組</b>　BR118 直飛仙台，因未經東京，JR Pass 需改在 <b>仙台站</b> JR東日本窗口兌換，落地後請優先辦理，避免影響隔日行程。</p>
+      <p>兩組預計於仙台飯店 Check-in 後、善治郎牛舌晚餐時會合。</p>
+    </li>
+    <li class="nt">
+      <h3>1/12 松島 + 弘前同天</h3>
+      <p>松島和弘前同天行程跨距大，松島上午限 2～3 小時為佳，<b>13:00 前出發</b>才能下午到弘前。</p>
+      <p>弘前（蘋果派）與青森市（睡魔資料館）有段距離，若時間不夠，可只逛弘前市區，省略青森市。</p>
+      <p>東北冬季天黑早，<b>16:00 即入夜</b>，回仙台新幹線班次需提前查好，避免趕不上末班車。</p>
+    </li>
+    <li class="nt">
+      <h3>飲食 · 訂位建議</h3>
+      <p><b>善治郎牛舌（仙台）</b>　旺季排隊長，建議開店前到場或確認線上預約管道<br><b>くし路 新北海道ビル店（札幌）</b>　1/15 中午爐端燒，平日限定 11:30–14:00，人少可不訂位<br><b>エビかに合戦（札幌）</b>　7 人用餐建議至少 1 個月前訂位<br><b>小樽壽司通</b>　午餐時段比晚餐等待時間短</p>
+      <p>北海道海鮮物價偏高，吃到飽行程整體較划算。</p>
+    </li>
+    <li class="nt">
+      <h3>購物 · 伴手禮建議</h3>
+      <p><b>仙台</b>　萩の月、牛舌真空包裝<br><b>弘前</b>　蘋果派、蘋果酒、蘋果果凍<br><b>函館</b>　いかめし（魷魚飯）真空包、昆布加工品<br><b>札幌 / 小樽</b>　白色戀人、六花亭甜點、北海道牛乳糖</p>
+      <p>狸小路的 Don Quijote 24 小時營業，適合 <b>1/17 晚</b>最後一晚集中掃貨。</p>
+    </li>
+    <li class="nt">
+      <h3>緊急聯絡 · 實用資訊</h3>
+      <p><b>日本緊急號碼</b>　警察 <a href="tel:110">110</a>／救護車、消防 <a href="tel:119">119</a><br><b>外交部急難救助</b>　<a href="tel:+886800085095">+886-800-085-095</a><br><b>台灣交流協會仙台</b>　<a href="tel:+81222977172">+81-22-297-7172</a><br><b>台灣交流協會札幌</b>　<a href="tel:+81112222930">+81-11-222-2930</a></p>
+      <p>日本多數便利店（7-11、FamilyMart、Lawson）有 ATM 可領現金，接受 Visa / Master。</p>
+    </li>
+  </ol>
+  <div class="end lbl">Sendai — Hokkaido · 2027</div>
+</section>
 
-</div>
-
+<nav class="dock" aria-label="章節">
+  <a href="#s-home" data-s="s-home" class="on">總覽</a>
+  <a href="#s-days" data-s="s-days">行程</a>
+  <a href="#s-move" data-s="s-move">交通</a>
+  <a href="#s-stay" data-s="s-stay">住宿</a>
+  <a href="#s-prep" data-s="s-prep">準備</a>
+  <a href="#s-note" data-s="s-note">注意</a>
+  <button class="fz" id="fz" aria-label="切換字級">Aa</button>
+</nav>
 
 <script>
-function show(id, btn) {
-  document.querySelectorAll('.sec').forEach(el => el.classList.remove('on'));
-  document.querySelectorAll('.nav button').forEach(el => el.classList.remove('on'));
-  document.getElementById(id).classList.add('on');
-  btn.classList.add('on');
-}
+(function(){
+  var $=function(s,c){return (c||document).querySelector(s)};
+  var $$=function(s,c){return Array.prototype.slice.call((c||document).querySelectorAll(s))};
+  function get(k){try{return localStorage.getItem(k)}catch(e){return null}}
+  function set(k,v){try{localStorage.setItem(k,v)}catch(e){}}
 
-// ── Checklist with localStorage persistence ──
-const STORE_KEY = 'sendai_hokkaido_checks';
+  /* 字級 */
+  var STEPS=[1,1.15,1.3,1.45], fi=parseInt(get('sendai_f')||'0',10)||0, fz=$('#fz');
+  function applyF(){document.documentElement.style.setProperty('--f',STEPS[fi]);fz.classList.toggle('big',fi>0);fz.setAttribute('aria-label','切換字級（目前 '+Math.round(STEPS[fi]*100)+'%）')}
+  fz.addEventListener('click',function(){fi=(fi+1)%STEPS.length;set('sendai_f',fi);applyF()});
+  applyF();
 
-function loadChecks() {
-  try {
-    const saved = JSON.parse(localStorage.getItem(STORE_KEY) || '{}');
-    Object.keys(saved).forEach(id => {
-      if (saved[id]) {
-        const el = document.getElementById(id);
-        if (el) el.classList.add('checked');
-      }
+  /* 地址按鈕 */
+  $$('a.addr').forEach(function(a){
+    var q=a.getAttribute('data-q')||a.querySelector('span').textContent;
+    a.href='https://www.google.com/maps/search/?api=1&query='+encodeURIComponent(q);
+    a.target='_blank';a.rel='noopener';
+  });
+
+  /* 日期展開 */
+  function setOpen(day,open){day.classList.toggle('open',open);$('.dh',day).setAttribute('aria-expanded',open)}
+  $$('.day').forEach(function(d){$('.dh',d).addEventListener('click',function(){setOpen(d,!d.classList.contains('open'))})});
+
+  /* 勾選清單 */
+  var KEY='sendai_hokkaido_checks', saved={};
+  try{saved=JSON.parse(get(KEY)||'{}')}catch(e){}
+  function counts(){
+    var all=0,done=0;
+    $$('.pg').forEach(function(g){
+      var items=$$('.ck',g), d=items.filter(function(i){return i.getAttribute('aria-checked')==='true'}).length;
+      $('.pg-c',g).textContent=d+' / '+items.length; g.classList.toggle('done',d===items.length);
+      all+=items.length; done+=d;
     });
-  } catch(e) {}
-}
-
-function toggle(id) {
-  const el = document.getElementById(id);
-  if (!el) return;
-  el.classList.toggle('checked');
-  try {
-    const saved = JSON.parse(localStorage.getItem(STORE_KEY) || '{}');
-    saved[id] = el.classList.contains('checked');
-    localStorage.setItem(STORE_KEY, JSON.stringify(saved));
-  } catch(e) {}
-}
-
-document.addEventListener('DOMContentLoaded', loadChecks);
-
-// ── 字體縮放（動態注入 CSS，版面不動只改字級）──
-const FONT_MAP = [
-  ['body',              14],
-  ['.hdr-eyebrow',      10],
-  ['.hdr h1',           26],
-  ['.hdr-sub',          11],
-  ['.nav button',       10],
-  ['.members-eyebrow',  10],
-  ['.m-grp',             9],
-  ['.m-name',           13],
-  ['.m-count',          11],
-  ['.tl-date',          12],
-  ['.tl-dow',           10],
-  ['.tl-title',         14],
-  ['.tl-desc',          12],
-  ['.badge',            10],
-  ['.day-hdr-title',    12],
-  ['.day-hdr-sub',      11],
-  ['.slot-icon',        11],
-  ['.slot-title',       13],
-  ['.slot-detail',      12],
-  ['.slot-addr',        11],
-  ['.slot-note',        11],
-  ['.hotel-nights',     10],
-  ['.hotel-name',       14],
-  ['.hotel-en',         11],
-  ['.hotel-row',        12],
-  ['.hotel-note',       11],
-  ['.prep-grp-title',   10],
-  ['.prep-box',         10],
-  ['.prep-title',       13],
-  ['.prep-sub',         11],
-  ['.tr-seg-title',     11],
-  ['.tr-seg-date',      11],
-  ['.tr-icon',          16],
-  ['.tr-route',         13],
-  ['.tr-time',          12],
-  ['.tr-meta',          11],
-  ['.tr-badge',          9],
-  ['.tr-connector',     11],
-  ['.tr-pass-note',     11],
-  ['.note-title',       13],
-  ['.note-body',        12],
-];
-
-const SCALE_STEPS = [100, 125, 150, 175, 200, 250];
-const SCALE_KEY = 'sendai_zoom_idx';
-let scaleIdx = 0;
-
-function applyScale(idx) {
-  scaleIdx = Math.max(0, Math.min(SCALE_STEPS.length - 1, idx));
-  const pct = SCALE_STEPS[scaleIdx];
-  const scale = pct / 100;
-
-  let styleEl = document.getElementById('font-scale-style');
-  if (!styleEl) {
-    styleEl = document.createElement('style');
-    styleEl.id = 'font-scale-style';
-    document.head.appendChild(styleEl);
+    $('#prep-all').textContent=done+' / '+all;
   }
+  $$('.ck').forEach(function(el){
+    var id=el.getAttribute('data-id');
+    el.setAttribute('role','checkbox');el.tabIndex=0;el.setAttribute('aria-checked',saved[id]?'true':'false');
+    function flip(){var on=el.getAttribute('aria-checked')!=='true';el.setAttribute('aria-checked',on);saved[id]=on;set(KEY,JSON.stringify(saved));counts()}
+    el.addEventListener('click',flip);
+    el.addEventListener('keydown',function(e){if(e.key===' '||e.key==='Enter'){e.preventDefault();flip()}});
+  });
+  counts();
 
-  styleEl.textContent = scale === 1 ? '' :
-    FONT_MAP.map(([sel, base]) =>
-      `${sel} { font-size: ${(base * scale).toFixed(1)}px !important; }`
-    ).join('\n');
-
-  document.getElementById('fc-pct').textContent = pct + '%';
-  document.getElementById('fc-minus').disabled = (scaleIdx === 0);
-  document.getElementById('fc-plus').disabled  = (scaleIdx === SCALE_STEPS.length - 1);
-  try { localStorage.setItem(SCALE_KEY, scaleIdx); } catch(e) {}
-}
-
-function adjustScale(dir) { applyScale(scaleIdx + dir); }
-
-(function initScale() {
-  try {
-    const saved = parseInt(localStorage.getItem(SCALE_KEY), 10);
-    if (!isNaN(saved) && saved >= 0 && saved < SCALE_STEPS.length) {
-      applyScale(saved); return;
+  /* 現在狀態（日本時間） */
+  var ov=(location.search.match(/now=([^&]+)/)||[])[1];
+  var nowMs=ov?Date.parse(decodeURIComponent(ov)+'+09:00'):Date.now();
+  var j=new Date(nowMs+9*3600e3);
+  function pad(n){return (n<10?'0':'')+n}
+  var today=j.getUTCFullYear()+'-'+pad(j.getUTCMonth()+1)+'-'+pad(j.getUTCDate());
+  var nowMin=j.getUTCHours()*60+j.getUTCMinutes();
+  var START='2027-01-11', END='2027-01-18', days=$$('.day');
+  var L=$('#now-l'), M=$('#now-m'), S=$('#now-s'), go=$('#now-go'), target=days[0];
+  function titleOf(it){
+    var ti=$('.ti',it), g=$('.grp',ti), t='';
+    Array.prototype.forEach.call(ti.childNodes,function(n){if(n.nodeType===3)t+=n.textContent});
+    return (g?g.textContent+'｜':'')+t.trim();
+  }
+  if(today<START){
+    var diff=Math.ceil((Date.UTC(2027,0,11)-Date.UTC(j.getUTCFullYear(),j.getUTCMonth(),j.getUTCDate()))/864e5);
+    L.textContent='COUNTDOWN';
+    M.textContent='距離出發還有 '+diff+' 天';
+    S.textContent='1/11 桃園出發 · 東京組 07:55 / 仙台組 10:15';
+  }else if(today>END){
+    L.textContent='COMPLETE';
+    M.textContent='旅程結束，8 日走完仙台到北海道';
+    S.textContent='2027.01.11 — 01.18 · 4 組 7 人';
+  }else{
+    var idx=days.findIndex(function(d){return d.getAttribute('data-date')===today});
+    var day=days[idx]; day.classList.add('today'); setOpen(day,true); target=day;
+    $$('.seg').forEach(function(s){if(s.getAttribute('data-date').indexOf(today)>-1)s.classList.add('today')});
+    L.textContent='TODAY · DAY '+(idx+1);
+    var next=$$('.it[data-t]',day).filter(function(it){var p=it.getAttribute('data-t').split(':');return p[0]*60+ +p[1]>nowMin})[0];
+    if(next){
+      var tag=document.createElement('span');tag.className='next';tag.textContent='NEXT';$('.tm',next).appendChild(tag);
+      M.textContent=next.getAttribute('data-t')+'  '+titleOf(next);
+      S.textContent=$('.dt',day).textContent+' · '+$('.ds',day).textContent;
+      target=next;
+    }else{
+      M.textContent='今天的行程都走完了';
+      var tm=days[idx+1];
+      S.textContent=tm?'明天 '+$('.dd',tm).textContent+'　'+$('.dt',tm).textContent:'一路順風，平安回家';
     }
-  } catch(e) {}
-  applyScale(0);
+  }
+  go.addEventListener('click',function(){
+    var d=target.classList.contains('day')?target:target.closest('.day');
+    setOpen(d,true);
+    setTimeout(function(){target.scrollIntoView({behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth',block:'start'})},60);
+  });
+
+  /* 浮動導航 */
+  var links=$$('.dock a');
+  if('IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(es){
+      es.forEach(function(e){if(e.isIntersecting){links.forEach(function(a){a.classList.toggle('on',a.getAttribute('data-s')===e.target.id)})}});
+    },{rootMargin:'-45% 0px -50% 0px'});
+    $$('section').forEach(function(s){io.observe(s)});
+  }
 })();
 </script>
 </body>
