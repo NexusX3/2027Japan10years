@@ -171,6 +171,22 @@ section{scroll-margin-top:8px}
 
 .end{padding-top:48px;text-align:center}
 
+/* Budget */
+.bsum{margin-top:24px;background:var(--s1);border-radius:18px;padding:20px}
+.bsum-m{font-size:calc(40px * var(--f));font-weight:200;line-height:1.15;letter-spacing:.02em;margin-top:8px}
+.bsum-s{font-size:calc(13.5px * var(--f));color:var(--text2);margin-top:4px}
+.bsum-g{display:flex;justify-content:space-between;gap:12px;margin-top:16px;padding-top:12px;border-top:1px solid var(--line2);font-size:calc(13.5px * var(--f));color:var(--text2)}
+.bsum-g span:last-child{color:var(--acc)}
+.bnote{font-size:calc(12.5px * var(--f));color:var(--text3);line-height:1.7;margin-top:14px}
+.bt{width:100%;border-collapse:collapse}
+.bt td{padding:13px 0;border-bottom:1px solid var(--line);vertical-align:top}
+.bt tr:last-child td{border-bottom:0}
+.bn{font-size:calc(15px * var(--f));font-weight:600;line-height:1.45}
+.bs{font-size:calc(12.5px * var(--f));color:var(--text3);line-height:1.55;margin-top:3px}
+.bv{text-align:right;white-space:nowrap;padding-left:14px!important;font-size:calc(15px * var(--f));font-variant-numeric:tabular-nums}
+.tg{display:inline-block;font-size:calc(10.5px * var(--f));letter-spacing:.1em;color:var(--warm);background:rgba(255,180,94,.1);border-radius:20px;padding:0 7px;margin-left:6px;vertical-align:.12em;line-height:1.7}
+.tg.ok{color:var(--ok);background:rgba(111,220,175,.1)}
+
 /* Dock */
 .dock{position:fixed;z-index:50;left:50%;transform:translateX(-50%);bottom:calc(14px + env(safe-area-inset-bottom));width:min(452px,calc(100vw - 28px));display:flex;gap:2px;padding:5px;border-radius:999px;background:rgba(24,24,54,.82);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border:1px solid var(--line2)}
 .dock a{flex:1;min-height:44px;display:grid;place-items:center;border-radius:999px;color:var(--text2);text-decoration:none;font-size:13px;letter-spacing:.04em;white-space:nowrap;transition:background .3s var(--ease),color .3s var(--ease)}
@@ -339,19 +355,63 @@ section{scroll-margin-top:8px}
     <button class="dh" aria-expanded="false">
       <div><div class="dd">1/13</div><div class="dw">WED</div></div>
       <div>
-        <div class="dt">銀山溫泉一日遊</div>
-        <div class="ds">KKday 行程 · 大正浪漫雪景溫泉街</div>
+        <div class="dt">福島 → 銀山溫泉</div>
+        <div class="ds">飯坂溫泉散策 · 円盤餃子午餐 · 山形新幹線つばさ · 包車看銀山燈火</div>
         <div class="dst">連住 APA</div>
       </div>
       <svg class="i chev"><use href="#down"/></svg>
     </button>
     <div class="db"><div class="dbi"><ol class="tl">
-      <li class="it">
-        <div class="tm"><span class="tv">全天</span><i class="ln"></i></div>
-        <div class="ti">KKday 銀山溫泉一日遊</div>
-        <div class="tx">銀山温泉位於山形縣 · 日本最具代表性的大正浪漫溫泉街 · 冬季積雪景色如明信片，夜晚燈籠倒映河面 · 行程通常含往返接送</div>
-        <div class="warn"><svg class="i"><use href="#alert"/></svg><span>從仙台出發約 2～2.5 小時 · 非住宿者可在日歸設施泡湯 · 溫泉饅頭、玉こんにゃく為當地名物</span></div>
+      <li class="it key" data-t="09:00">
+        <div class="tm"><span class="tv">09:00</span><i class="ln"></i></div>
+        <div class="ti">仙台 → 福島（東北新幹線）</div>
+        <div class="tx">やまびこ 仙台始發，約 25 分抵達福島 · JR東日本＋南北海道パス 適用</div>
+        <div class="warn"><svg class="i"><use href="#alert"/></svg><span>平日 09:00 仙台始發班次，後一班 09:25 亦可 · 2027 年 1 月時刻表公布後請再確認</span></div>
+      </li>
+      <li class="it" data-t="09:45">
+        <div class="tm"><span class="tv">09:45</span><i class="ln"></i></div>
+        <div class="ti">福島 → 飯坂溫泉（いい電）</div>
+        <div class="tx">福島交通飯坂線，約 25 分抵達終點飯坂溫泉站 · 單程 ¥430 · 從 JR 福島站內連絡改札轉乘，前東急老電車，搖晃著穿過住宅與果園</div>
+        <div class="warn"><svg class="i"><use href="#alert"/></svg><span>私鐵路線，JR Pass 不適用，需另購票</span></div>
+      </li>
+      <li class="it" data-t="10:15">
+        <div class="tm"><span class="tv">10:15</span><i class="ln"></i></div>
+        <div class="ti">飯坂溫泉散策 · 旧堀切邸 · 鯖湖湯</div>
+        <div class="tx">奧州三名湯之一，芭蕉、正岡子規都曾到訪 · <b>旧堀切邸</b>（免費入場，江戶豪農宅邸，庭園有足湯與手湯）→ 步行 1 分鐘到 <b>鯖湖湯</b>（¥400，飯坂最古老的共同浴場，重現明治木造湯屋，源泉掛流）→ 十綱橋眺望溫泉街</div>
+        <div class="warn"><svg class="i"><use href="#alert"/></svg><span>鯖湖湯週一公休（1/13 週三照常）· 無淋浴設備，需從浴槽舀水沖身 · 湯溫偏熱 · 毛巾可現場購買 · 不想泡湯也可只泡旧堀切邸足湯</span></div>
+        <a class="addr" data-q="旧堀切邸"><svg class="i pin"><use href="#pin"/></svg><span>福島市飯坂町 · 旧堀切邸／鯖湖湯</span><svg class="i o"><use href="#out"/></svg></a>
+      </li>
+      <li class="it" data-t="12:00">
+        <div class="tm"><span class="tv">12:00</span><i class="ln"></i></div>
+        <div class="ti">午餐 — 餃子の照井 東口店 · 円盤餃子</div>
+        <div class="tx">11:30 左右搭いい電回福島站 · 福島名物「円盤餃子」，二十多顆薄皮餃子在平底鍋排成圓盤一次煎好，倒扣上桌 · 一皿 22 顆，外皮酥脆、內餡清爽 · 營業 11:30–15:00（L.O. 14:15），售完即止</div>
+        <div class="warn"><svg class="i"><use href="#alert"/></svg><span>飯坂本店週三公休且只做晚餐，因此改去 JR 福島站東口步行 2 分的分店（週二公休，週三照常營業）· 7 人建議 12:00 前到店</span></div>
+        <a class="addr" data-q="餃子の照井 東口店"><svg class="i pin"><use href="#pin"/></svg><span>福島市栄町 1-1（福島站東口）</span><svg class="i o"><use href="#out"/></svg></a>
+      </li>
+      <li class="it" data-t="13:00">
+        <div class="tm"><span class="tv">13:00</span><i class="ln"></i></div>
+        <div class="ti">エスパル福島 · 福島みやげ館</div>
+        <div class="tx">JR 福島站直結 · 菓子、地酒、醃漬物等福島伴手禮集中一處，上車前補貨剛好</div>
+      </li>
+      <li class="it key" data-t="13:37">
+        <div class="tm"><span class="tv">13:37</span><i class="ln"></i></div>
+        <div class="ti">福島 → 大石田（山形新幹線つばさ 137 號）</div>
+        <div class="tx">福島 13:37 發 → 大石田 15:15 抵達（約 1h 38m）· 沿途翻越奧羽山脈，車窗外是米澤、山形的雪國盆地 · JR東日本＋南北海道パス 適用，<b>官網預訂指定席</b></div>
+        <div class="warn"><svg class="i"><use href="#alert"/></svg><span>つばさ在福島站與やまびこ分割，搭乘 14 號月台，請確認是「つばさ」車廂 · 時刻依現行班表，2027 年 1 月請再確認</span></div>
+      </li>
+      <li class="it key" data-t="15:30">
+        <div class="tm"><span class="tv">15:30</span><i class="ln"></i></div>
+        <div class="ti">尾花澤計程車 · 銀山溫泉包車（15:30–18:30）</div>
+        <div class="tx">尾花沢タクシー「銀山温泉コース」3 小時：大石田站 → 銀山溫泉 → 大石田站，溫泉街自由散策約 2 小時 · 7 人搭 <b>ジャンボタクシー（定員 9 名）¥24,000～／台</b> · 1 月日落約 16:40，抵達時正好由白雪轉入藍調時刻，瓦斯燈一盞盞亮起、木造旅館倒映銀山川，是一天最美的時段</div>
+        <div class="tx">散策推薦：<b>白銀の滝</b>（溫泉街盡頭的瀑布）· 河畔足湯 · 溫泉饅頭 · 咖哩麵包 · 玉こんにゃく</div>
+        <div class="warn"><svg class="i"><use href="#alert"/></svg><span>冬季銀山溫泉有交通管制與入場管制，透過尾花沢タクシー預約可直接進入、免換接駁巴士 · 降雪時單程約 40 分 · 官網價格為「起價」，請預約時確認冬季費用 · 電話 0237-23-2525 或官網預約</span></div>
         <a class="addr" data-q="銀山温泉"><svg class="i pin"><use href="#pin"/></svg><span>山形県尾花沢市銀山新畑</span><svg class="i o"><use href="#out"/></svg></a>
+      </li>
+      <li class="it key" data-t="18:57">
+        <div class="tm"><span class="tv">18:57</span><i class="ln"></i></div>
+        <div class="ti">大石田 → 福島 → 仙台</div>
+        <div class="tx">18:30 包車送回大石田站 · つばさ 18:57 發 → 福島約 20:47 → 轉東北新幹線 やまびこ（約 20:57 發）→ 仙台約 21:20 · 全程 JR Pass 適用</div>
+        <div class="warn"><svg class="i"><use href="#alert"/></svg><span>大石田站周邊晚餐選擇少，建議在銀山買小點或在福島站轉車時買駅弁 · 備案：つばさ到山形，轉 JR 仙山線回仙台</span></div>
       </li>
       <li class="it">
         <div class="tm"><span class="tv">晚上</span><i class="ln"></i></div>
@@ -558,6 +618,63 @@ section{scroll-margin-top:8px}
   </div>
 </section>
 
+<!-- ══════════ 預算 ══════════ -->
+<section id="s-cost">
+  <div class="sec-h"><h2>預算</h2><span class="lbl">Per Person · JPY</span></div>
+
+  <div class="bsum">
+    <span class="lbl">每人地上花費 · 不含機票</span>
+    <div class="bsum-m num">¥157,710</div>
+    <div class="bsum-s num">≈ NT$31,500 · 加上機票約 NT$47,000–57,000</div>
+    <div class="bsum-g num"><span>全團 7 人</span><span>¥1,103,970 ≈ NT$220,800</span></div>
+  </div>
+  <p class="bnote">匯率以 1 JPY ≈ 0.20 TWD 估算 · <span class="tg ok">定價</span> 為官方公告價格，<span class="tg">估</span> 為依店家或同類行程行情推算 · 各組實際交通略有差異（如小樽、仙台空港線僅單組需付），此處以最多的情況計 · 伴手禮與購物不列入</p>
+  <div class="sub-h"><span class="lbl">交通</span><span class="num">¥54,490</span></div>
+  <table class="bt"><tbody>
+    <tr><td><div class="bn">JR東日本＋南北海道パス（6 日）</div><div class="bs">全程 · 官方價 · 涵蓋 N'EX、東北／山形／北海道新幹線、特急北斗</div></td><td class="bv">¥40,000<span class="tg ok">定價</span></td></tr>
+    <tr><td><div class="bn">札幌 ⇄ 小樽 JR 來回</div><div class="bs">1/17 · 僅東京組：Pass 已於 1/16 到期</div></td><td class="bv">¥1,500<span class="tg">估</span></td></tr>
+    <tr><td><div class="bn">札幌 → 新千歲機場 快速エアポート</div><div class="bs">1/18 · 兩組皆在 Pass 效期外</div></td><td class="bv">¥1,150<span class="tg">估</span></td></tr>
+    <tr><td><div class="bn">仙台空港アクセス線</div><div class="bs">1/11 · 僅仙台組：Pass 尚未兌換</div></td><td class="bv">¥680<span class="tg">估</span></td></tr>
+    <tr><td><div class="bn">福島交通飯坂線 來回</div><div class="bs">1/13 · 單程 ¥430</div></td><td class="bv">¥860<span class="tg ok">定價</span></td></tr>
+    <tr><td><div class="bn">銀山溫泉包車 ジャンボタクシー</div><div class="bs">1/13 · ¥24,000～／台 ÷ 7 人，冬季費用待確認</div></td><td class="bv">¥3,500<span class="tg">估</span></td></tr>
+    <tr><td><div class="bn">市區交通 IC 卡儲值</div><div class="bs">全程 · 仙台地下鐵、函館市電、札幌地下鐵等</div></td><td class="bv">¥5,000<span class="tg">估</span></td></tr>
+    <tr><td><div class="bn">函館山纜車 來回</div><div class="bs">1/14 · 大人往返</div></td><td class="bv">¥1,800<span class="tg ok">定價</span></td></tr>
+  </tbody></table>
+  <div class="sub-h"><span class="lbl">門票 · 活動</span><span class="num">¥10,220</span></div>
+  <table class="bt"><tbody>
+    <tr><td><div class="bn">睡魔之家 WA・RASSE</div><div class="bs">1/12 · 入館料</div></td><td class="bv">¥620<span class="tg">估</span></td></tr>
+    <tr><td><div class="bn">鯖湖湯</div><div class="bs">1/13 · 大人入浴料</div></td><td class="bv">¥400<span class="tg ok">定價</span></td></tr>
+    <tr><td><div class="bn">五稜郭塔 展望台</div><div class="bs">1/14</div></td><td class="bv">¥1,200<span class="tg">估</span></td></tr>
+    <tr><td><div class="bn">KKday 洞爺湖一日遊</div><div class="bs">1/16 · 同類行程約 ¥7,000–8,800，午餐自費</div></td><td class="bv">¥8,000<span class="tg">估</span></td></tr>
+  </tbody></table>
+  <div class="sub-h"><span class="lbl">餐飲</span><span class="num">¥49,500</span></div>
+  <table class="bt"><tbody>
+    <tr><td><div class="bn">善治郎 牛舌定食</div><div class="bs">1/11</div></td><td class="bv">¥3,000<span class="tg">估</span></td></tr>
+    <tr><td><div class="bn">松島 牡蠣吃到飽</div><div class="bs">1/12</div></td><td class="bv">¥4,500<span class="tg">估</span></td></tr>
+    <tr><td><div class="bn">円盤餃子 · 照井 東口店</div><div class="bs">1/13 · 一皿 22 顆，建議 2–3 人分一皿再加點</div></td><td class="bv">¥1,500<span class="tg">估</span></td></tr>
+    <tr><td><div class="bn">函館朝市 海鮮丼</div><div class="bs">1/15</div></td><td class="bv">¥3,000<span class="tg">估</span></td></tr>
+    <tr><td><div class="bn">くし路 爐端燒午餐</div><div class="bs">1/15 · 人均 ¥1,000–1,480</div></td><td class="bv">¥1,500<span class="tg">估</span></td></tr>
+    <tr><td><div class="bn">エビかに合戦 帝王蟹吃到飽</div><div class="bs">1/15 · 人均 ¥5,000–8,000</div></td><td class="bv">¥7,000<span class="tg">估</span></td></tr>
+    <tr><td><div class="bn">小樽 壽司通 午餐</div><div class="bs">1/17</div></td><td class="bv">¥5,000<span class="tg">估</span></td></tr>
+    <tr><td><div class="bn">其餘三餐、咖啡、點心</div><div class="bs">8 天 · 每日約 ¥3,000</div></td><td class="bv">¥24,000<span class="tg">估</span></td></tr>
+  </tbody></table>
+  <div class="sub-h"><span class="lbl">住宿</span><span class="num">¥38,000</span></div>
+  <table class="bt"><tbody>
+    <tr><td><div class="bn">KP 仙台車站北 APA（3 晚）</div><div class="bs">1/11–14 · 以 2 人 1 室分攤估算，已訂者請以訂單為準</div></td><td class="bv">¥15,000<span class="tg">估</span></td></tr>
+    <tr><td><div class="bn">函館站前 APA（1 晚）</div><div class="bs">1/14–15 · 同上</div></td><td class="bv">¥5,000<span class="tg">估</span></td></tr>
+    <tr><td><div class="bn">APA 札幌大通站前西（3 晚）</div><div class="bs">1/15–18 · 同上</div></td><td class="bv">¥18,000<span class="tg">估</span></td></tr>
+  </tbody></table>
+  <div class="sub-h"><span class="lbl">其他</span><span class="num">¥5,500</span></div>
+  <table class="bt"><tbody>
+    <tr><td><div class="bn">日本 eSIM（8 天）</div><div class="bs">出發前 · 約 NT$300</div></td><td class="bv">¥1,500<span class="tg">估</span></td></tr>
+    <tr><td><div class="bn">旅平險／不便險</div><div class="bs">出發前 · 約 NT$600–1,000</div></td><td class="bv">¥4,000<span class="tg">估</span></td></tr>
+  </tbody></table>
+  <div class="sub-h"><span class="lbl">機票 · 依組別</span><span class="num">NT$15,000–25,000</span></div>
+  <table class="bt"><tbody>
+    <tr><td><div class="bn">國際線 去程＋回程</div><div class="bs">去：東京組 BR184／仙台組 BR118 · 回：虎航 IT235／亞航 FD243／星宇 JX851／加航組經青森 · 請各組以實際票價為準</div></td><td class="bv">NT$15k–25k<span class="tg">估</span></td></tr>
+  </tbody></table>
+</section>
+
 <!-- ══════════ 交通 ══════════ -->
 <section id="s-move">
   <div class="sec-h"><h2>交通</h2><span class="lbl">JR East + South Hokkaido Pass</span></div>
@@ -606,8 +723,8 @@ section{scroll-margin-top:8px}
     <div class="pass"><span class="lbl">JR Pass</span><span>此組未經東京，需改在仙台站 JR東日本窗口兌換，落地後請優先辦理</span></div>
   </div>
 
-  <div class="seg" data-date="2027-01-12,2027-01-13">
-    <div class="seg-h"><div class="seg-t">仙台拠点 · 日常移動</div><div class="seg-d num">1/12 — 1/13</div></div>
+  <div class="seg" data-date="2027-01-12">
+    <div class="seg-h"><div class="seg-t">仙台拠点 · 松島＋弘前</div><div class="seg-d num">1/12 TUE</div></div>
     <div class="leg">
       <span class="lbl">Rail · 1/12</span>
       <div class="tm"><span class="tv">約 40 分</span><i class="ln"></i></div>
@@ -621,12 +738,42 @@ section{scroll-margin-top:8px}
       <div class="tx">松島海岸 → 仙台（東北本線）→ 新幹線 → 新青森 → 奥羽本線 → 弘前 · JR Pass 適用全段</div>
       <div class="warn"><svg class="i"><use href="#alert"/></svg><span>13:00 前出發方能下午抵達弘前</span></div>
     </div>
-    <div class="leg">
-      <span class="lbl">Bus · 1/13</span>
-      <div class="tm"><span class="tv">全天</span><i class="ln"></i></div>
-      <div class="rt">仙台 ⇄ 銀山溫泉</div>
-      <div class="tx">KKday 一日遊含來回接送，無需自行安排交通 · 集合地點依行程單確認</div>
+  </div>
+
+  <div class="seg" data-date="2027-01-13">
+    <div class="seg-h"><div class="seg-t">仙台 → 福島 → 銀山溫泉 → 仙台</div><div class="seg-d num">1/13 WED</div></div>
+    <div class="leg key">
+      <span class="lbl">Shinkansen</span>
+      <div class="tm"><span class="tv">09:00</span><i class="ln"></i><span class="tv2">09:25</span></div>
+      <div class="rt">東北新幹線 やまびこ<span>仙台 → 福島</span></div>
+      <div class="tx">約 25 分 · 仙台始發</div>
     </div>
+    <div class="leg">
+      <span class="lbl">Local Rail · 私鐵</span>
+      <div class="tm"><span class="tv">約 25 分</span><i class="ln"></i></div>
+      <div class="rt">福島交通飯坂線<span>福島 ⇄ 飯坂溫泉</span></div>
+      <div class="tx">單程 ¥430，來回 ¥860 · <b>JR Pass 不適用</b></div>
+    </div>
+    <div class="leg key">
+      <span class="lbl">Yamagata Shinkansen</span>
+      <div class="tm"><span class="tv">13:37</span><i class="ln"></i><span class="tv2">15:15</span></div>
+      <div class="rt">つばさ 137 號<span>福島 → 大石田</span></div>
+      <div class="tx">約 1h 38m · 福島站 14 號月台 · <b>官網訂指定席</b></div>
+    </div>
+    <div class="conn"><svg class="i"><use href="#down"/></svg><span>大石田站　尾花沢タクシー 司機接站</span></div>
+    <div class="leg key">
+      <span class="lbl">Charter Taxi</span>
+      <div class="tm"><span class="tv">15:30</span><i class="ln"></i><span class="tv2">18:30</span></div>
+      <div class="rt">尾花沢タクシー 銀山温泉コース<span>大石田站 ⇄ 銀山溫泉</span></div>
+      <div class="tx">3 小時包車 · ジャンボタクシー（~9 名）¥24,000～／台 · 普通車（~4 名）¥16,000～ · 冬季管制期間可直接進入溫泉街</div>
+    </div>
+    <div class="leg key">
+      <span class="lbl">Return</span>
+      <div class="tm"><span class="tv">18:57</span><i class="ln"></i><span class="tv2">21:20</span></div>
+      <div class="rt">つばさ → やまびこ<span>大石田 → 福島 → 仙台</span></div>
+      <div class="tx">福島約 20:47 著，轉 20:57 前後 やまびこ · 備案：山形轉 JR 仙山線</div>
+    </div>
+    <div class="pass"><span class="lbl">JR Pass</span><span>東北新幹線、山形新幹線つばさ皆適用 · 飯坂線與包車需另付</span></div>
   </div>
 
   <div class="seg" data-date="2027-01-14">
@@ -759,12 +906,12 @@ section{scroll-margin-top:8px}
     <div class="ck" data-id="c1"><div class="box"><svg viewBox="0 0 16 16"><path d="M3.5 8.5l3 3 6-7"/></svg></div><div><div class="ck-t">函館站前 APA 酒店 · 訂房確認</div><div class="ck-s">已選定 · 1 晚（1/14–1/15）· Otemachi 19-13 · 請確認訂單確認碼與付款狀態</div></div></div>
     <div class="ck" data-id="c2"><div class="box"><svg viewBox="0 0 16 16"><path d="M3.5 8.5l3 3 6-7"/></svg></div><div><div class="ck-t">APA Hotel Sapporo Odori Ekimae Nishi · 訂房確認</div><div class="ck-s">已選定 · 3 晚（1/15–1/18）· 南1条西9-15-1 · 7 人房間分配需提早確認</div></div></div>
     <div class="ck urgent" data-id="c3"><div class="box"><svg viewBox="0 0 16 16"><path d="M3.5 8.5l3 3 6-7"/></svg></div><div><div class="ck-t">エビかに合戦 訂位</div><div class="ck-s">7 人用餐建議至少 1 個月前訂位 · Tabelog 或官網預約 · 1/15（五）晚餐時段</div></div></div>
-    <div class="ck urgent" data-id="c4"><div class="box"><svg viewBox="0 0 16 16"><path d="M3.5 8.5l3 3 6-7"/></svg></div><div><div class="ck-t">KKday 銀山溫泉一日遊 預訂</div><div class="ck-s">1/13（三）全天行程 · 1 月冬季旺季名額有限 · 確認行程含仙台來回接送</div></div></div>
+    <div class="ck urgent" data-id="c4"><div class="box"><svg viewBox="0 0 16 16"><path d="M3.5 8.5l3 3 6-7"/></svg></div><div><div class="ck-t">尾花沢タクシー 銀山溫泉包車 預約</div><div class="ck-s">1/13（三）15:30 大石田站上車、18:30 回站 · 7 人需 <b>ジャンボタクシー</b>（定員 9 名，¥24,000～）· 冬季旺季請提早以電話 0237-23-2525 或官網預約，並確認冬季實際費用</div></div></div>
   </div>
 
   <div class="pg">
     <div class="pg-h"><span class="pill">出發前 1 個月內</span><span class="pg-c"></span></div>
-    <div class="ck" data-id="c5"><div class="box"><svg viewBox="0 0 16 16"><path d="M3.5 8.5l3 3 6-7"/></svg></div><div><div class="ck-t">JR東日本＋南北海道パス 購買＆訂座</div><div class="ck-s">JR東日本官網購買 · 同時預訂各段指定席 · 覆蓋：N'EX（成田→東京）、東北新幹線（東京→仙台）、北海道新幹線（仙台→新函館北斗）、特急北斗（函館→札幌）、快速エアポート（新千歲）</div></div></div>
+    <div class="ck" data-id="c5"><div class="box"><svg viewBox="0 0 16 16"><path d="M3.5 8.5l3 3 6-7"/></svg></div><div><div class="ck-t">JR東日本＋南北海道パス 購買＆訂座</div><div class="ck-s">JR東日本官網購買 · 同時預訂各段指定席 · 覆蓋：N'EX（成田→東京）、東北新幹線（東京→仙台、仙台⇄福島）、山形新幹線つばさ（福島⇄大石田）、北海道新幹線（仙台→新函館北斗）、特急北斗（函館→札幌）、快速エアポート（新千歲）</div></div></div>
     <div class="ck" data-id="c6"><div class="box"><svg viewBox="0 0 16 16"><path d="M3.5 8.5l3 3 6-7"/></svg></div><div><div class="ck-t">善治郎牛舌 訂位確認</div><div class="ck-s">確認是否可 Google Map 線上預約 · 或規劃開店前到場排隊策略 · 1/11（一）晚餐</div></div></div>
     <div class="ck" data-id="c7"><div class="box"><svg viewBox="0 0 16 16"><path d="M3.5 8.5l3 3 6-7"/></svg></div><div><div class="ck-t">松島牡蠣餐廳預約</div><div class="ck-s">1/12（二）上午 · 1 月牡蠣季尾聲，需確認餐廳有無供應 · 松島さかな市場周邊多家可選</div></div></div>
     <div class="ck" data-id="c8"><div class="box"><svg viewBox="0 0 16 16"><path d="M3.5 8.5l3 3 6-7"/></svg></div><div><div class="ck-t">KKday 1/16 洞爺湖一日遊 預訂</div><div class="ck-s">暫定洞爺湖為主 · 尚待正式選定與預訂 · 確認行程含札幌來回接送</div></div></div>
@@ -785,7 +932,7 @@ section{scroll-margin-top:8px}
 
 <!-- ══════════ 注意 ══════════ -->
 <section id="s-note">
-  <div class="sec-h"><h2>注意</h2><span class="lbl num">7 Notes</span></div>
+  <div class="sec-h"><h2>注意</h2><span class="lbl num">8 Notes</span></div>
   <ol class="notes">
     <li class="nt">
       <h3>仙台・北海道冬季氣候</h3>
@@ -794,9 +941,10 @@ section{scroll-margin-top:8px}
     </li>
     <li class="nt">
       <h3>JR Pass 適用 / 不適用範圍</h3>
-      <p><b>使用方案</b>　JR東日本＋南北海道パス · 於 JR東日本官網購買並預訂指定席</p>
-      <p><b>適用</b>　成田特快 N'EX（成田→東京）、東北新幹線（東京→仙台）、北海道新幹線（仙台→新函館北斗）、JR 特急北斗（函館→札幌）、JR 快速エアポート（新千歲機場）</p>
-      <p><b>不適用</b>　仙台地下鐵、函館市電、札幌市営地下鉄、機場巴士</p>
+      <p><b>使用方案</b>　JR東日本＋南北海道パス · <b>連續 6 日</b> ¥40,000 · 於 JR東日本官網購買並預訂指定席</p>
+      <p><b>效期提醒</b>　全程 8 天，Pass 只有 6 天。東京組 1/11 啟用 → 用到 1/16，1/17 小樽與 1/18 機場快速需另購票；仙台組可 1/12 啟用 → 用到 1/17，僅 1/18 機場快速需另購票。</p>
+      <p><b>適用</b>　成田特快 N'EX（成田→東京）、東北新幹線（東京→仙台、仙台⇄福島）、山形新幹線つばさ（福島⇄大石田）、北海道新幹線（仙台→新函館北斗）、JR 特急北斗（函館→札幌）、JR 快速エアポート（新千歲機場）</p>
+      <p><b>不適用</b>　仙台地下鐵、福島交通飯坂線、函館市電、札幌市営地下鉄、機場巴士</p>
     </li>
     <li class="nt">
       <h3>1/11 兩組出發注意</h3>
@@ -809,6 +957,12 @@ section{scroll-margin-top:8px}
       <p>松島和弘前同天行程跨距大，松島上午限 2～3 小時為佳，<b>13:00 前出發</b>才能下午到弘前。</p>
       <p>弘前（蘋果派）與青森市（睡魔資料館）有段距離，若時間不夠，可只逛弘前市區，省略青森市。</p>
       <p>東北冬季天黑早，<b>16:00 即入夜</b>，回仙台新幹線班次需提前查好，避免趕不上末班車。</p>
+    </li>
+    <li class="nt">
+      <h3>1/13 福島 + 銀山溫泉</h3>
+      <p>這天的骨幹是 <b>つばさ 137 號（福島 13:37 → 大石田 15:15）</b>，飯坂溫泉與午餐都要在 13:30 前收尾。いい電約 20–30 分一班，回程請預留時間。</p>
+      <p>1/13 是<b>週三</b>：照井飯坂本店、飯坂的 oncafe 等店家週三公休，午餐已改排福島站前的照井東口店。</p>
+      <p>銀山溫泉冬季有交通與入場管制，自行前往需在指定地點換接駁巴士；尾花沢タクシー包車可直接進入。7 人搭一台ジャンボタクシー，車資約 ¥24,000 起，平均每人約 ¥3,500。</p>
     </li>
     <li class="nt">
       <h3>飲食 · 訂位建議</h3>
@@ -832,6 +986,7 @@ section{scroll-margin-top:8px}
 <nav class="dock" aria-label="章節">
   <a href="#s-home" data-s="s-home" class="on">總覽</a>
   <a href="#s-days" data-s="s-days">行程</a>
+  <a href="#s-cost" data-s="s-cost">預算</a>
   <a href="#s-move" data-s="s-move">交通</a>
   <a href="#s-stay" data-s="s-stay">住宿</a>
   <a href="#s-prep" data-s="s-prep">準備</a>
