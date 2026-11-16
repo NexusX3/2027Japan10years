@@ -187,6 +187,14 @@ section{scroll-margin-top:8px}
 .tg{display:inline-block;font-size:calc(10.5px * var(--f));letter-spacing:.1em;color:var(--warm);background:rgba(255,180,94,.1);border-radius:20px;padding:0 7px;margin-left:6px;vertical-align:.12em;line-height:1.7}
 .tg.ok{color:var(--ok);background:rgba(111,220,175,.1)}
 
+.mv{display:flex;gap:10px;align-items:baseline;margin-top:8px;font-size:calc(13.5px * var(--f));line-height:1.6;color:var(--acc)}
+.mv .lbl{flex:none;font-size:calc(10px * var(--f));color:var(--text3);border:1px solid var(--line2);border-radius:20px;padding:0 7px;line-height:1.7}
+.ledger{display:flex;align-items:center;gap:14px;margin-top:18px;padding:14px 16px;min-height:56px;border:1px solid var(--line2);border-radius:14px;background:var(--s1);color:var(--text);text-decoration:none;transition:background .2s}
+.ledger:active{background:var(--s2)}
+.lg-d{flex:none;width:10px;height:10px;border-radius:50%;background:#06c755;box-shadow:0 0 0 4px rgba(6,199,85,.15)}
+.lg-b{display:flex;flex-direction:column;flex:1}
+.lg-t{font-size:calc(16px * var(--f));font-weight:600;line-height:1.4;margin-top:2px}
+.ledger .o{color:var(--text3);width:16px;height:16px}
 /* Dock */
 .dock{position:fixed;z-index:50;left:50%;transform:translateX(-50%);bottom:calc(14px + env(safe-area-inset-bottom));width:min(452px,calc(100vw - 28px));display:flex;gap:2px;padding:5px;border-radius:999px;background:rgba(24,24,54,.82);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border:1px solid var(--line2)}
 .dock a{flex:1;min-height:44px;display:grid;place-items:center;border-radius:999px;color:var(--text2);text-decoration:none;font-size:13px;letter-spacing:.04em;white-space:nowrap;transition:background .3s var(--ease),color .3s var(--ease)}
@@ -236,19 +244,19 @@ section{scroll-margin-top:8px}
     <div class="mb"><span class="lbl">Group 3</span><div class="mb-n">Vera &amp; 狼狼</div><div class="mb-c num">2 人</div></div>
     <div class="mb"><span class="lbl">Group 4</span><div class="mb-n">KK</div><div class="mb-c num">1 人</div></div>
   </div>
+  <a class="ledger" href="https://liff.line.me/1655320992-Y8GowEpw/g/biYiWwD1pz7XcvD8brwJ46" target="_blank" rel="noopener"><span class="lg-d"></span><span class="lg-b"><span class="lbl">Shared Ledger</span><span class="lg-t">LINE 記帳本 · 旅費分帳</span></span><svg class="i o"><use href="#out"/></svg></a>
 </section>
 
 <!-- ══════════ 行程 ══════════ -->
 <section id="s-days">
   <div class="sec-h"><h2>行程</h2><span class="lbl num">8 Days</span></div>
-
   <!-- DAY 1 -->
   <div class="day" id="d-2027-01-11" data-date="2027-01-11">
     <button class="dh" aria-expanded="false">
       <div><div class="dd">1/11</div><div class="dw">MON</div></div>
       <div>
         <div class="dt">抵達仙台 · 兩路會合</div>
-        <div class="ds">東京組經成田、東京一番街轉新幹線；仙台組直飛，14:25 落地。晚上善治郎牛舌會合。</div>
+        <div class="ds">東京組成田落地、八重洲吃エリックサウス、はやぶさ北上；仙台組 14:25 直飛落地。晚上善治郎牛舌會合。</div>
         <div class="dst">住 KP 仙台車站北 APA 飯店</div>
       </div>
       <svg class="i chev"><use href="#down"/></svg>
@@ -258,40 +266,51 @@ section{scroll-margin-top:8px}
         <div class="tm"><span class="tv">12:00</span><i class="ln"></i></div>
         <div class="ti"><span class="grp">東京組</span>長榮 BR184 桃園 T2 → 成田 T1 落地</div>
         <div class="tx">出發 07:55 / 抵達 12:00（飛行約 3h 05m）· 辦理入境、提領行李、兌換 JR Pass</div>
-        <div class="warn"><svg class="i"><use href="#alert"/></svg><span>確認入境日本所需文件 · 護照效期需 6 個月以上 · 兌換 JR Pass 請預留約 30 分鐘</span></div>
+        <div class="warn"><svg class="i"><use href="#alert"/></svg><span>護照效期需 6 個月以上 · 兌換 JR Pass 請預留約 30 分鐘 · 1/11 為日本國定假日（成人の日），車站人潮較多</span></div>
       </li>
-      <li class="it key" data-t="13:30">
-        <div class="tm"><span class="tv">13:30</span><i class="ln"></i></div>
-        <div class="ti"><span class="grp">東京組</span>成田 → 東京站</div>
-        <div class="tx">搭乘成田特快 N'EX，約 55 分鐘抵達東京站 · JR東日本＋南北海道パス 適用</div>
-        <div class="warn"><svg class="i"><use href="#alert"/></svg><span>成田第一、二、三航廈均有 N'EX 停靠 · 座位官網訂票時一併預留</span></div>
+      <li class="it key" data-t="13:44">
+        <div class="tm"><span class="tv">13:44</span><i class="ln"></i></div>
+        <div class="ti"><span class="grp">東京組</span>成田空港 → 東京</div>
+        <div class="mv"><span class="lbl">Move</span><span>成田特快 N'EX　成田空港 13:44 → 東京 14:37（約 53 分）· JR Pass · 官網訂指定席</span></div>
+        <div class="tx">前後班次：13:14／14:20 · 第 1・2 航廈皆可搭乘</div>
       </li>
       <li class="it key" data-t="14:25">
         <div class="tm"><span class="tv">14:25</span><i class="ln"></i></div>
         <div class="ti"><span class="grp">仙台組</span>長榮 BR118 桃園 T2 → 仙台 直飛落地</div>
         <div class="tx">出發 10:15 / 抵達 14:25（飛行約 3h 10m）· 辦理入境、提領行李</div>
-        <div class="warn"><svg class="i"><use href="#alert"/></svg><span>此組未經東京，JR Pass 需改在仙台站 JR東日本窗口兌換，抵仙台後請優先辦理 · 時刻依現行同時段 BR118 班表推算，2027 年正式班表公布後請再確認</span></div>
+        <div class="warn"><svg class="i"><use href="#alert"/></svg><span>時刻依現行同時段 BR118 班表推算，2027 年正式班表公布後請再確認</span></div>
       </li>
-      <li class="it" data-t="14:25">
-        <div class="tm"><span class="tv">14:25</span><i class="ln"></i></div>
-        <div class="ti"><span class="grp">東京組</span>東京車站一番街 稍作停留</div>
-        <div class="tx">東京駅一番街（八重洲地下街）· 東京拉麵激戰區、東京動漫人物街、東京おかしランド 等店家齊聚，逛街購物、簡單用餐皆宜</div>
-        <div class="warn"><svg class="i"><use href="#alert"/></svg><span>預留約 80 分鐘（14:25–15:50）· 需保留新幹線劃位／轉乘緩衝，逛超時將壓縮抵仙台時間</span></div>
+      <li class="it" data-t="14:45">
+        <div class="tm"><span class="tv">14:45</span><i class="ln"></i></div>
+        <div class="ti"><span class="grp">東京組</span>午餐 — エリックサウス 八重洲店</div>
+        <div class="mv"><span class="lbl">Move</span><span>N'EX 到站後步行約 8 分，八重洲地下街 中 4 號通路</span></div>
+        <div class="tx">南印度咖哩名店，Tabelog 咖哩百名店常客 · 雞肉咖哩、羊肉咖哩、雙拼咖哩套餐出餐快，適合趕車前吃 · 祝日營業 11:00–21:30</div>
+        <div class="warn"><svg class="i"><use href="#alert"/></svg><span>目標 15:10 前吃完回到新幹線月台；若用餐拖延，改搭下一班 はやぶさ 33 號</span></div>
+        <a class="addr" data-q="エリックサウス 八重洲店"><svg class="i pin"><use href="#pin"/></svg><span>東京都中央区八重洲 2-1 八重洲地下街 中 4 号</span><svg class="i o"><use href="#out"/></svg></a>
       </li>
-      <li class="it key" data-t="15:50">
-        <div class="tm"><span class="tv">15:50</span><i class="ln"></i></div>
-        <div class="ti"><span class="grp">東京組</span>東京 → 仙台（東北新幹線）</div>
-        <div class="tx">東北新幹線 はやぶさ 東京 → 仙台，約 1h 30–40m · JR東日本＋南北海道パス 適用，官網預訂指定席。預估 17:20～17:30 抵達仙台，18:00 前入住無虞。</div>
+      <li class="it" data-t="15:00">
+        <div class="tm"><span class="tv">15:00</span><i class="ln"></i></div>
+        <div class="ti"><span class="grp">仙台組</span>仙台空港 → 仙台站 · 兌換 JR Pass</div>
+        <div class="mv"><span class="lbl">Move</span><span>仙台空港アクセス線　約 25 分 · ¥680 · 不需訂位，IC 卡或現金</span></div>
+        <div class="tx">抵達仙台站後至 JR東日本窗口兌換 JR Pass，並一併取出明後天的指定席車票</div>
       </li>
-      <li class="it">
-        <div class="tm"><span class="tv">抵達後</span><i class="ln"></i></div>
+      <li class="it key" data-t="15:20">
+        <div class="tm"><span class="tv">15:20</span><i class="ln"></i></div>
+        <div class="ti"><span class="grp">東京組</span>東京 → 仙台</div>
+        <div class="mv"><span class="lbl">Move</span><span>東北新幹線 はやぶさ 31 號　東京 15:20 → 仙台 16:51（約 1h 31m）· JR Pass · 官網訂指定席</span></div>
+        <div class="warn"><svg class="i"><use href="#alert"/></svg><span>備案：はやぶさ 33 號 東京 16:20 → 仙台 17:51 · 以 2027 年 1 月祝日時刻表為準</span></div>
+      </li>
+      <li class="it" data-t="17:00">
+        <div class="tm"><span class="tv">17:00</span><i class="ln"></i></div>
         <div class="ti">仙台市區 · 兩組會合 Check-in</div>
+        <div class="mv"><span class="lbl">Move</span><span>仙台站步行約 5 分</span></div>
         <div class="tx">辦理 KP 仙台車站北 APA 飯店 Check-in</div>
         <a class="addr" data-q="APA Hotel Sendai Ekikita"><svg class="i pin"><use href="#pin"/></svg><span>宮城縣仙台市 宮城野区 Nakakecho 201-1</span><svg class="i o"><use href="#out"/></svg></a>
       </li>
-      <li class="it">
-        <div class="tm"><span class="tv">晚上</span><i class="ln"></i></div>
+      <li class="it" data-t="18:30">
+        <div class="tm"><span class="tv">18:30</span><i class="ln"></i></div>
         <div class="ti">晚餐 — 善治郎 牛舌</div>
+        <div class="mv"><span class="lbl">Move</span><span>飯店步行至仙台站周邊約 5–10 分</span></div>
         <div class="tx">仙台名物牛舌老字號 · 招牌厚切り牛たん定食搭配麥飯、尾椎湯 · 兩組會合首餐</div>
         <div class="warn"><svg class="i"><use href="#alert"/></svg><span>旺季排隊長 · 建議提前確認是否可線上預約或開店前到場取號</span></div>
         <a class="addr" data-q="善治郎 牛たん 仙台駅"><svg class="i pin"><use href="#pin"/></svg><span>仙台市青葉区（仙台車站周邊）</span><svg class="i o"><use href="#out"/></svg></a>
@@ -304,48 +323,97 @@ section{scroll-margin-top:8px}
     <button class="dh" aria-expanded="false">
       <div><div class="dd">1/12</div><div class="dw">TUE</div></div>
       <div>
-        <div class="dt">松島 + 弘前</div>
-        <div class="ds">松島牡蠣吃到飽 · 弘前蘋果派巡禮 · 睡魔資料館</div>
+        <div class="dt">松島 → 弘前 → 青森</div>
+        <div class="ds">清晨松島散步 · 10:00 かき小屋 MATSU 蒸牡蠣吃到飽 · 弘前蘋果派 · 睡魔之家 · 回仙台居酒屋</div>
         <div class="dst">連住 APA</div>
       </div>
       <svg class="i chev"><use href="#down"/></svg>
     </button>
     <div class="db"><div class="dbi"><ol class="tl">
-      <li class="it" data-t="08:30">
-        <div class="tm"><span class="tv">08:30</span><i class="ln"></i></div>
-        <div class="ti">仙台 → 松島</div>
-        <div class="tx">搭乘東北本線至松島海岸站，約 40 分鐘</div>
+      <li class="it key" data-t="07:33">
+        <div class="tm"><span class="tv">07:33</span><i class="ln"></i></div>
+        <div class="ti">仙台 → 松島海岸</div>
+        <div class="mv"><span class="lbl">Move</span><span>JR 仙石線（石巻方面）　仙台 07:33 → 松島海岸 約 08:13（約 40 分）· JR Pass · 自由席免訂位</span></div>
+        <div class="warn"><svg class="i"><use href="#alert"/></svg><span>平日時刻請以 2027 年 1 月時刻表再確認 · 仙石線為地下月台，與新幹線改札不同</span></div>
       </li>
-      <li class="it" data-t="10:00">
+      <li class="it" data-t="08:20">
+        <div class="tm"><span class="tv">08:20</span><i class="ln"></i></div>
+        <div class="ti">五大堂 · 福浦橋</div>
+        <div class="mv"><span class="lbl">Move</span><span>松島海岸站步行約 7 分</span></div>
+        <div class="tx"><b>五大堂</b>　伊達政宗重建的海上小堂，站在朱色透橋上看松島灣最經典 · <b>福浦橋</b>　252 公尺朱紅長橋通往福浦島，冬日清晨海面最平靜（通行費約 ¥200）</div>
+        <a class="addr" data-q="五大堂 松島"><svg class="i pin"><use href="#pin"/></svg><span>宮城県宮城郡松島町松島町内 111</span><svg class="i o"><use href="#out"/></svg></a>
+      </li>
+      <li class="it" data-t="09:15">
+        <div class="tm"><span class="tv">09:15</span><i class="ln"></i></div>
+        <div class="ti">瑞巌寺</div>
+        <div class="mv"><span class="lbl">Move</span><span>步行約 5 分</span></div>
+        <div class="tx">伊達家菩提寺，國寶本堂與杉木參道 · 入場約 ¥700 · 參道兩側的洞窟遺跡值得放慢腳步</div>
+        <a class="addr" data-q="瑞巌寺"><svg class="i pin"><use href="#pin"/></svg><span>宮城県宮城郡松島町松島町内 91</span><svg class="i o"><use href="#out"/></svg></a>
+      </li>
+      <li class="it key" data-t="10:00">
         <div class="tm"><span class="tv">10:00</span><i class="ln"></i></div>
-        <div class="ti">松島牡蠣吃到飽</div>
-        <div class="tx">松島為日本三景之一，冬季 1 月為牡蠣盛產期 · 松島さかな市場周邊多家吃到飽 · 烤牡蠣、牡蠣飯、牡蠣湯一次滿足</div>
-        <div class="warn"><svg class="i"><use href="#alert"/></svg><span>建議提前預約 · 1 月牡蠣季進入尾聲，需確認餐廳有無供應</span></div>
-        <a class="addr" data-q="松島さかな市場"><svg class="i pin"><use href="#pin"/></svg><span>宮城県宮城郡松島町</span><svg class="i o"><use href="#out"/></svg></a>
+        <div class="ti">早午餐 — 松島かき小屋 MATSU</div>
+        <div class="mv"><span class="lbl">Move</span><span>瑞巌寺步行約 10 分（みちのく伊達政宗歴史館 腹地內）</span></div>
+        <div class="tx">10:00 一開門就入場 · 45 分鐘蒸牡蠣吃到飽，整籃牡蠣倒上桌、自己撬開吃 · 營業 10:00–15:00</div>
+        <div class="warn"><svg class="i"><use href="#alert"/></svg><span>7 人建議事先電話預約／確認當日營業 022-354-4131 · 衣服容易沾味，外套可先收進塑膠袋</span></div>
+        <a class="addr" data-q="松島かき小屋MATSU"><svg class="i pin"><use href="#pin"/></svg><span>宮城県宮城郡松島町松島普賢堂 13-13</span><svg class="i o"><use href="#out"/></svg></a>
       </li>
-      <li class="it key" data-t="13:00">
-        <div class="tm"><span class="tv">13:00</span><i class="ln"></i></div>
-        <div class="ti">松島 → 弘前</div>
-        <div class="tx">松島海岸 → 仙台（東北本線）→ 新幹線 はやぶさ → 新青森，轉 JR 奧羽本線 → 弘前 · 全程約 2.5～3 小時</div>
-        <div class="warn"><svg class="i"><use href="#alert"/></svg><span>松島上午限 2.5 小時內為佳 · 13:00 前出發才能下午抵達弘前</span></div>
+      <li class="it key" data-t="11:11">
+        <div class="tm"><span class="tv">11:11</span><i class="ln"></i></div>
+        <div class="ti">松島海岸 → 仙台</div>
+        <div class="mv"><span class="lbl">Move</span><span>JR 仙石線　松島海岸 11:11（始發）→ 仙台 約 11:51 · JR Pass · 自由席</span></div>
+        <div class="tx">10:50 前離開 MATSU，步行約 15 分回松島海岸站</div>
       </li>
-      <li class="it" data-t="16:00">
-        <div class="tm"><span class="tv">16:00</span><i class="ln"></i></div>
-        <div class="ti">弘前 蘋果派地圖巡禮</div>
-        <div class="tx">弘前アップルパイ研究会集結全市數十間特色蘋果派店 · 酥皮、奶酥、法式等風格各異。伴手禮推薦弘前產蘋果果凍或蘋果醬。</div>
+      <li class="it key" data-t="12:17">
+        <div class="tm"><span class="tv">12:17</span><i class="ln"></i></div>
+        <div class="ti">仙台 → 新青森</div>
+        <div class="mv"><span class="lbl">Move</span><span>東北新幹線 はやぶさ 17 號　仙台 12:17 → 新青森 13:57（約 1h 40m）· JR Pass · 官網訂指定席</span></div>
+        <div class="tx">仙台站轉乘 26 分鐘，可在站內買便當或咖啡上車</div>
+      </li>
+      <li class="it key" data-t="14:08">
+        <div class="tm"><span class="tv">14:08</span><i class="ln"></i></div>
+        <div class="ti">新青森 → 弘前</div>
+        <div class="mv"><span class="lbl">Move</span><span>JR 奥羽本線 普通　新青森 14:08 → 弘前 約 14:48（約 40 分）· JR Pass · 自由席</span></div>
+        <div class="warn"><svg class="i"><use href="#alert"/></svg><span>奥羽本線班次稀疏，錯過下一班約 1 小時後</span></div>
+      </li>
+      <li class="it" data-t="15:00">
+        <div class="tm"><span class="tv">15:00</span><i class="ln"></i></div>
+        <div class="ti">弘前 蘋果派巡禮</div>
+        <div class="mv"><span class="lbl">Move</span><span>弘前站 → 土手町　弘南巴士約 10 分，或步行約 20 分</span></div>
+        <div class="tx">弘前アップルパイ研究会集結全市數十間特色蘋果派店 · 酥皮、奶酥、法式等風格各異 · 伴手禮推薦弘前產蘋果果凍或蘋果醬</div>
+        <div class="warn"><svg class="i"><use href="#alert"/></svg><span>冬季 16:15 左右天黑 · 15:55 前回到弘前站</span></div>
         <a class="addr" data-q="弘前市 土手町"><svg class="i pin"><use href="#pin"/></svg><span>弘前市中心商店街一帯</span><svg class="i o"><use href="#out"/></svg></a>
       </li>
-      <li class="it" data-t="17:00">
-        <div class="tm"><span class="tv">17:00</span><i class="ln"></i></div>
+      <li class="it key" data-t="16:16">
+        <div class="tm"><span class="tv">16:16</span><i class="ln"></i></div>
+        <div class="ti">弘前 → 青森</div>
+        <div class="mv"><span class="lbl">Move</span><span>JR 奥羽本線 普通　弘前 16:16 → 青森 約 17:00（約 45 分）· JR Pass · 自由席</span></div>
+        <div class="warn"><svg class="i"><use href="#alert"/></svg><span>青森方向 16:00–17:59 只有這班，務必搭上</span></div>
+      </li>
+      <li class="it" data-t="17:05">
+        <div class="tm"><span class="tv">17:05</span><i class="ln"></i></div>
         <div class="ti">睡魔之家 WA・RASSE</div>
-        <div class="tx">青森睡魔祭（ねぶた）資料館 · 展示真實等比例睡魔花車，非祭典期間亦可體驗</div>
-        <div class="warn"><svg class="i"><use href="#alert"/></svg><span>開放時間 9:00–19:00（因時期而異）· 出發前確認</span></div>
+        <div class="mv"><span class="lbl">Move</span><span>青森站步行約 1 分</span></div>
+        <div class="tx">青森睡魔祭（ねぶた）資料館 · 展示真實等比例睡魔花車 · 17:10 有太鼓與跳人（ハネト）體驗 · 入館 ¥620</div>
+        <div class="warn"><svg class="i"><use href="#alert"/></svg><span>冬季 9:00–18:00，最後入館 17:30</span></div>
         <a class="addr" data-q="ねぶたの家 ワ・ラッセ"><svg class="i pin"><use href="#pin"/></svg><span>青森市安方 1-1-1</span><svg class="i o"><use href="#out"/></svg></a>
       </li>
-      <li class="it">
-        <div class="tm"><span class="tv">夜間</span><i class="ln"></i></div>
-        <div class="ti">返回仙台</div>
-        <div class="tx">搭乘新幹線回仙台 APA · 東北冬季天黑早（約 16:00 入夜），回程新幹線班次需提前查好</div>
+      <li class="it key" data-t="18:11">
+        <div class="tm"><span class="tv">18:11</span><i class="ln"></i></div>
+        <div class="ti">青森 → 新青森 → 仙台</div>
+        <div class="mv"><span class="lbl">Move</span><span>JR 奥羽本線　青森 18:11 → 新青森 18:17 ／ 東北新幹線 はやぶさ 42 號　新青森 18:39 → 仙台 20:29 · JR Pass · 官網訂指定席</span></div>
+        <div class="tx">新青森站內有青森伴手禮與駅弁，轉乘 22 分鐘可補貨</div>
+        <div class="warn"><svg class="i"><use href="#alert"/></svg><span>想早點回仙台可改 はやぶさ 40 號（新青森 18:25 → 仙台 19:53），但 18:17 到新青森後只有 8 分鐘轉乘，較趕</span></div>
+      </li>
+      <li class="it" data-t="20:45">
+        <div class="tm"><span class="tv">20:45</span><i class="ln"></i></div>
+        <div class="ti">晚餐 — 仙台居酒屋（現場排隊，二選一）</div>
+        <div class="mv"><span class="lbl">Move</span><span>仙台站步行約 10–15 分</span></div>
+        <div class="tx"><b>源氏</b>　Tabelog 3.68 · 文化横丁的昭和老居酒屋，ㄈ字吧台約 20 席，不接受預約 · 每杯酒附一道小菜，一人限 4 杯是店裡規矩 · 週二至六 17:15–22:00</div>
+        <div class="tx"><b>牛たんの一仙</b>　Tabelog 3.65 · 一番町 · 牛舌料理居酒屋，44 席，平日營業到 24:00，晚到也吃得到</div>
+        <div class="warn"><svg class="i"><use href="#alert"/></svg><span>源氏座位少、7 人可能需分散坐，客滿就直接改去一仙</span></div>
+        <a class="addr" data-q="源氏 文化横丁 仙台"><svg class="i pin"><use href="#pin"/></svg><span>仙台市青葉区一番町 2-4-8 文化横丁</span><svg class="i o"><use href="#out"/></svg></a>
+        <a class="addr" data-q="牛たんの一仙 仙台"><svg class="i pin"><use href="#pin"/></svg><span>仙台市青葉区一番町</span><svg class="i o"><use href="#out"/></svg></a>
       </li>
     </ol></div></div>
   </div>
@@ -356,7 +424,7 @@ section{scroll-margin-top:8px}
       <div><div class="dd">1/13</div><div class="dw">WED</div></div>
       <div>
         <div class="dt">福島 → 銀山溫泉</div>
-        <div class="ds">飯坂溫泉散策 · 円盤餃子午餐 · 山形新幹線つばさ · 包車看銀山燈火</div>
+        <div class="ds">福島縣立美術館 · 十割蕎麥午餐 · 山形新幹線つばさ · 包車看銀山燈火</div>
         <div class="dst">連住 APA</div>
       </div>
       <svg class="i chev"><use href="#down"/></svg>
@@ -364,59 +432,73 @@ section{scroll-margin-top:8px}
     <div class="db"><div class="dbi"><ol class="tl">
       <li class="it key" data-t="09:00">
         <div class="tm"><span class="tv">09:00</span><i class="ln"></i></div>
-        <div class="ti">仙台 → 福島（東北新幹線）</div>
-        <div class="tx">やまびこ 仙台始發，約 25 分抵達福島 · JR東日本＋南北海道パス 適用</div>
-        <div class="warn"><svg class="i"><use href="#alert"/></svg><span>平日 09:00 仙台始發班次，後一班 09:25 亦可 · 2027 年 1 月時刻表公布後請再確認</span></div>
+        <div class="ti">仙台 → 福島</div>
+        <div class="mv"><span class="lbl">Move</span><span>東北新幹線 やまびこ　仙台 09:00（始發）→ 福島 約 09:25 · JR Pass · 官網訂指定席</span></div>
+        <div class="warn"><svg class="i"><use href="#alert"/></svg><span>2027 年 1 月時刻表公布後請再確認</span></div>
       </li>
-      <li class="it" data-t="09:45">
-        <div class="tm"><span class="tv">09:45</span><i class="ln"></i></div>
-        <div class="ti">福島 → 飯坂溫泉（いい電）</div>
-        <div class="tx">福島交通飯坂線，約 25 分抵達終點飯坂溫泉站 · 單程 ¥430 · 從 JR 福島站內連絡改札轉乘，前東急老電車，搖晃著穿過住宅與果園</div>
-        <div class="warn"><svg class="i"><use href="#alert"/></svg><span>私鐵路線，JR Pass 不適用，需另購票</span></div>
+      <li class="it" data-t="09:40">
+        <div class="tm"><span class="tv">09:40</span><i class="ln"></i></div>
+        <div class="ti">福島 → 美術館図書館前</div>
+        <div class="mv"><span class="lbl">Move</span><span>福島交通飯坂線（いい電）　福島 → 美術館図書館前 約 5 分 · 私鐵，JR Pass 不適用，IC 卡或現金</span></div>
+        <div class="tx">從 JR 福島站內的連絡改札轉乘，坐兩站即到</div>
       </li>
-      <li class="it" data-t="10:15">
-        <div class="tm"><span class="tv">10:15</span><i class="ln"></i></div>
-        <div class="ti">飯坂溫泉散策 · 旧堀切邸 · 鯖湖湯</div>
-        <div class="tx">奧州三名湯之一，芭蕉、正岡子規都曾到訪 · <b>旧堀切邸</b>（免費入場，江戶豪農宅邸，庭園有足湯與手湯）→ 步行 1 分鐘到 <b>鯖湖湯</b>（¥400，飯坂最古老的共同浴場，重現明治木造湯屋，源泉掛流）→ 十綱橋眺望溫泉街</div>
-        <div class="warn"><svg class="i"><use href="#alert"/></svg><span>鯖湖湯週一公休（1/13 週三照常）· 無淋浴設備，需從浴槽舀水沖身 · 湯溫偏熱 · 毛巾可現場購買 · 不想泡湯也可只泡旧堀切邸足湯</span></div>
-        <a class="addr" data-q="旧堀切邸"><svg class="i pin"><use href="#pin"/></svg><span>福島市飯坂町 · 旧堀切邸／鯖湖湯</span><svg class="i o"><use href="#out"/></svg></a>
+      <li class="it" data-t="09:50">
+        <div class="tm"><span class="tv">09:50</span><i class="ln"></i></div>
+        <div class="ti">福島縣立美術館</div>
+        <div class="mv"><span class="lbl">Move</span><span>站前步行約 3 分</span></div>
+        <div class="tx">雪地裡的低矮美術館，常設展 ¥280 · 以美國畫家 Andrew Wyeth、Ben Shahn 的收藏聞名，也有福島在地畫家作品 · 隔壁是縣立圖書館，大片落地窗看雪景</div>
+        <div class="warn"><svg class="i"><use href="#alert"/></svg><span>週一休館（1/13 週三開館）· 展期與休館日出發前請上官網確認</span></div>
+        <a class="addr" data-q="福島県立美術館"><svg class="i pin"><use href="#pin"/></svg><span>福島市森合字西養山 1</span><svg class="i o"><use href="#out"/></svg></a>
       </li>
-      <li class="it" data-t="12:00">
-        <div class="tm"><span class="tv">12:00</span><i class="ln"></i></div>
-        <div class="ti">午餐 — 餃子の照井 東口店 · 円盤餃子</div>
-        <div class="tx">11:30 左右搭いい電回福島站 · 福島名物「円盤餃子」，二十多顆薄皮餃子在平底鍋排成圓盤一次煎好，倒扣上桌 · 一皿 22 顆，外皮酥脆、內餡清爽 · 營業 11:30–15:00（L.O. 14:15），售完即止</div>
-        <div class="warn"><svg class="i"><use href="#alert"/></svg><span>飯坂本店週三公休且只做晚餐，因此改去 JR 福島站東口步行 2 分的分店（週二公休，週三照常營業）· 7 人建議 12:00 前到店</span></div>
-        <a class="addr" data-q="餃子の照井 東口店"><svg class="i pin"><use href="#pin"/></svg><span>福島市栄町 1-1（福島站東口）</span><svg class="i o"><use href="#out"/></svg></a>
+      <li class="it" data-t="11:20">
+        <div class="tm"><span class="tv">11:20</span><i class="ln"></i></div>
+        <div class="ti">回福島站 · 古關裕而像</div>
+        <div class="mv"><span class="lbl">Move</span><span>飯坂線　美術館図書館前 → 福島 約 5 分</span></div>
+        <div class="tx">福島站東口站前廣場有作曲家古關裕而的雕像，每 30 分鐘會響起他的作品旋律</div>
+      </li>
+      <li class="it" data-t="11:40">
+        <div class="tm"><span class="tv">11:40</span><i class="ln"></i></div>
+        <div class="ti">午餐 — 三立十割 蕎麦人</div>
+        <div class="mv"><span class="lbl">Move</span><span>福島站步行約 5 分</span></div>
+        <div class="tx">Tabelog 3.62 · 石臼自磨的十割蕎麥，香氣濃、口感粗獷 · 天婦羅蕎麥、鴨蕎麥都是招牌</div>
+        <div class="warn"><svg class="i"><use href="#alert"/></svg><span>週一公休 · 備案：しおや（天婦羅，Tabelog 3.71）、大町おかめや（Tabelog 3.58）</span></div>
+        <a class="addr" data-q="三立十割 蕎麦人 福島"><svg class="i pin"><use href="#pin"/></svg><span>福島市（福島站東口步行約 5 分）</span><svg class="i o"><use href="#out"/></svg></a>
       </li>
       <li class="it" data-t="13:00">
         <div class="tm"><span class="tv">13:00</span><i class="ln"></i></div>
         <div class="ti">エスパル福島 · 福島みやげ館</div>
-        <div class="tx">JR 福島站直結 · 菓子、地酒、醃漬物等福島伴手禮集中一處，上車前補貨剛好</div>
+        <div class="mv"><span class="lbl">Move</span><span>JR 福島站直結</span></div>
+        <div class="tx">菓子、地酒、醃漬物等福島伴手禮集中一處，上車前補貨剛好</div>
       </li>
       <li class="it key" data-t="13:37">
         <div class="tm"><span class="tv">13:37</span><i class="ln"></i></div>
-        <div class="ti">福島 → 大石田（山形新幹線つばさ 137 號）</div>
-        <div class="tx">福島 13:37 發 → 大石田 15:15 抵達（約 1h 38m）· 沿途翻越奧羽山脈，車窗外是米澤、山形的雪國盆地 · JR東日本＋南北海道パス 適用，<b>官網預訂指定席</b></div>
-        <div class="warn"><svg class="i"><use href="#alert"/></svg><span>つばさ在福島站與やまびこ分割，搭乘 14 號月台，請確認是「つばさ」車廂 · 時刻依現行班表，2027 年 1 月請再確認</span></div>
+        <div class="ti">福島 → 大石田</div>
+        <div class="mv"><span class="lbl">Move</span><span>山形新幹線 つばさ 137 號　福島 13:37 → 大石田 15:15（約 1h 38m）· JR Pass · 官網訂指定席</span></div>
+        <div class="tx">沿途翻越奧羽山脈，車窗外是米澤、山形的雪國盆地</div>
+        <div class="warn"><svg class="i"><use href="#alert"/></svg><span>福島站 14 號月台，請確認是「つばさ」車廂 · 時刻依現行班表，2027 年 1 月請再確認</span></div>
       </li>
       <li class="it key" data-t="15:30">
         <div class="tm"><span class="tv">15:30</span><i class="ln"></i></div>
         <div class="ti">尾花澤計程車 · 銀山溫泉包車（15:30–18:30）</div>
-        <div class="tx">尾花沢タクシー「銀山温泉コース」3 小時：大石田站 → 銀山溫泉 → 大石田站，溫泉街自由散策約 2 小時 · 7 人搭 <b>ジャンボタクシー（定員 9 名）¥24,000～／台</b> · 1 月日落約 16:40，抵達時正好由白雪轉入藍調時刻，瓦斯燈一盞盞亮起、木造旅館倒映銀山川，是一天最美的時段</div>
+        <div class="mv"><span class="lbl">Move</span><span>尾花沢タクシー ジャンボタクシー（定員 9 名）　大石田站 ⇄ 銀山溫泉 單程約 40 分</span></div>
+        <div class="tx">「銀山温泉コース」3 小時，溫泉街自由散策約 2 小時 · ¥24,000～／台 · 1 月日落約 16:40，傍晚煤氣燈亮起正是銀山最美的時刻</div>
         <div class="tx">散策推薦：<b>白銀の滝</b>（溫泉街盡頭的瀑布）· 河畔足湯 · 溫泉饅頭 · 咖哩麵包 · 玉こんにゃく</div>
-        <div class="warn"><svg class="i"><use href="#alert"/></svg><span>冬季銀山溫泉有交通管制與入場管制，透過尾花沢タクシー預約可直接進入、免換接駁巴士 · 降雪時單程約 40 分 · 官網價格為「起價」，請預約時確認冬季費用 · 電話 0237-23-2525 或官網預約</span></div>
+        <div class="warn"><svg class="i"><use href="#alert"/></svg><span>冬季銀山溫泉有交通與入場管制，透過包車可直接進入 · 官網價格為起價，預約時確認冬季實際費用 · 電話 0237-23-2525</span></div>
         <a class="addr" data-q="銀山温泉"><svg class="i pin"><use href="#pin"/></svg><span>山形県尾花沢市銀山新畑</span><svg class="i o"><use href="#out"/></svg></a>
       </li>
       <li class="it key" data-t="18:57">
         <div class="tm"><span class="tv">18:57</span><i class="ln"></i></div>
         <div class="ti">大石田 → 福島 → 仙台</div>
-        <div class="tx">18:30 包車送回大石田站 · つばさ 18:57 發 → 福島約 20:47 → 轉東北新幹線 やまびこ（約 20:57 發）→ 仙台約 21:20 · 全程 JR Pass 適用</div>
-        <div class="warn"><svg class="i"><use href="#alert"/></svg><span>大石田站周邊晚餐選擇少，建議在銀山買小點或在福島站轉車時買駅弁 · 備案：つばさ到山形，轉 JR 仙山線回仙台</span></div>
+        <div class="mv"><span class="lbl">Move</span><span>つばさ　大石田 18:57 → 福島 約 20:47 ／ やまびこ　福島 約 20:57 → 仙台 約 21:20 · 全程 JR Pass · 官網訂指定席</span></div>
+        <div class="warn"><svg class="i"><use href="#alert"/></svg><span>福島轉乘僅約 10 分 · 備案：つばさ到山形，轉 JR 仙山線回仙台</span></div>
       </li>
-      <li class="it">
-        <div class="tm"><span class="tv">晚上</span><i class="ln"></i></div>
-        <div class="ti">返回仙台 · 整理行李</div>
-        <div class="tx">今晚為仙台最後一晚，明日移動函館 · 建議整理行李，確認翌日新幹線時刻</div>
+      <li class="it" data-t="21:45">
+        <div class="tm"><span class="tv">21:45</span><i class="ln"></i></div>
+        <div class="ti">晚餐 — 石巻狐崎漁港 晴れの日 名掛丁店</div>
+        <div class="mv"><span class="lbl">Move</span><span>仙台站步行約 5 分</span></div>
+        <div class="tx">Tabelog 3.52 · 石卷漁港直送海鮮居酒屋，生魚片拼盤、烤牡蠣、海鮮天婦羅 · 週三營業到 23:00 · 人均約 ¥5,000–6,000</div>
+        <div class="warn"><svg class="i"><use href="#alert"/></svg><span>晚歸怕客滿，建議先訂位 050-5593-9187</span></div>
+        <a class="addr" data-q="石巻狐崎漁港 晴れの日 名掛丁店"><svg class="i pin"><use href="#pin"/></svg><span>仙台市青葉区中央（名掛丁商店街）</span><svg class="i o"><use href="#out"/></svg></a>
       </li>
     </ol></div></div>
   </div>
@@ -427,35 +509,71 @@ section{scroll-margin-top:8px}
       <div><div class="dd">1/14</div><div class="dw">THU</div></div>
       <div>
         <div class="dt">移動函館</div>
-        <div class="ds">新幹線 はやぶさ · 五稜郭 · 函館山夜景</div>
+        <div class="ds">はやぶさ 北上 · 先放行李 · 函館鹽拉麵 · 五稜郭 · 函館山夜景 · 海膽丼</div>
         <div class="dst">退房 · 入住函館</div>
       </div>
       <svg class="i chev"><use href="#down"/></svg>
     </button>
     <div class="db"><div class="dbi"><ol class="tl">
-      <li class="it key">
-        <div class="tm"><span class="tv">上午</span><i class="ln"></i></div>
-        <div class="ti">退房 · 仙台 → 函館</div>
-        <div class="tx">新幹線 はやぶさ 仙台 → 新函館北斗，約 1 小時 50 分 · 轉 JR 普通列車至函館站，約 20 分 · JR Pass 適用</div>
+      <li class="it" data-t="09:30">
+        <div class="tm"><span class="tv">09:30</span><i class="ln"></i></div>
+        <div class="ti">退房 · 前往仙台站</div>
+        <div class="mv"><span class="lbl">Move</span><span>飯店步行約 5 分</span></div>
       </li>
-      <li class="it">
-        <div class="tm"><span class="tv">下午</span><i class="ln"></i></div>
-        <div class="ti">五稜郭</div>
-        <div class="tx">日本唯一五芒星西式城堡遺址 · 冬季積雪呈現壯觀白色星形輪廓 · 五稜郭塔電梯俯瞰全景</div>
-        <div class="warn"><svg class="i"><use href="#alert"/></svg><span>五稜郭塔入場 ¥900 · 函館冬季平均氣溫 -5°C，注意保暖</span></div>
-        <a class="addr" data-q="五稜郭タワー"><svg class="i pin"><use href="#pin"/></svg><span>北海道函館市五稜郭町 44</span><svg class="i o"><use href="#out"/></svg></a>
+      <li class="it key" data-t="09:50">
+        <div class="tm"><span class="tv">09:50</span><i class="ln"></i></div>
+        <div class="ti">仙台 → 新函館北斗</div>
+        <div class="mv"><span class="lbl">Move</span><span>東北・北海道新幹線 はやぶさ 5 號　仙台 09:50 → 新函館北斗 12:15（約 2h 25m）· JR Pass · 官網訂指定席</span></div>
+        <div class="tx">穿越青函隧道，進入北海道的雪原</div>
       </li>
-      <li class="it">
-        <div class="tm"><span class="tv">傍晚</span><i class="ln"></i></div>
-        <div class="ti">函館山夜景</div>
-        <div class="tx">日本三大夜景之一 · 冬季空氣清澈視野絕佳 · 搭纜車上山約 3 分鐘，欣賞函館市區腰形輪廓夜景</div>
-        <div class="warn"><svg class="i"><use href="#alert"/></svg><span>纜車來回 ¥1,500 · 冬季因天氣可能停駛，可改搭巴士 · 建議 17:30 前上山</span></div>
-        <a class="addr" data-q="函館山ロープウェイ"><svg class="i pin"><use href="#pin"/></svg><span>北海道函館市函館山</span><svg class="i o"><use href="#out"/></svg></a>
+      <li class="it key" data-t="12:25">
+        <div class="tm"><span class="tv">12:25</span><i class="ln"></i></div>
+        <div class="ti">新函館北斗 → 函館</div>
+        <div class="mv"><span class="lbl">Move</span><span>JR はこだてライナー　新函館北斗 → 函館 約 15–20 分 · 接續新幹線發車 · JR Pass · 自由席</span></div>
       </li>
-      <li class="it">
-        <div class="tm"><span class="tv">晚上</span><i class="ln"></i></div>
-        <div class="ti">Check-in · 函館站前 APA 酒店</div>
+      <li class="it" data-t="12:50">
+        <div class="tm"><span class="tv">12:50</span><i class="ln"></i></div>
+        <div class="ti">APA 函館站前 · 寄放行李</div>
+        <div class="mv"><span class="lbl">Move</span><span>函館站步行約 5 分</span></div>
+        <div class="tx">先寄放行李再輕裝出門，晚上回來辦入住</div>
         <a class="addr" data-q="APA Hotel Hakodate Ekimae"><svg class="i pin"><use href="#pin"/></svg><span>北海道函館市 Otemachi 19-13</span><svg class="i o"><use href="#out"/></svg></a>
+      </li>
+      <li class="it" data-t="13:30">
+        <div class="tm"><span class="tv">13:30</span><i class="ln"></i></div>
+        <div class="ti">午餐 — 函館麺厨房 あじさい 本店</div>
+        <div class="mv"><span class="lbl">Move</span><span>函館市電　函館駅前 → 五稜郭公園前 約 16 分 · 市電一日券划算</span></div>
+        <div class="tx">Tabelog 3.64 · 拉麵百名店 · 函館鹽拉麵代表店，清澈的昆布鹽湯頭 · 營業 11:00–20:25 · 不接受預約，就在五稜郭塔旁</div>
+        <div class="warn"><svg class="i"><use href="#alert"/></svg><span>Tabelog 將它歸在「拉麵／中華料理」類，實際是日式函館鹽拉麵 · 備案：朝市の味処 茶夢（Tabelog 3.54）</span></div>
+        <a class="addr" data-q="函館麺厨房あじさい 本店"><svg class="i pin"><use href="#pin"/></svg><span>北海道函館市本町 29-22</span><svg class="i o"><use href="#out"/></svg></a>
+      </li>
+      <li class="it" data-t="14:30">
+        <div class="tm"><span class="tv">14:30</span><i class="ln"></i></div>
+        <div class="ti">五稜郭 · 五稜郭塔</div>
+        <div class="mv"><span class="lbl">Move</span><span>步行約 3 分</span></div>
+        <div class="tx">日本唯一五芒星西式城郭遺址 · 冬季積雪勾出白色星形輪廓 · 五稜郭塔展望台俯瞰全景（約 ¥1,200）</div>
+        <div class="warn"><svg class="i"><use href="#alert"/></svg><span>函館冬季平均氣溫 -5°C，注意保暖</span></div>
+        <a class="addr" data-q="五稜郭タワー"><svg class="i pin"><use href="#pin"/></svg><span>北海道函館市五稜郭町 43-9</span><svg class="i o"><use href="#out"/></svg></a>
+      </li>
+      <li class="it" data-t="16:00">
+        <div class="tm"><span class="tv">16:00</span><i class="ln"></i></div>
+        <div class="ti">函館山夜景</div>
+        <div class="mv"><span class="lbl">Move</span><span>函館市電　五稜郭公園前 → 十字街 約 20 分，步行約 10 分到纜車站 · 函館山ロープウェイ 約 3 分</span></div>
+        <div class="tx">日本三大夜景之一 · 冬季空氣清澈 · 16:30 前上山，先看夕陽再等夜景亮起 · 纜車來回 ¥1,800</div>
+        <div class="warn"><svg class="i"><use href="#alert"/></svg><span>冬季因強風可能停駛，可改搭登山巴士或計程車</span></div>
+        <a class="addr" data-q="函館山ロープウェイ"><svg class="i pin"><use href="#pin"/></svg><span>北海道函館市元町 19-7</span><svg class="i o"><use href="#out"/></svg></a>
+      </li>
+      <li class="it" data-t="18:15">
+        <div class="tm"><span class="tv">18:15</span><i class="ln"></i></div>
+        <div class="ti">晚餐 — うにむらかみ 函館駅前店</div>
+        <div class="mv"><span class="lbl">Move</span><span>函館山 → 函館站　計程車約 10 分，或市電十字街 → 函館駅前 約 5 分</span></div>
+        <div class="tx">Tabelog 3.61 · 海膽加工老店直營，無添加生海膽丼、海膽焗烤 · 17:30–21:30（L.O. 21:00）</div>
+        <div class="warn"><svg class="i"><use href="#alert"/></svg><span>週二公休（1/14 週四營業）· 2 個月前開放預約，7 人請盡早訂</span></div>
+        <a class="addr" data-q="うにむらかみ 函館駅前店"><svg class="i pin"><use href="#pin"/></svg><span>北海道函館市大手町 22-1</span><svg class="i o"><use href="#out"/></svg></a>
+      </li>
+      <li class="it" data-t="20:00">
+        <div class="tm"><span class="tv">20:00</span><i class="ln"></i></div>
+        <div class="ti">回 APA 辦理入住</div>
+        <div class="mv"><span class="lbl">Move</span><span>步行約 3 分</span></div>
       </li>
     </ol></div></div>
   </div>
@@ -466,41 +584,58 @@ section{scroll-margin-top:8px}
       <div><div class="dd">1/15</div><div class="dw">FRI</div></div>
       <div>
         <div class="dt">移動札幌</div>
-        <div class="ds">函館朝市 · 特急北斗 · 爐端燒午餐 · 狸小路 · 帝王蟹吃到飽</div>
+        <div class="ds">函館朝市 · 特急北斗 · 先放行李 · 爐端燒午餐 · 狸小路 · 帝王蟹吃到飽</div>
         <div class="dst">退房 · 入住札幌</div>
       </div>
       <svg class="i chev"><use href="#down"/></svg>
     </button>
     <div class="db"><div class="dbi"><ol class="tl">
-      <li class="it" data-t="06:00">
-        <div class="tm"><span class="tv">06:00</span><i class="ln"></i></div>
-        <div class="ti">函館朝市</div>
-        <div class="tx">清晨 5 點開市，北海道最著名早市 · 海鮮丼、鮭魚卵、帆立貝等新鮮海產一應俱全 · 趁早前往人少且食材最新鮮</div>
+      <li class="it" data-t="06:30">
+        <div class="tm"><span class="tv">06:30</span><i class="ln"></i></div>
+        <div class="ti">函館朝市 早餐</div>
+        <div class="mv"><span class="lbl">Move</span><span>飯店步行約 5 分</span></div>
+        <div class="tx">冬季 6:00 開市 · 海鮮丼、鮭魚卵、帆立貝 · 釣烏賊現撈現切</div>
         <a class="addr" data-q="函館朝市"><svg class="i pin"><use href="#pin"/></svg><span>北海道函館市若松町 9-19</span><svg class="i o"><use href="#out"/></svg></a>
       </li>
-      <li class="it key">
-        <div class="tm"><span class="tv">上午</span><i class="ln"></i></div>
-        <div class="ti">退房 · 函館 → 札幌</div>
-        <div class="tx">JR 特急 北斗號 函館 → 札幌，約 3 小時 30 分 · 沿途可欣賞北海道大雪原景色 · JR Pass 適用</div>
+      <li class="it" data-t="07:15">
+        <div class="tm"><span class="tv">07:15</span><i class="ln"></i></div>
+        <div class="ti">退房</div>
+        <div class="mv"><span class="lbl">Move</span><span>步行約 5 分到函館站</span></div>
+      </li>
+      <li class="it key" data-t="07:37">
+        <div class="tm"><span class="tv">07:37</span><i class="ln"></i></div>
+        <div class="ti">函館 → 札幌</div>
+        <div class="mv"><span class="lbl">Move</span><span>JR 特急 北斗 3 號　函館 07:37 → 札幌 11:29（約 3h 52m）· JR Pass · 官網訂指定席</span></div>
+        <div class="tx">沿途大沼、內浦灣與雪原，靠海一側為進行方向右側（A 席側請以實際車廂確認）</div>
+        <div class="warn"><svg class="i"><use href="#alert"/></svg><span>備案：北斗 5 號 函館 08:56 發 · 時刻以 2027 年 1 月時刻表為準</span></div>
+      </li>
+      <li class="it" data-t="11:45">
+        <div class="tm"><span class="tv">11:45</span><i class="ln"></i></div>
+        <div class="ti">APA 札幌大通站前西 · 寄放行李</div>
+        <div class="mv"><span class="lbl">Move</span><span>札幌站 → 飯店　計程車約 10 分（行李多建議），或地下鐵南北線 さっぽろ → 大通 約 2 分＋步行約 8 分</span></div>
+        <a class="addr" data-q="APA Hotel Sapporo Odori Ekimae Nishi"><svg class="i pin"><use href="#pin"/></svg><span>北海道札幌市中央区南1条西9-15-1</span><svg class="i o"><use href="#out"/></svg></a>
       </li>
       <li class="it" data-t="12:30">
         <div class="tm"><span class="tv">12:30</span><i class="ln"></i></div>
         <div class="ti">午餐 — 炭焼炉ばた くし路 新北海道ビル店</div>
-        <div class="tx">爐端燒定食專門店 · JR 札幌駅北口徒步 1 分，特急北斗抵達後可直接步行前往 · 平日午餐 11:30–14:00（L.O. 13:30）· 日替り定食、烤魚定食、天丼蕎麦套餐</div>
-        <div class="warn"><svg class="i"><use href="#alert"/></svg><span>人均約 ¥1,000–1,480 · 午餐僅平日供應，如遇異動請改選附近其他爐端燒店</span></div>
+        <div class="mv"><span class="lbl">Move</span><span>地下鐵南北線　大通 → さっぽろ 約 2 分，北口步行約 3 分</span></div>
+        <div class="tx">爐端燒定食專門店 · 平日午餐 11:30–14:00（L.O. 13:30）· 日替り定食、烤魚定食</div>
+        <div class="warn"><svg class="i"><use href="#alert"/></svg><span>人均約 ¥1,000–1,480 · 午餐僅平日供應，L.O. 13:30 前一定要到</span></div>
         <a class="addr" data-q="炭焼炉ばた くし路 新北海道ビル店"><svg class="i pin"><use href="#pin"/></svg><span>北海道札幌市 新北海道ビル（JR 札幌駅北口）</span><svg class="i o"><use href="#out"/></svg></a>
       </li>
-      <li class="it">
-        <div class="tm"><span class="tv">下午</span><i class="ln"></i></div>
-        <div class="ti">Check-in · 狸小路散策</div>
-        <div class="tx">入住札幌飯店後前往狸小路商店街 · 共 7 丁目全長約 900 公尺，藥妝、餐廳、土產齊聚 · 室內商店街，雨雪天也可輕鬆逛</div>
+      <li class="it" data-t="14:00">
+        <div class="tm"><span class="tv">14:00</span><i class="ln"></i></div>
+        <div class="ti">狸小路散策 · Check-in</div>
+        <div class="mv"><span class="lbl">Move</span><span>地下鐵南北線　さっぽろ → 大通 約 2 分，步行約 5 分</span></div>
+        <div class="tx">7 丁目全長約 900 公尺的室內商店街，藥妝、餐廳、土產齊聚 · 15:00 後回飯店辦入住</div>
         <a class="addr" data-q="狸小路商店街"><svg class="i pin"><use href="#pin"/></svg><span>北海道札幌市中央区南2条西1–7丁目</span><svg class="i o"><use href="#out"/></svg></a>
       </li>
       <li class="it" data-t="18:30">
         <div class="tm"><span class="tv">18:30</span><i class="ln"></i></div>
         <div class="ti">晚餐 — エビかに合戦 帝王蟹吃到飽</div>
-        <div class="tx">北海道知名海鮮吃到飽 · 帝王蟹、毛蟹、雪場蟹應有盡有 · 吃到飽時間通常 90～120 分鐘</div>
-        <div class="warn"><svg class="i"><use href="#alert"/></svg><span>人均約 ¥5,000–8,000 · 強烈建議提前訂位 · Tabelog 或官網預約</span></div>
+        <div class="mv"><span class="lbl">Move</span><span>飯店步行約 10 分</span></div>
+        <div class="tx">帝王蟹、毛蟹、雪場蟹 · 吃到飽 90～120 分鐘</div>
+        <div class="warn"><svg class="i"><use href="#alert"/></svg><span>人均約 ¥5,000–8,000 · 7 人建議至少 1 個月前訂位</span></div>
         <a class="addr" data-q="エビかに合戦 札幌"><svg class="i pin"><use href="#pin"/></svg><span>北海道札幌市中央区（狸小路附近）</span><svg class="i o"><use href="#out"/></svg></a>
       </li>
     </ol></div></div>
@@ -512,7 +647,7 @@ section{scroll-margin-top:8px}
       <div><div class="dd">1/16</div><div class="dw">SAT</div></div>
       <div>
         <div class="dt">郊外一日遊</div>
-        <div class="ds">洞爺湖 KKday 一日遊（暫定，跟團）</div>
+        <div class="ds">洞爺湖 KKday 一日遊 · 晚上成吉思汗烤羊</div>
         <div class="dst">連住札幌</div>
       </div>
       <svg class="i chev"><use href="#down"/></svg>
@@ -521,8 +656,18 @@ section{scroll-margin-top:8px}
       <li class="it">
         <div class="tm"><span class="tv">全天</span><i class="ln"></i></div>
         <div class="ti">KKday 洞爺湖一日遊（暫定）</div>
-        <div class="tx"><b>洞爺湖</b>　火山口湖，冬季結冰壯觀，湖畔有溫泉旅館與洞爺湖溫泉街，距札幌約 2 小時<br>備案：<b>支笏湖</b>（不凍湖，1 月下旬冰濤祭）／<b>定山渓溫泉</b>（近郊，距札幌約 1 小時）／<b>白色戀人公園</b>（市區內，雨雪天備案）</div>
-        <div class="warn"><svg class="i"><use href="#alert"/></svg><span>目前傾向洞爺湖為主，尚待選定並確認 KKday 行程含來回接送</span></div>
+        <div class="mv"><span class="lbl">Move</span><span>KKday 巴士　札幌市區集合 ⇄ 洞爺湖 單程約 2 小時 · 依行程集合時間</span></div>
+        <div class="tx"><b>洞爺湖</b>　火山口湖，湖畔溫泉街 · 昭和新山、有珠山纜車常見於同類行程<br>備案：<b>支笏湖</b>（不凍湖，1 月下旬冰濤祭）／<b>定山渓溫泉</b>（近郊約 1 小時）</div>
+        <div class="tx">午餐若停留洞爺湖周邊，推薦 <b>レークヒル・ファーム</b>（Tabelog 3.59）· 牧場直營，自家牛奶做的義式冰淇淋與焗烤</div>
+        <div class="warn"><svg class="i"><use href="#alert"/></svg><span>尚待選定並確認 KKday 行程含札幌來回接送與午餐安排</span></div>
+      </li>
+      <li class="it" data-t="19:00">
+        <div class="tm"><span class="tv">19:00</span><i class="ln"></i></div>
+        <div class="ti">晚餐 — 成吉思汗 いただきます。</div>
+        <div class="mv"><span class="lbl">Move</span><span>地下鐵南北線　すすきの站步行約 5 分</span></div>
+        <div class="tx">Tabelog 3.68–3.71 · 薄野的成吉思汗烤羊名店，生羊肉當場厚切上爐 · 晚間 16:00–23:00</div>
+        <div class="warn"><svg class="i"><use href="#alert"/></svg><span>人氣店，建議事先訂位 · 現場排隊備案：<b>だるま本店</b>（Tabelog 3.68）、<b>山小屋</b>（Tabelog 3.60）</span></div>
+        <a class="addr" data-q="成吉思汗 いただきます。"><svg class="i pin"><use href="#pin"/></svg><span>北海道札幌市中央区南5条西5丁目</span><svg class="i o"><use href="#out"/></svg></a>
       </li>
     </ol></div></div>
   </div>
@@ -532,41 +677,63 @@ section{scroll-margin-top:8px}
     <button class="dh" aria-expanded="false">
       <div><div class="dd">1/17</div><div class="dw">SUN</div></div>
       <div>
-        <div class="dt">小樽</div>
-        <div class="ds">小樽運河 · 堺町通玻璃工藝 · 壽司通</div>
+        <div class="dt">札幌自由行 · 小樽黃昏</div>
+        <div class="ds">上午各自札幌自由行 · 湯咖哩午餐 · 午後小樽玻璃街 · 運河夜景 · 小樽壽司</div>
         <div class="dst">連住札幌</div>
       </div>
       <svg class="i chev"><use href="#down"/></svg>
     </button>
     <div class="db"><div class="dbi"><ol class="tl">
-      <li class="it" data-t="09:00">
-        <div class="tm"><span class="tv">09:00</span><i class="ln"></i></div>
-        <div class="ti">札幌 → 小樽</div>
-        <div class="tx">JR 函館本線 · 約 35 分鐘 · 班次頻繁 · JR Pass 適用</div>
-      </li>
-      <li class="it" data-t="10:00">
-        <div class="tm"><span class="tv">10:00</span><i class="ln"></i></div>
-        <div class="ti">小樽運河</div>
-        <div class="tx">北海道最具代表性風景 · 冬季積雪、煤氣燈倒映水面，為攝影勝地 · 沿運河有咖啡廳、餐廳及玻璃工藝品店</div>
-        <a class="addr" data-q="小樽運河"><svg class="i pin"><use href="#pin"/></svg><span>北海道小樽市港町</span><svg class="i o"><use href="#out"/></svg></a>
+      <li class="it">
+        <div class="tm"><span class="tv">上午</span><i class="ln"></i></div>
+        <div class="ti">札幌自由行（三選一，可分頭行動）</div>
+        <div class="tx"><b>A · 北海道神宮・円山</b>　雪中參道與円山公園，神宮茶屋的判官さま烤餅 · 地下鐵東西線 西11丁目 → 円山公園 約 6 分</div>
+        <div class="tx"><b>B · 二条市場・時計台・赤れんが</b>　市場吃早餐、看札幌地標，全程步行 · 飯店步行約 10–15 分</div>
+        <div class="tx"><b>C · 白い恋人パーク</b>　巧克力工廠與歐風庭園 · 地下鐵東西線 西11丁目 → 宮の沢 約 15 分＋步行 7 分</div>
+        <div class="warn"><svg class="i"><use href="#alert"/></svg><span>12:00 在午餐店集合</span></div>
       </li>
       <li class="it" data-t="12:00">
         <div class="tm"><span class="tv">12:00</span><i class="ln"></i></div>
-        <div class="ti">午餐 — 壽司通</div>
-        <div class="tx">小樽「壽司屋通り」聚集多間高品質握壽司餐廳 · 使用北海道當季海鮮食材 · 午餐時段比晚餐等待時間短</div>
-        <div class="warn"><svg class="i"><use href="#alert"/></svg><span>おたる政寿司等為知名店家，建議事先訂位</span></div>
-        <a class="addr" data-q="小樽 寿司屋通り"><svg class="i pin"><use href="#pin"/></svg><span>小樽 壽司屋通り</span><svg class="i o"><use href="#out"/></svg></a>
+        <div class="ti">午餐 — ベンベラ・ネットワークカンパニー</div>
+        <div class="mv"><span class="lbl">Move</span><span>飯店步行約 5 分（南2条西7）</span></div>
+        <div class="tx">Tabelog 3.68 · 札幌湯咖哩名店，蔬菜大塊、湯頭清爽辛香 · 營業至 16:00，不接受預約</div>
+        <div class="warn"><svg class="i"><use href="#alert"/></svg><span>7 人可能需分兩桌 · 備案：SOUP CURRY KING セントラル（Tabelog 3.68）、ひげ男爵（Tabelog 3.69）</span></div>
+        <a class="addr" data-q="ベンベラネットワークカンパニー"><svg class="i pin"><use href="#pin"/></svg><span>北海道札幌市中央区南2条西7丁目</span><svg class="i o"><use href="#out"/></svg></a>
       </li>
-      <li class="it" data-t="14:00">
-        <div class="tm"><span class="tv">14:00</span><i class="ln"></i></div>
-        <div class="ti">堺町通 · 玻璃工藝</div>
-        <div class="tx">小樽以玻璃工藝聞名 · 北一硝子最大玻璃工藝店，附設煤油燈咖啡館 · 大正硝子亦為知名品牌</div>
+      <li class="it key" data-t="13:30">
+        <div class="tm"><span class="tv">13:30</span><i class="ln"></i></div>
+        <div class="ti">札幌 → 小樽</div>
+        <div class="mv"><span class="lbl">Move</span><span>JR 快速エアポート（小樽行）／普通　札幌 → 小樽 約 33–45 分 · 快速エアポート uシート可預訂</span></div>
+        <div class="tx">東京組 JR Pass 已於 1/16 到期，單程 ¥750 需另購（IC 卡可）；仙台組 Pass 仍有效</div>
+        <div class="warn"><svg class="i"><use href="#alert"/></svg><span>靠海一側（進行方向右側）可看到石狩灣</span></div>
+      </li>
+      <li class="it" data-t="14:30">
+        <div class="tm"><span class="tv">14:30</span><i class="ln"></i></div>
+        <div class="ti">堺町通 · 北一硝子 · 音樂盒堂</div>
+        <div class="mv"><span class="lbl">Move</span><span>小樽站步行約 15 分，或南小樽站步行約 7 分</span></div>
+        <div class="tx">小樽以玻璃工藝聞名 · 北一硝子三號館的煤油燈咖啡館 · 小樽オルゴール堂的蒸汽鐘</div>
         <a class="addr" data-q="小樽 堺町通り"><svg class="i pin"><use href="#pin"/></svg><span>北海道小樽市堺町</span><svg class="i o"><use href="#out"/></svg></a>
       </li>
-      <li class="it">
-        <div class="tm"><span class="tv">傍晚</span><i class="ln"></i></div>
-        <div class="ti">返回札幌</div>
-        <div class="tx">JR 函館本線返回札幌 · 整理行李準備隔天回台 · 狸小路 Don Quijote 24 小時營業，適合最後一晚掃貨</div>
+      <li class="it" data-t="16:30">
+        <div class="tm"><span class="tv">16:30</span><i class="ln"></i></div>
+        <div class="ti">小樽運河 · 黃昏到夜</div>
+        <div class="mv"><span class="lbl">Move</span><span>堺町通步行約 10 分</span></div>
+        <div class="tx">16:30 前後煤氣燈陸續亮起，運河倉庫群倒映在雪色水面 · 淺草橋一帶是最經典的拍攝點</div>
+        <a class="addr" data-q="小樽運河 浅草橋"><svg class="i pin"><use href="#pin"/></svg><span>北海道小樽市港町</span><svg class="i o"><use href="#out"/></svg></a>
+      </li>
+      <li class="it" data-t="18:00">
+        <div class="tm"><span class="tv">18:00</span><i class="ln"></i></div>
+        <div class="ti">晚餐 — 寿司 よし</div>
+        <div class="mv"><span class="lbl">Move</span><span>運河步行約 10 分（色內）</span></div>
+        <div class="tx">Tabelog 3.61 · 小樽在地壽司店，北海道當季魚貨握壽司 · 週日 18:00–21:00 · 人均約 ¥10,000–15,000</div>
+        <div class="warn"><svg class="i"><use href="#alert"/></svg><span>需預約 · 備案：小樽おり鮨（Tabelog 3.60）</span></div>
+        <a class="addr" data-q="寿司 よし 小樽"><svg class="i pin"><use href="#pin"/></svg><span>北海道小樽市色内 1-10-9</span><svg class="i o"><use href="#out"/></svg></a>
+      </li>
+      <li class="it" data-t="20:00">
+        <div class="tm"><span class="tv">20:00</span><i class="ln"></i></div>
+        <div class="ti">小樽 → 札幌</div>
+        <div class="mv"><span class="lbl">Move</span><span>JR 快速／普通　小樽 → 札幌 約 33–45 分</span></div>
+        <div class="tx">最後一晚 · 狸小路 Don Quijote 24 小時營業，適合集中掃貨 · 回飯店整理行李</div>
       </li>
     </ol></div></div>
   </div>
@@ -584,19 +751,21 @@ section{scroll-margin-top:8px}
     <div class="db"><div class="dbi"><ol class="tl">
       <li class="it">
         <div class="tm"><span class="tv">早上</span><i class="ln"></i></div>
-        <div class="ti">前往新千歲機場</div>
-        <div class="tx">JR 快速エアポート 至新千歲機場，約 37 分鐘，每 15 分鐘一班 · 建議航班起飛前 2.5 小時抵達</div>
+        <div class="ti">札幌 → 新千歲機場（各組分頭出發）</div>
+        <div class="mv"><span class="lbl">Move</span><span>JR 快速エアポート　札幌 → 新千歲機場 約 37 分 · ¥1,230（兩組 Pass 皆已到期）· 白天每小時 6 班 · uシート ¥840 可預訂</span></div>
+        <div class="tx">建議札幌站出發時間：<b>虎航組</b> 08:50 前後 · <b>加航組</b> 09:15 前後 · <b>亞航組</b> 11:20 前後 · <b>星宇組</b> 12:00 前後</div>
+        <div class="warn"><svg class="i"><use href="#alert"/></svg><span>國際線建議起飛前 2.5 小時抵達機場，國內線約 1.5 小時 · 退房後行李多可搭計程車到札幌站</span></div>
       </li>
       <li class="it key" data-t="11:40">
         <div class="tm"><span class="tv">11:40</span><i class="ln"></i></div>
         <div class="ti"><span class="grp">加航組</span>新千歲 → 青森</div>
         <div class="tx">國內線 新千歲 11:40 → 青森 12:35 · 推算對應班次為 ANA1898（新千歲 11:35 → 青森 12:30）</div>
-        <div class="warn"><svg class="i"><use href="#alert"/></svg><span>與其他組別分開行動，提早前往新千歲機場國內線航廈辦理登機</span></div>
+        <div class="warn"><svg class="i"><use href="#alert"/></svg><span>與其他組別分開行動，至新千歲機場國內線航廈辦理登機</span></div>
       </li>
       <li class="it key" data-t="12:05">
         <div class="tm"><span class="tv">12:05</span><i class="ln"></i></div>
         <div class="ti"><span class="grp">虎航組</span>IT235 新千歲 → 桃園</div>
-        <div class="tx">表定 12:05 起飛／15:20 抵達桃園（實際約 12:20–12:30 起飛，15:10–15:30 抵達）· 飛行約 3h52m–4h15m · 每日航班</div>
+        <div class="tx">表定 12:05 起飛／15:20 抵達桃園（實際約 12:20–12:30 起飛，15:10–15:30 抵達）· 每日航班</div>
       </li>
       <li class="it key" data-t="14:40">
         <div class="tm"><span class="tv">14:40</span><i class="ln"></i></div>
@@ -611,133 +780,114 @@ section{scroll-margin-top:8px}
       <li class="it key" data-t="15:30">
         <div class="tm"><span class="tv">15:30</span><i class="ln"></i></div>
         <div class="ti"><span class="grp">加航組</span>長榮 BR121 青森 → 台北</div>
-        <div class="tx">青森 15:30 起飛／台北 18:40 抵達 · 機票以加拿大航空（Air Canada）開立，實際搭乘長榮航空 BR121 執飛（每日航班）· 中途於青森機場需重新辦理國際線報到與安檢</div>
-        <div class="warn"><svg class="i"><use href="#alert"/></svg><span>飛行時間約 3h 32m · 2027 年 1 月正式時刻表尚未公布，出發前 1 個月內請再次確認</span></div>
+        <div class="tx">青森 15:30 起飛／台北 18:40 抵達 · 加拿大航空開票、長榮 BR121 執飛 · 青森機場需重新辦理國際線報到與安檢</div>
+        <div class="warn"><svg class="i"><use href="#alert"/></svg><span>2027 年 1 月正式時刻表尚未公布，出發前 1 個月內請再次確認</span></div>
       </li>
     </ol></div></div>
   </div>
 </section>
 
-<!-- ══════════ 預算 ══════════ -->
-<section id="s-cost">
-  <div class="sec-h"><h2>預算</h2><span class="lbl">Per Person · JPY</span></div>
-
-  <div class="bsum">
-    <span class="lbl">每人地上花費 · 不含機票</span>
-    <div class="bsum-m num">¥157,710</div>
-    <div class="bsum-s num">≈ NT$31,500 · 加上機票約 NT$47,000–57,000</div>
-    <div class="bsum-g num"><span>全團 7 人</span><span>¥1,103,970 ≈ NT$220,800</span></div>
-  </div>
-  <p class="bnote">匯率以 1 JPY ≈ 0.20 TWD 估算 · <span class="tg ok">定價</span> 為官方公告價格，<span class="tg">估</span> 為依店家或同類行程行情推算 · 各組實際交通略有差異（如小樽、仙台空港線僅單組需付），此處以最多的情況計 · 伴手禮與購物不列入</p>
-  <div class="sub-h"><span class="lbl">交通</span><span class="num">¥54,490</span></div>
-  <table class="bt"><tbody>
-    <tr><td><div class="bn">JR東日本＋南北海道パス（6 日）</div><div class="bs">全程 · 官方價 · 涵蓋 N'EX、東北／山形／北海道新幹線、特急北斗</div></td><td class="bv">¥40,000<span class="tg ok">定價</span></td></tr>
-    <tr><td><div class="bn">札幌 ⇄ 小樽 JR 來回</div><div class="bs">1/17 · 僅東京組：Pass 已於 1/16 到期</div></td><td class="bv">¥1,500<span class="tg">估</span></td></tr>
-    <tr><td><div class="bn">札幌 → 新千歲機場 快速エアポート</div><div class="bs">1/18 · 兩組皆在 Pass 效期外</div></td><td class="bv">¥1,150<span class="tg">估</span></td></tr>
-    <tr><td><div class="bn">仙台空港アクセス線</div><div class="bs">1/11 · 僅仙台組：Pass 尚未兌換</div></td><td class="bv">¥680<span class="tg">估</span></td></tr>
-    <tr><td><div class="bn">福島交通飯坂線 來回</div><div class="bs">1/13 · 單程 ¥430</div></td><td class="bv">¥860<span class="tg ok">定價</span></td></tr>
-    <tr><td><div class="bn">銀山溫泉包車 ジャンボタクシー</div><div class="bs">1/13 · ¥24,000～／台 ÷ 7 人，冬季費用待確認</div></td><td class="bv">¥3,500<span class="tg">估</span></td></tr>
-    <tr><td><div class="bn">市區交通 IC 卡儲值</div><div class="bs">全程 · 仙台地下鐵、函館市電、札幌地下鐵等</div></td><td class="bv">¥5,000<span class="tg">估</span></td></tr>
-    <tr><td><div class="bn">函館山纜車 來回</div><div class="bs">1/14 · 大人往返</div></td><td class="bv">¥1,800<span class="tg ok">定價</span></td></tr>
-  </tbody></table>
-  <div class="sub-h"><span class="lbl">門票 · 活動</span><span class="num">¥10,220</span></div>
-  <table class="bt"><tbody>
-    <tr><td><div class="bn">睡魔之家 WA・RASSE</div><div class="bs">1/12 · 入館料</div></td><td class="bv">¥620<span class="tg">估</span></td></tr>
-    <tr><td><div class="bn">鯖湖湯</div><div class="bs">1/13 · 大人入浴料</div></td><td class="bv">¥400<span class="tg ok">定價</span></td></tr>
-    <tr><td><div class="bn">五稜郭塔 展望台</div><div class="bs">1/14</div></td><td class="bv">¥1,200<span class="tg">估</span></td></tr>
-    <tr><td><div class="bn">KKday 洞爺湖一日遊</div><div class="bs">1/16 · 同類行程約 ¥7,000–8,800，午餐自費</div></td><td class="bv">¥8,000<span class="tg">估</span></td></tr>
-  </tbody></table>
-  <div class="sub-h"><span class="lbl">餐飲</span><span class="num">¥49,500</span></div>
-  <table class="bt"><tbody>
-    <tr><td><div class="bn">善治郎 牛舌定食</div><div class="bs">1/11</div></td><td class="bv">¥3,000<span class="tg">估</span></td></tr>
-    <tr><td><div class="bn">松島 牡蠣吃到飽</div><div class="bs">1/12</div></td><td class="bv">¥4,500<span class="tg">估</span></td></tr>
-    <tr><td><div class="bn">円盤餃子 · 照井 東口店</div><div class="bs">1/13 · 一皿 22 顆，建議 2–3 人分一皿再加點</div></td><td class="bv">¥1,500<span class="tg">估</span></td></tr>
-    <tr><td><div class="bn">函館朝市 海鮮丼</div><div class="bs">1/15</div></td><td class="bv">¥3,000<span class="tg">估</span></td></tr>
-    <tr><td><div class="bn">くし路 爐端燒午餐</div><div class="bs">1/15 · 人均 ¥1,000–1,480</div></td><td class="bv">¥1,500<span class="tg">估</span></td></tr>
-    <tr><td><div class="bn">エビかに合戦 帝王蟹吃到飽</div><div class="bs">1/15 · 人均 ¥5,000–8,000</div></td><td class="bv">¥7,000<span class="tg">估</span></td></tr>
-    <tr><td><div class="bn">小樽 壽司通 午餐</div><div class="bs">1/17</div></td><td class="bv">¥5,000<span class="tg">估</span></td></tr>
-    <tr><td><div class="bn">其餘三餐、咖啡、點心</div><div class="bs">8 天 · 每日約 ¥3,000</div></td><td class="bv">¥24,000<span class="tg">估</span></td></tr>
-  </tbody></table>
-  <div class="sub-h"><span class="lbl">住宿</span><span class="num">¥38,000</span></div>
-  <table class="bt"><tbody>
-    <tr><td><div class="bn">KP 仙台車站北 APA（3 晚）</div><div class="bs">1/11–14 · 以 2 人 1 室分攤估算，已訂者請以訂單為準</div></td><td class="bv">¥15,000<span class="tg">估</span></td></tr>
-    <tr><td><div class="bn">函館站前 APA（1 晚）</div><div class="bs">1/14–15 · 同上</div></td><td class="bv">¥5,000<span class="tg">估</span></td></tr>
-    <tr><td><div class="bn">APA 札幌大通站前西（3 晚）</div><div class="bs">1/15–18 · 同上</div></td><td class="bv">¥18,000<span class="tg">估</span></td></tr>
-  </tbody></table>
-  <div class="sub-h"><span class="lbl">其他</span><span class="num">¥5,500</span></div>
-  <table class="bt"><tbody>
-    <tr><td><div class="bn">日本 eSIM（8 天）</div><div class="bs">出發前 · 約 NT$300</div></td><td class="bv">¥1,500<span class="tg">估</span></td></tr>
-    <tr><td><div class="bn">旅平險／不便險</div><div class="bs">出發前 · 約 NT$600–1,000</div></td><td class="bv">¥4,000<span class="tg">估</span></td></tr>
-  </tbody></table>
-  <div class="sub-h"><span class="lbl">機票 · 依組別</span><span class="num">NT$15,000–25,000</span></div>
-  <table class="bt"><tbody>
-    <tr><td><div class="bn">國際線 去程＋回程</div><div class="bs">去：東京組 BR184／仙台組 BR118 · 回：虎航 IT235／亞航 FD243／星宇 JX851／加航組經青森 · 請各組以實際票價為準</div></td><td class="bv">NT$15k–25k<span class="tg">估</span></td></tr>
-  </tbody></table>
-</section>
 
 <!-- ══════════ 交通 ══════════ -->
 <section id="s-move">
   <div class="sec-h"><h2>交通</h2><span class="lbl">JR East + South Hokkaido Pass</span></div>
+  <p class="bnote">標 <b>官網訂指定席</b> 的班次請用 JR東日本 えきねっと 一次訂好 · 時刻依現行時刻表推算，2027 年 1 月時刻表（約 2026 年 12 月公布）出來後請再核對一次</p>
 
   <div class="seg" data-date="2027-01-11">
-    <div class="seg-h"><div class="seg-t">去程 A · 台灣 → 仙台（經東京）</div><div class="seg-d num">1/11 MON</div></div>
+    <div class="seg-h"><div class="seg-t">去程 A · 台灣 → 仙台（經東京）</div><div class="seg-d num">1/11 MON 祝</div></div>
     <div class="leg key">
       <span class="lbl">Flight</span>
       <div class="tm"><span class="tv">07:55</span><i class="ln"></i><span class="tv2">12:00</span></div>
       <div class="rt">長榮 BR184<span>桃園 T2 → 成田 T1</span></div>
-      <div class="tx">飛行時間約 3h 05m · Boeing 787-10 · 全員需使用 JR Pass，建議抵日後直接前往成田 JR 窗口換票</div>
+      <div class="tx">飛行時間約 3h 05m · 抵日後直接前往成田 JR 窗口兌換 JR Pass</div>
     </div>
-    <div class="conn"><svg class="i"><use href="#down"/></svg><span>成田機場站　入境／提領行李／兌換 JR Pass · 預留約 1.5 小時</span></div>
+    <div class="conn"><svg class="i"><use href="#down"/></svg><span>成田機場站　入境／提領行李／兌換 JR Pass · 約 1.5 小時</span></div>
     <div class="leg key">
       <span class="lbl">Rail · N'EX</span>
-      <div class="tm"><span class="tv">13:30</span><i class="ln"></i><span class="tv2">14:25</span></div>
+      <div class="tm"><span class="tv">13:44</span><i class="ln"></i><span class="tv2">14:37</span></div>
       <div class="rt">成田特快 N'EX<span>成田空港 → 東京</span></div>
-      <div class="tx">約 55 分 · <b>官網訂位</b> · 第 1・2・3 航廈均有 N'EX 停靠</div>
+      <div class="tx">約 53 分 · <b>官網訂指定席</b> · 前後班 13:14／14:20</div>
     </div>
-    <div class="conn"><svg class="i"><use href="#down"/></svg><span>東京站　一番街稍作停留（約 80 分鐘，14:25–15:50）</span></div>
+    <div class="conn"><svg class="i"><use href="#down"/></svg><span>東京站　八重洲地下街 エリックサウス 午餐（約 14:45–15:10）</span></div>
     <div class="leg key">
       <span class="lbl">Shinkansen</span>
-      <div class="tm"><span class="tv">15:50</span><i class="ln"></i><span class="tv2">17:25</span></div>
-      <div class="rt">東北新幹線 はやぶさ<span>東京 → 仙台</span></div>
-      <div class="tx">約 1h 30–40m，預估 17:20～17:30 抵達 · <b>官網訂指定席</b> · 目標 18:00 前抵達仙台飯店</div>
+      <div class="tm"><span class="tv">15:20</span><i class="ln"></i><span class="tv2">16:51</span></div>
+      <div class="rt">はやぶさ 31 號<span>東京 → 仙台</span></div>
+      <div class="tx">約 1h 31m · <b>官網訂指定席</b></div>
+      <div class="warn"><svg class="i"><use href="#alert"/></svg><span>備案 はやぶさ 33 號 16:20 → 17:51 · 以 2027 年 1 月祝日時刻表為準</span></div>
     </div>
-    <div class="pass"><span class="lbl">JR Pass</span><span>本段全程適用 · N'EX 及新幹線均需於官網預訂指定席</span></div>
+    <div class="pass"><span class="lbl">JR Pass</span><span>本段全程適用 · N'EX 與新幹線皆需預訂指定席</span></div>
   </div>
 
   <div class="seg" data-date="2027-01-11">
-    <div class="seg-h"><div class="seg-t">去程 B · 台灣 → 仙台（直飛）</div><div class="seg-d num">1/11 MON</div></div>
+    <div class="seg-h"><div class="seg-t">去程 B · 台灣 → 仙台（直飛）</div><div class="seg-d num">1/11 MON 祝</div></div>
     <div class="leg key">
       <span class="lbl">Flight</span>
       <div class="tm"><span class="tv">10:15</span><i class="ln"></i><span class="tv2">14:25</span></div>
       <div class="rt">長榮 BR118<span>桃園 T2 → 仙台</span></div>
       <div class="tx">飛行時間約 3h 10m</div>
-      <div class="warn"><svg class="i"><use href="#alert"/></svg><span>時刻依現行同時段 BR118 班表推算，2027 年正式班表公布後請再次確認訂位</span></div>
+      <div class="warn"><svg class="i"><use href="#alert"/></svg><span>時刻依現行同時段班表推算，2027 年正式班表公布後請再確認</span></div>
     </div>
     <div class="conn"><svg class="i"><use href="#down"/></svg><span>仙台機場　入境／提領行李</span></div>
     <div class="leg">
       <span class="lbl">Rail</span>
       <div class="tm"><span class="tv">約 25 分</span><i class="ln"></i></div>
-      <div class="rt">仙台空港アクセス線<span>仙台空港 → 仙台站</span></div>
-      <div class="tx">此段 JR Pass 尚未生效（兌換前），建議先以現金或 IC 卡購票</div>
+      <div class="rt">仙台空港アクセス線<span>仙台空港 → 仙台</span></div>
+      <div class="tx">¥680 · 不需訂位 · Pass 兌換前，以 IC 卡或現金購票</div>
     </div>
-    <div class="pass"><span class="lbl">JR Pass</span><span>此組未經東京，需改在仙台站 JR東日本窗口兌換，落地後請優先辦理</span></div>
+    <div class="pass"><span class="lbl">JR Pass</span><span>此組未經東京，需在仙台站 JR東日本窗口兌換，落地後請優先辦理</span></div>
   </div>
 
   <div class="seg" data-date="2027-01-12">
-    <div class="seg-h"><div class="seg-t">仙台拠点 · 松島＋弘前</div><div class="seg-d num">1/12 TUE</div></div>
+    <div class="seg-h"><div class="seg-t">松島 → 弘前 → 青森 → 仙台</div><div class="seg-d num">1/12 TUE</div></div>
     <div class="leg">
-      <span class="lbl">Rail · 1/12</span>
-      <div class="tm"><span class="tv">約 40 分</span><i class="ln"></i></div>
-      <div class="rt">仙台 → 松島<span>JR 仙石線 松島海岸駅</span></div>
-      <div class="tx">JR Pass 適用 · IC 卡亦可</div>
+      <span class="lbl">Rail · 仙石線</span>
+      <div class="tm"><span class="tv">07:33</span><i class="ln"></i><span class="tv2">08:13</span></div>
+      <div class="rt">JR 仙石線<span>仙台 → 松島海岸</span></div>
+      <div class="tx">約 40 分 · 自由席</div>
+      <div class="warn"><svg class="i"><use href="#alert"/></svg><span>平日時刻請以 2027 年時刻表確認</span></div>
+    </div>
+    <div class="conn"><svg class="i"><use href="#down"/></svg><span>松島　五大堂 → 福浦橋 → 瑞巌寺 → 10:00 かき小屋 MATSU</span></div>
+    <div class="leg">
+      <span class="lbl">Rail · 仙石線</span>
+      <div class="tm"><span class="tv">11:11</span><i class="ln"></i><span class="tv2">11:51</span></div>
+      <div class="rt">JR 仙石線<span>松島海岸 → 仙台</span></div>
+      <div class="tx">松島海岸始發 · 自由席</div>
     </div>
     <div class="leg key">
-      <span class="lbl">Shinkansen · 1/12</span>
-      <div class="tm"><span class="tv">2.5–3h</span><i class="ln"></i></div>
-      <div class="rt">松島 → 弘前</div>
-      <div class="tx">松島海岸 → 仙台（東北本線）→ 新幹線 → 新青森 → 奥羽本線 → 弘前 · JR Pass 適用全段</div>
-      <div class="warn"><svg class="i"><use href="#alert"/></svg><span>13:00 前出發方能下午抵達弘前</span></div>
+      <span class="lbl">Shinkansen</span>
+      <div class="tm"><span class="tv">12:17</span><i class="ln"></i><span class="tv2">13:57</span></div>
+      <div class="rt">はやぶさ 17 號<span>仙台 → 新青森</span></div>
+      <div class="tx">約 1h 40m · <b>官網訂指定席</b></div>
     </div>
+    <div class="leg">
+      <span class="lbl">Rail · 奥羽本線</span>
+      <div class="tm"><span class="tv">14:08</span><i class="ln"></i><span class="tv2">14:48</span></div>
+      <div class="rt">普通<span>新青森 → 弘前</span></div>
+      <div class="tx">約 40 分 · 自由席</div>
+    </div>
+    <div class="conn"><svg class="i"><use href="#down"/></svg><span>弘前　蘋果派巡禮（約 15:00–15:55）</span></div>
+    <div class="leg">
+      <span class="lbl">Rail · 奥羽本線</span>
+      <div class="tm"><span class="tv">16:16</span><i class="ln"></i><span class="tv2">17:00</span></div>
+      <div class="rt">普通<span>弘前 → 青森</span></div>
+      <div class="tx">約 45 分 · 自由席 · 16:00–17:59 唯一一班</div>
+    </div>
+    <div class="conn"><svg class="i"><use href="#down"/></svg><span>青森　睡魔之家 WA・RASSE（最後入館 17:30）</span></div>
+    <div class="leg">
+      <span class="lbl">Rail · 奥羽本線</span>
+      <div class="tm"><span class="tv">18:11</span><i class="ln"></i><span class="tv2">18:17</span></div>
+      <div class="rt">普通<span>青森 → 新青森</span></div>
+      <div class="tx">約 6 分 · 自由席</div>
+    </div>
+    <div class="leg key">
+      <span class="lbl">Shinkansen</span>
+      <div class="tm"><span class="tv">18:39</span><i class="ln"></i><span class="tv2">20:29</span></div>
+      <div class="rt">はやぶさ 42 號<span>新青森 → 仙台</span></div>
+      <div class="tx">約 1h 50m · <b>官網訂指定席</b></div>
+      <div class="warn"><svg class="i"><use href="#alert"/></svg><span>較早班次 はやぶさ 40 號 18:25 → 19:53，轉乘較趕</span></div>
+    </div>
+    <div class="pass"><span class="lbl">JR Pass</span><span>全日適用 · 新幹線 2 段需訂位，仙石線與奥羽本線坐自由席</span></div>
   </div>
 
   <div class="seg" data-date="2027-01-13">
@@ -745,79 +895,119 @@ section{scroll-margin-top:8px}
     <div class="leg key">
       <span class="lbl">Shinkansen</span>
       <div class="tm"><span class="tv">09:00</span><i class="ln"></i><span class="tv2">09:25</span></div>
-      <div class="rt">東北新幹線 やまびこ<span>仙台 → 福島</span></div>
-      <div class="tx">約 25 分 · 仙台始發</div>
+      <div class="rt">やまびこ<span>仙台 → 福島</span></div>
+      <div class="tx">仙台始發 · <b>官網訂指定席</b></div>
     </div>
     <div class="leg">
-      <span class="lbl">Local Rail · 私鐵</span>
-      <div class="tm"><span class="tv">約 25 分</span><i class="ln"></i></div>
-      <div class="rt">福島交通飯坂線<span>福島 ⇄ 飯坂溫泉</span></div>
-      <div class="tx">單程 ¥430，來回 ¥860 · <b>JR Pass 不適用</b></div>
+      <span class="lbl">Rail · 私鐵</span>
+      <div class="tm"><span class="tv">約 5 分</span><i class="ln"></i></div>
+      <div class="rt">福島交通飯坂線<span>福島 ⇄ 美術館図書館前</span></div>
+      <div class="tx">JR Pass 不適用 · IC 卡或現金 · 來回約 ¥400</div>
     </div>
+    <div class="conn"><svg class="i"><use href="#down"/></svg><span>福島　縣立美術館 → 蕎麦人 午餐 → エスパル福島</span></div>
     <div class="leg key">
-      <span class="lbl">Yamagata Shinkansen</span>
+      <span class="lbl">Shinkansen</span>
       <div class="tm"><span class="tv">13:37</span><i class="ln"></i><span class="tv2">15:15</span></div>
       <div class="rt">つばさ 137 號<span>福島 → 大石田</span></div>
-      <div class="tx">約 1h 38m · 福島站 14 號月台 · <b>官網訂指定席</b></div>
+      <div class="tx">山形新幹線 約 1h 38m · <b>官網訂指定席</b> · 14 號月台</div>
     </div>
-    <div class="conn"><svg class="i"><use href="#down"/></svg><span>大石田站　尾花沢タクシー 司機接站</span></div>
     <div class="leg key">
-      <span class="lbl">Charter Taxi</span>
+      <span class="lbl">Taxi</span>
       <div class="tm"><span class="tv">15:30</span><i class="ln"></i><span class="tv2">18:30</span></div>
-      <div class="rt">尾花沢タクシー 銀山温泉コース<span>大石田站 ⇄ 銀山溫泉</span></div>
-      <div class="tx">3 小時包車 · ジャンボタクシー（~9 名）¥24,000～／台 · 普通車（~4 名）¥16,000～ · 冬季管制期間可直接進入溫泉街</div>
+      <div class="rt">尾花沢タクシー ジャンボタクシー<span>大石田 ⇄ 銀山溫泉</span></div>
+      <div class="tx">3 小時包車 · ¥24,000～／台 · 7 人分攤約 ¥3,500 · 電話 0237-23-2525</div>
     </div>
     <div class="leg key">
-      <span class="lbl">Return</span>
-      <div class="tm"><span class="tv">18:57</span><i class="ln"></i><span class="tv2">21:20</span></div>
-      <div class="rt">つばさ → やまびこ<span>大石田 → 福島 → 仙台</span></div>
-      <div class="tx">福島約 20:47 著，轉 20:57 前後 やまびこ · 備案：山形轉 JR 仙山線</div>
+      <span class="lbl">Shinkansen</span>
+      <div class="tm"><span class="tv">18:57</span><i class="ln"></i><span class="tv2">20:47</span></div>
+      <div class="rt">つばさ<span>大石田 → 福島</span></div>
+      <div class="tx">約 1h 50m · <b>官網訂指定席</b></div>
     </div>
-    <div class="pass"><span class="lbl">JR Pass</span><span>東北新幹線、山形新幹線つばさ皆適用 · 飯坂線與包車需另付</span></div>
+    <div class="leg key">
+      <span class="lbl">Shinkansen</span>
+      <div class="tm"><span class="tv">20:57</span><i class="ln"></i><span class="tv2">21:20</span></div>
+      <div class="rt">やまびこ<span>福島 → 仙台</span></div>
+      <div class="tx">轉乘約 10 分 · <b>官網訂指定席</b></div>
+      <div class="warn"><svg class="i"><use href="#alert"/></svg><span>大石田以南時刻為推算，2027 年 1 月請再確認</span></div>
+    </div>
+    <div class="pass"><span class="lbl">JR Pass</span><span>新幹線 4 段全適用 · 飯坂線與包車另付</span></div>
   </div>
 
   <div class="seg" data-date="2027-01-14">
     <div class="seg-h"><div class="seg-t">仙台 → 函館</div><div class="seg-d num">1/14 THU</div></div>
     <div class="leg key">
       <span class="lbl">Shinkansen</span>
-      <div class="tm"><span class="tv">上午</span><i class="ln"></i><span class="tv2">1h 50m</span></div>
-      <div class="rt">北海道新幹線 はやぶさ<span>仙台 → 新函館北斗</span></div>
-      <div class="tx">確認班次後訂座 · <b>官網訂指定席</b></div>
+      <div class="tm"><span class="tv">09:50</span><i class="ln"></i><span class="tv2">12:15</span></div>
+      <div class="rt">はやぶさ 5 號<span>仙台 → 新函館北斗</span></div>
+      <div class="tx">約 2h 25m · <b>官網訂指定席</b></div>
     </div>
-    <div class="conn"><svg class="i"><use href="#down"/></svg><span>新函館北斗站　換乘普通列車</span></div>
     <div class="leg">
       <span class="lbl">Rail</span>
-      <div class="tm"><span class="tv">約 20 分</span><i class="ln"></i></div>
-      <div class="rt">JR 函館本線（普通）<span>新函館北斗 → 函館</span></div>
-      <div class="tx">自由席 · 班次約 30 分一班</div>
+      <div class="tm"><span class="tv">約 15–20 分</span><i class="ln"></i></div>
+      <div class="rt">はこだてライナー<span>新函館北斗 → 函館</span></div>
+      <div class="tx">接續新幹線發車 · 自由席</div>
     </div>
-    <div class="pass"><span class="lbl">JR Pass</span><span>本段適用 JR東日本＋南北海道パス</span></div>
+    <div class="conn"><svg class="i"><use href="#down"/></svg><span>函館站　步行 5 分到 APA 寄放行李</span></div>
+    <div class="leg">
+      <span class="lbl">Tram</span>
+      <div class="tm"><span class="tv">約 16 分</span><i class="ln"></i></div>
+      <div class="rt">函館市電<span>函館駅前 → 五稜郭公園前</span></div>
+      <div class="tx">市電一日券 · IC 卡可 · 之後五稜郭公園前 → 十字街 約 20 分</div>
+    </div>
+    <div class="leg">
+      <span class="lbl">Ropeway</span>
+      <div class="tm"><span class="tv">約 3 分</span><i class="ln"></i></div>
+      <div class="rt">函館山ロープウェイ<span>山麓 ⇄ 山頂</span></div>
+      <div class="tx">來回 ¥1,800 · 強風時停駛，改搭登山巴士</div>
+    </div>
+    <div class="pass"><span class="lbl">JR Pass</span><span>新幹線與はこだてライナー適用 · 市電、纜車另付</span></div>
   </div>
 
   <div class="seg" data-date="2027-01-15">
     <div class="seg-h"><div class="seg-t">函館 → 札幌</div><div class="seg-d num">1/15 FRI</div></div>
     <div class="leg key">
-      <span class="lbl">Limited Express</span>
-      <div class="tm"><span class="tv">上午</span><i class="ln"></i><span class="tv2">3h 30m</span></div>
-      <div class="rt">JR 特急北斗<span>函館 → 札幌</span></div>
-      <div class="tx">函館朝市後出發 · <b>官網訂指定席</b> · 沿途可欣賞北海道大雪原景色 · 北海道新幹線延伸至札幌預計 2030 年，目前仍需搭特急</div>
+      <span class="lbl">Ltd. Express</span>
+      <div class="tm"><span class="tv">07:37</span><i class="ln"></i><span class="tv2">11:29</span></div>
+      <div class="rt">特急 北斗 3 號<span>函館 → 札幌</span></div>
+      <div class="tx">約 3h 52m · <b>官網訂指定席</b></div>
+      <div class="warn"><svg class="i"><use href="#alert"/></svg><span>備案 北斗 5 號 08:56 發</span></div>
     </div>
-    <div class="pass"><span class="lbl">JR Pass</span><span>本段適用 JR東日本＋南北海道パス</span></div>
+    <div class="conn"><svg class="i"><use href="#down"/></svg><span>札幌站　計程車約 10 分到 APA 大通站前西寄放行李</span></div>
+    <div class="leg">
+      <span class="lbl">Subway</span>
+      <div class="tm"><span class="tv">約 2 分</span><i class="ln"></i></div>
+      <div class="rt">札幌市營地下鐵 南北線<span>大通 ⇄ さっぽろ</span></div>
+      <div class="tx">¥210 · IC 卡可 · 往返くし路午餐與狸小路</div>
+    </div>
+    <div class="pass"><span class="lbl">JR Pass</span><span>特急北斗適用 · 地下鐵另付</span></div>
   </div>
 
   <div class="seg" data-date="2027-01-16,2027-01-17">
     <div class="seg-h"><div class="seg-t">札幌拠点 · 日常移動</div><div class="seg-d num">1/16 — 1/17</div></div>
     <div class="leg">
-      <span class="lbl">Bus · 1/16</span>
+      <span class="lbl">Tour · 1/16</span>
       <div class="tm"><span class="tv">全天</span><i class="ln"></i></div>
-      <div class="rt">札幌 ⇄ 郊外一日遊</div>
-      <div class="tx">KKday 行程含來回接送（洞爺湖／支笏湖／定山渓）· 集合地點依行程單確認</div>
+      <div class="rt">KKday 巴士<span>札幌 ⇄ 洞爺湖</span></div>
+      <div class="tx">單程約 2 小時 · 依行程集合時間與地點</div>
+    </div>
+    <div class="leg">
+      <span class="lbl">Subway</span>
+      <div class="tm"><span class="tv">約 6–15 分</span><i class="ln"></i></div>
+      <div class="rt">地下鐵 東西線<span>西11丁目 → 円山公園／宮の沢</span></div>
+      <div class="tx">1/17 上午自由行用 · 南北線 すすきの 前往晚餐</div>
+    </div>
+    <div class="leg key">
+      <span class="lbl">Rail · 1/17</span>
+      <div class="tm"><span class="tv">13:30</span><i class="ln"></i></div>
+      <div class="rt">JR 快速エアポート（小樽行）／普通<span>札幌 → 小樽</span></div>
+      <div class="tx">約 33–45 分 · 單程 ¥750 · 快速エアポート uシート可訂</div>
+      <div class="warn"><svg class="i"><use href="#alert"/></svg><span>東京組 Pass 1/16 到期需購票；仙台組 Pass 到 1/17 仍適用</span></div>
     </div>
     <div class="leg">
       <span class="lbl">Rail · 1/17</span>
-      <div class="tm"><span class="tv">約 35 分</span><i class="ln"></i></div>
-      <div class="rt">札幌 ⇄ 小樽<span>JR 函館本線</span></div>
-      <div class="tx">班次頻繁 · JR Pass 適用</div>
+      <div class="tm"><span class="tv">20:00</span><i class="ln"></i></div>
+      <div class="rt">JR 快速／普通<span>小樽 → 札幌</span></div>
+      <div class="tx">約 33–45 分</div>
     </div>
   </div>
 
@@ -827,13 +1017,13 @@ section{scroll-margin-top:8px}
       <span class="lbl">Rail</span>
       <div class="tm"><span class="tv">約 37 分</span><i class="ln"></i></div>
       <div class="rt">JR 快速エアポート<span>札幌 → 新千歲機場</span></div>
-      <div class="tx">每 15 分一班 · JR Pass 適用 · 航班起飛前 <b>2.5 小時</b>抵達機場為宜</div>
+      <div class="tx">¥1,230（Pass 皆已到期）· uシート ¥840 · 札幌出發：虎航組 08:50、亞航組 11:20、星宇組 12:00 前後</div>
     </div>
     <div class="leg key">
       <span class="lbl">Flight · 虎航組</span>
       <div class="tm"><span class="tv">12:05</span><i class="ln"></i><span class="tv2">15:20</span></div>
       <div class="rt">虎航 IT235<span>新千歲 → 桃園</span></div>
-      <div class="tx">實際約 12:20–12:30 起飛，15:10–15:30 抵達 · 飛行約 3h52m–4h15m · 每日航班</div>
+      <div class="tx">實際約 12:20–12:30 起飛，15:10–15:30 抵達 · 每日航班</div>
     </div>
     <div class="leg key">
       <span class="lbl">Flight · 亞航組</span>
@@ -845,25 +1035,31 @@ section{scroll-margin-top:8px}
       <span class="lbl">Flight · 星宇組</span>
       <div class="tm"><span class="tv">15:20</span><i class="ln"></i></div>
       <div class="rt">星宇 JX851<span>新千歲 → 桃園</span></div>
-      <div class="tx">表定 15:20 起飛 · 抵達時間待確認 · 每日航班</div>
+      <div class="tx">表定 15:20 起飛 · 抵達時間待確認</div>
     </div>
   </div>
 
   <div class="seg" data-date="2027-01-18">
     <div class="seg-h"><div class="seg-t">回程 · 加拿大航空組（經青森）</div><div class="seg-d num">1/18 MON</div></div>
+    <div class="leg">
+      <span class="lbl">Rail</span>
+      <div class="tm"><span class="tv">09:15</span><i class="ln"></i></div>
+      <div class="rt">JR 快速エアポート<span>札幌 → 新千歲機場</span></div>
+      <div class="tx">約 37 分 · ¥1,230 · 國內線航廈</div>
+    </div>
     <div class="leg key">
       <span class="lbl">Flight · 國內線</span>
       <div class="tm"><span class="tv">11:40</span><i class="ln"></i><span class="tv2">12:35</span></div>
-      <div class="rt">新千歲 → 青森</div>
-      <div class="tx">推算對應班次為 <b>ANA1898</b>（新千歲 11:35 → 青森 12:30）· 與其他組別分開行動</div>
+      <div class="rt">新千歲 → 青森<span>ANA1898 推算</span></div>
+      <div class="tx">推算對應班次 ANA1898（11:35 → 12:30）· 與其他組別分開行動</div>
     </div>
-    <div class="conn"><svg class="i"><use href="#down"/></svg><span>青森機場　轉機／重新辦理國際線報到與安檢 · 約 2h 55m 緩衝</span></div>
+    <div class="conn"><svg class="i"><use href="#down"/></svg><span>青森機場　重新辦理國際線報到與安檢 · 約 2h 55m 緩衝</span></div>
     <div class="leg key">
       <span class="lbl">Flight</span>
       <div class="tm"><span class="tv">15:30</span><i class="ln"></i><span class="tv2">18:40</span></div>
       <div class="rt">長榮 BR121<span>青森 → 台北</span></div>
-      <div class="tx">飛行約 3h 32m · 機票以加拿大航空開立，實際由長榮航空 BR121 執飛，每日航班</div>
-      <div class="warn"><svg class="i"><use href="#alert"/></svg><span>2027 年 1 月正式時刻表尚未公布，出發前 1 個月內請再次確認班次與時間</span></div>
+      <div class="tx">飛行約 3h 32m · 加拿大航空開票，長榮執飛</div>
+      <div class="warn"><svg class="i"><use href="#alert"/></svg><span>2027 年 1 月正式時刻表尚未公布，出發前 1 個月內請再確認</span></div>
     </div>
   </div>
 </section>
@@ -897,36 +1093,107 @@ section{scroll-margin-top:8px}
   </div>
 </section>
 
+<!-- ══════════ 預算 ══════════ -->
+<section id="s-cost">
+  <div class="sec-h"><h2>預算</h2><span class="lbl">Per Person · JPY</span></div>
+
+  <div class="bsum">
+    <span class="lbl">每人地上花費 · 不含機票</span>
+    <div class="bsum-m num">¥180,210</div>
+    <div class="bsum-s num">≈ NT$36,000 · 加上機票約 NT$51,000–61,000</div>
+    <div class="bsum-g num"><span>全團 7 人</span><span>¥1,261,470 ≈ NT$252,300</span></div>
+  </div>
+  <p class="bnote">匯率以 1 JPY ≈ 0.20 TWD 估算 · <span class="tg ok">定價</span> 為官方公告價格，<span class="tg">估</span> 為依店家或同類行程行情推算 · 各組實際交通略有差異（如小樽、仙台空港線僅單組需付），此處以最多的情況計 · 伴手禮與購物不列入</p>
+  <div class="sub-h"><span class="lbl">交通</span><span class="num">¥54,110</span></div>
+  <table class="bt"><tbody>
+    <tr><td><div class="bn">JR東日本＋南北海道パス（6 日）</div><div class="bs">全程 · 官方價 · 涵蓋 N'EX、東北／山形／北海道新幹線、特急北斗、奥羽本線、仙石線</div></td><td class="bv">¥40,000<span class="tg ok">定價</span></td></tr>
+    <tr><td><div class="bn">札幌 ⇄ 小樽 JR 來回</div><div class="bs">1/17 · 單程 ¥750 · 僅東京組：Pass 已於 1/16 到期</div></td><td class="bv">¥1,500<span class="tg ok">定價</span></td></tr>
+    <tr><td><div class="bn">札幌 → 新千歲機場 快速エアポート</div><div class="bs">1/18 · 兩組皆在 Pass 效期外 · uシート另加 ¥840</div></td><td class="bv">¥1,230<span class="tg ok">定價</span></td></tr>
+    <tr><td><div class="bn">仙台空港アクセス線</div><div class="bs">1/11 · 僅仙台組：Pass 尚未兌換</div></td><td class="bv">¥680<span class="tg ok">定價</span></td></tr>
+    <tr><td><div class="bn">福島交通飯坂線 來回</div><div class="bs">1/13 · 福島 ⇄ 美術館図書館前</div></td><td class="bv">¥400<span class="tg">估</span></td></tr>
+    <tr><td><div class="bn">銀山溫泉包車 ジャンボタクシー</div><div class="bs">1/13 · ¥24,000～／台 ÷ 7 人，冬季費用待確認</div></td><td class="bv">¥3,500<span class="tg">估</span></td></tr>
+    <tr><td><div class="bn">函館山纜車 來回</div><div class="bs">1/14 · 大人往返</div></td><td class="bv">¥1,800<span class="tg ok">定價</span></td></tr>
+    <tr><td><div class="bn">市區交通 IC 卡儲值</div><div class="bs">全程 · 函館市電、札幌地下鐵、計程車分攤等</div></td><td class="bv">¥5,000<span class="tg">估</span></td></tr>
+  </tbody></table>
+  <div class="sub-h"><span class="lbl">門票 · 活動</span><span class="num">¥11,000</span></div>
+  <table class="bt"><tbody>
+    <tr><td><div class="bn">瑞巌寺</div><div class="bs">1/12</div></td><td class="bv">¥700<span class="tg">估</span></td></tr>
+    <tr><td><div class="bn">福浦橋</div><div class="bs">1/12 · 通行費</div></td><td class="bv">¥200<span class="tg">估</span></td></tr>
+    <tr><td><div class="bn">睡魔之家 WA・RASSE</div><div class="bs">1/12 · 入館料</div></td><td class="bv">¥620<span class="tg ok">定價</span></td></tr>
+    <tr><td><div class="bn">福島縣立美術館 常設展</div><div class="bs">1/13</div></td><td class="bv">¥280<span class="tg ok">定價</span></td></tr>
+    <tr><td><div class="bn">五稜郭塔 展望台</div><div class="bs">1/14</div></td><td class="bv">¥1,200<span class="tg">估</span></td></tr>
+    <tr><td><div class="bn">KKday 洞爺湖一日遊</div><div class="bs">1/16 · 同類行程約 ¥7,000–8,800，午餐自費</div></td><td class="bv">¥8,000<span class="tg">估</span></td></tr>
+  </tbody></table>
+  <div class="sub-h"><span class="lbl">餐飲</span><span class="num">¥71,600</span></div>
+  <table class="bt"><tbody>
+    <tr><td><div class="bn">エリックサウス 八重洲店</div><div class="bs">1/11 · 僅東京組</div></td><td class="bv">¥1,800<span class="tg">估</span></td></tr>
+    <tr><td><div class="bn">善治郎 牛舌定食</div><div class="bs">1/11</div></td><td class="bv">¥3,000<span class="tg">估</span></td></tr>
+    <tr><td><div class="bn">松島かき小屋 MATSU 蒸牡蠣吃到飽</div><div class="bs">1/12 · 45 分鐘</div></td><td class="bv">¥4,500<span class="tg">估</span></td></tr>
+    <tr><td><div class="bn">仙台居酒屋 源氏／一仙</div><div class="bs">1/12</div></td><td class="bv">¥4,000<span class="tg">估</span></td></tr>
+    <tr><td><div class="bn">三立十割 蕎麦人</div><div class="bs">1/13</div></td><td class="bv">¥1,500<span class="tg">估</span></td></tr>
+    <tr><td><div class="bn">晴れの日 名掛丁店</div><div class="bs">1/13 · 人均 ¥5,000–5,999</div></td><td class="bv">¥5,500<span class="tg">估</span></td></tr>
+    <tr><td><div class="bn">あじさい本店 函館鹽拉麵</div><div class="bs">1/14</div></td><td class="bv">¥1,300<span class="tg">估</span></td></tr>
+    <tr><td><div class="bn">うにむらかみ 函館駅前店</div><div class="bs">1/14 · 海膽丼</div></td><td class="bv">¥7,000<span class="tg">估</span></td></tr>
+    <tr><td><div class="bn">函館朝市 海鮮丼</div><div class="bs">1/15</div></td><td class="bv">¥3,000<span class="tg">估</span></td></tr>
+    <tr><td><div class="bn">くし路 爐端燒午餐</div><div class="bs">1/15 · 人均 ¥1,000–1,480</div></td><td class="bv">¥1,500<span class="tg">估</span></td></tr>
+    <tr><td><div class="bn">エビかに合戦 帝王蟹吃到飽</div><div class="bs">1/15 · 人均 ¥5,000–8,000</div></td><td class="bv">¥7,000<span class="tg">估</span></td></tr>
+    <tr><td><div class="bn">洞爺湖 午餐</div><div class="bs">1/16 · 依 KKday 停留點</div></td><td class="bv">¥1,500<span class="tg">估</span></td></tr>
+    <tr><td><div class="bn">成吉思汗 いただきます。</div><div class="bs">1/16</div></td><td class="bv">¥4,500<span class="tg">估</span></td></tr>
+    <tr><td><div class="bn">ベンベラ 湯咖哩</div><div class="bs">1/17</div></td><td class="bv">¥1,500<span class="tg">估</span></td></tr>
+    <tr><td><div class="bn">小樽 寿司 よし</div><div class="bs">1/17 · 人均 ¥10,000–14,999</div></td><td class="bv">¥12,000<span class="tg">估</span></td></tr>
+    <tr><td><div class="bn">其餘早餐、咖啡、點心</div><div class="bs">8 天 · 每日約 ¥1,500</div></td><td class="bv">¥12,000<span class="tg">估</span></td></tr>
+  </tbody></table>
+  <div class="sub-h"><span class="lbl">住宿</span><span class="num">¥38,000</span></div>
+  <table class="bt"><tbody>
+    <tr><td><div class="bn">KP 仙台車站北 APA（3 晚）</div><div class="bs">1/11–14 · 以 2 人 1 室分攤估算，已訂者請以訂單為準</div></td><td class="bv">¥15,000<span class="tg">估</span></td></tr>
+    <tr><td><div class="bn">函館站前 APA（1 晚）</div><div class="bs">1/14–15 · 同上</div></td><td class="bv">¥5,000<span class="tg">估</span></td></tr>
+    <tr><td><div class="bn">APA 札幌大通站前西（3 晚）</div><div class="bs">1/15–18 · 同上</div></td><td class="bv">¥18,000<span class="tg">估</span></td></tr>
+  </tbody></table>
+  <div class="sub-h"><span class="lbl">其他</span><span class="num">¥5,500</span></div>
+  <table class="bt"><tbody>
+    <tr><td><div class="bn">日本 eSIM（8 天）</div><div class="bs">出發前 · 約 NT$300</div></td><td class="bv">¥1,500<span class="tg">估</span></td></tr>
+    <tr><td><div class="bn">旅平險／不便險</div><div class="bs">出發前 · 約 NT$600–1,000</div></td><td class="bv">¥4,000<span class="tg">估</span></td></tr>
+  </tbody></table>
+  <div class="sub-h"><span class="lbl">機票 · 依組別</span><span class="num">NT$15,000–25,000</span></div>
+  <table class="bt"><tbody>
+    <tr><td><div class="bn">國際線 去程＋回程</div><div class="bs">去：東京組 BR184／仙台組 BR118 · 回：虎航 IT235／亞航 FD243／星宇 JX851／加航組經青森 · 請各組以實際票價為準</div></td><td class="bv">NT$15k–25k<span class="tg">估</span></td></tr>
+  </tbody></table>
+</section>
+
 <!-- ══════════ 準備 ══════════ -->
 <section id="s-prep">
-  <div class="sec-h"><h2>準備</h2><span class="lbl num" id="prep-all">0 / 16</span></div>
+  <div class="sec-h"><h2>準備</h2><span class="lbl num" id="prep-all">0 / 21</span></div>
 
   <div class="pg">
     <div class="pg-h"><span class="pill">立即處理</span><span class="pg-c"></span></div>
-    <div class="ck" data-id="c1"><div class="box"><svg viewBox="0 0 16 16"><path d="M3.5 8.5l3 3 6-7"/></svg></div><div><div class="ck-t">函館站前 APA 酒店 · 訂房確認</div><div class="ck-s">已選定 · 1 晚（1/14–1/15）· Otemachi 19-13 · 請確認訂單確認碼與付款狀態</div></div></div>
-    <div class="ck" data-id="c2"><div class="box"><svg viewBox="0 0 16 16"><path d="M3.5 8.5l3 3 6-7"/></svg></div><div><div class="ck-t">APA Hotel Sapporo Odori Ekimae Nishi · 訂房確認</div><div class="ck-s">已選定 · 3 晚（1/15–1/18）· 南1条西9-15-1 · 7 人房間分配需提早確認</div></div></div>
-    <div class="ck urgent" data-id="c3"><div class="box"><svg viewBox="0 0 16 16"><path d="M3.5 8.5l3 3 6-7"/></svg></div><div><div class="ck-t">エビかに合戦 訂位</div><div class="ck-s">7 人用餐建議至少 1 個月前訂位 · Tabelog 或官網預約 · 1/15（五）晚餐時段</div></div></div>
-    <div class="ck urgent" data-id="c4"><div class="box"><svg viewBox="0 0 16 16"><path d="M3.5 8.5l3 3 6-7"/></svg></div><div><div class="ck-t">尾花沢タクシー 銀山溫泉包車 預約</div><div class="ck-s">1/13（三）15:30 大石田站上車、18:30 回站 · 7 人需 <b>ジャンボタクシー</b>（定員 9 名，¥24,000～）· 冬季旺季請提早以電話 0237-23-2525 或官網預約，並確認冬季實際費用</div></div></div>
+    <div class="ck" data-id="c1"><div class="box"><svg viewBox="0 0 16 16"><path d="M3.5 8.5l3 3 6-7"/></svg></div><div><div class="ck-t">函館 APA 訂房確認</div></div></div>
+    <div class="ck" data-id="c2"><div class="box"><svg viewBox="0 0 16 16"><path d="M3.5 8.5l3 3 6-7"/></svg></div><div><div class="ck-t">札幌 APA 訂房確認</div></div></div>
+    <div class="ck urgent" data-id="c3"><div class="box"><svg viewBox="0 0 16 16"><path d="M3.5 8.5l3 3 6-7"/></svg></div><div><div class="ck-t">エビかに合戦 訂位</div></div></div>
+    <div class="ck urgent" data-id="c4"><div class="box"><svg viewBox="0 0 16 16"><path d="M3.5 8.5l3 3 6-7"/></svg></div><div><div class="ck-t">銀山溫泉包車 預約</div></div></div>
+    <div class="ck urgent" data-id="c17"><div class="box"><svg viewBox="0 0 16 16"><path d="M3.5 8.5l3 3 6-7"/></svg></div><div><div class="ck-t">うにむらかみ 訂位</div></div></div>
   </div>
 
   <div class="pg">
     <div class="pg-h"><span class="pill">出發前 1 個月內</span><span class="pg-c"></span></div>
-    <div class="ck" data-id="c5"><div class="box"><svg viewBox="0 0 16 16"><path d="M3.5 8.5l3 3 6-7"/></svg></div><div><div class="ck-t">JR東日本＋南北海道パス 購買＆訂座</div><div class="ck-s">JR東日本官網購買 · 同時預訂各段指定席 · 覆蓋：N'EX（成田→東京）、東北新幹線（東京→仙台、仙台⇄福島）、山形新幹線つばさ（福島⇄大石田）、北海道新幹線（仙台→新函館北斗）、特急北斗（函館→札幌）、快速エアポート（新千歲）</div></div></div>
-    <div class="ck" data-id="c6"><div class="box"><svg viewBox="0 0 16 16"><path d="M3.5 8.5l3 3 6-7"/></svg></div><div><div class="ck-t">善治郎牛舌 訂位確認</div><div class="ck-s">確認是否可 Google Map 線上預約 · 或規劃開店前到場排隊策略 · 1/11（一）晚餐</div></div></div>
-    <div class="ck" data-id="c7"><div class="box"><svg viewBox="0 0 16 16"><path d="M3.5 8.5l3 3 6-7"/></svg></div><div><div class="ck-t">松島牡蠣餐廳預約</div><div class="ck-s">1/12（二）上午 · 1 月牡蠣季尾聲，需確認餐廳有無供應 · 松島さかな市場周邊多家可選</div></div></div>
-    <div class="ck" data-id="c8"><div class="box"><svg viewBox="0 0 16 16"><path d="M3.5 8.5l3 3 6-7"/></svg></div><div><div class="ck-t">KKday 1/16 洞爺湖一日遊 預訂</div><div class="ck-s">暫定洞爺湖為主 · 尚待正式選定與預訂 · 確認行程含札幌來回接送</div></div></div>
-    <div class="ck" data-id="c9"><div class="box"><svg viewBox="0 0 16 16"><path d="M3.5 8.5l3 3 6-7"/></svg></div><div><div class="ck-t">日本 SIM 卡 / eSIM</div><div class="ck-s">台灣出發前於 KKday / Klook 購入 · 或 IIJmio 短期方案 · 建議選 8 天方案</div></div></div>
-    <div class="ck" data-id="c10"><div class="box"><svg viewBox="0 0 16 16"><path d="M3.5 8.5l3 3 6-7"/></svg></div><div><div class="ck-t">Visit Japan Web 填寫</div><div class="ck-s">日本入境電子申報 · 出發前完成可加快入境速度 · 所有組員均需完成</div></div></div>
-    <div class="ck urgent" data-id="c16"><div class="box"><svg viewBox="0 0 16 16"><path d="M3.5 8.5l3 3 6-7"/></svg></div><div><div class="ck-t">仙台組（去）／加航組（回）航班時刻二次確認</div><div class="ck-s">去程 BR118（桃園→仙台）、回程新千歲→青森轉機班次與長榮 BR121（青森→台北，加拿大航空開票）均依現行同期班表推算 · 2027 年 1 月正式時刻表公布後請重新核對並完成訂位</div></div></div>
+    <div class="ck" data-id="c5"><div class="box"><svg viewBox="0 0 16 16"><path d="M3.5 8.5l3 3 6-7"/></svg></div><div><div class="ck-t">JR Pass 購買＋劃位</div></div></div>
+    <div class="ck" data-id="c6"><div class="box"><svg viewBox="0 0 16 16"><path d="M3.5 8.5l3 3 6-7"/></svg></div><div><div class="ck-t">善治郎 訂位</div></div></div>
+    <div class="ck" data-id="c7"><div class="box"><svg viewBox="0 0 16 16"><path d="M3.5 8.5l3 3 6-7"/></svg></div><div><div class="ck-t">かき小屋 MATSU 預約</div></div></div>
+    <div class="ck" data-id="c18"><div class="box"><svg viewBox="0 0 16 16"><path d="M3.5 8.5l3 3 6-7"/></svg></div><div><div class="ck-t">晴れの日 訂位</div></div></div>
+    <div class="ck" data-id="c19"><div class="box"><svg viewBox="0 0 16 16"><path d="M3.5 8.5l3 3 6-7"/></svg></div><div><div class="ck-t">いただきます。訂位</div></div></div>
+    <div class="ck" data-id="c20"><div class="box"><svg viewBox="0 0 16 16"><path d="M3.5 8.5l3 3 6-7"/></svg></div><div><div class="ck-t">小樽 寿司よし 訂位</div></div></div>
+    <div class="ck" data-id="c8"><div class="box"><svg viewBox="0 0 16 16"><path d="M3.5 8.5l3 3 6-7"/></svg></div><div><div class="ck-t">KKday 洞爺湖 預訂</div></div></div>
+    <div class="ck" data-id="c9"><div class="box"><svg viewBox="0 0 16 16"><path d="M3.5 8.5l3 3 6-7"/></svg></div><div><div class="ck-t">eSIM</div></div></div>
+    <div class="ck" data-id="c10"><div class="box"><svg viewBox="0 0 16 16"><path d="M3.5 8.5l3 3 6-7"/></svg></div><div><div class="ck-t">Visit Japan Web</div></div></div>
+    <div class="ck urgent" data-id="c16"><div class="box"><svg viewBox="0 0 16 16"><path d="M3.5 8.5l3 3 6-7"/></svg></div><div><div class="ck-t">航班時刻二次確認</div></div></div>
   </div>
 
   <div class="pg">
     <div class="pg-h"><span class="pill">隨身攜帶</span><span class="pg-c"></span></div>
-    <div class="ck" data-id="c11"><div class="box"><svg viewBox="0 0 16 16"><path d="M3.5 8.5l3 3 6-7"/></svg></div><div><div class="ck-t">護照 + 信用卡 / 現金日圓</div><div class="ck-s">護照效期 6 個月以上 · 建議每人備妥至少 ¥30,000 現金備用</div></div></div>
-    <div class="ck" data-id="c12"><div class="box"><svg viewBox="0 0 16 16"><path d="M3.5 8.5l3 3 6-7"/></svg></div><div><div class="ck-t">厚羽絨外套 + 防水防滑雪靴</div><div class="ck-s">仙台 1 月均溫 -2°C ～ 3°C · 函館 -8°C ～ -1°C · 札幌 -10°C ～ -3°C · 街道可能結冰，防滑雪靴必備</div></div></div>
-    <div class="ck" data-id="c13"><div class="box"><svg viewBox="0 0 16 16"><path d="M3.5 8.5l3 3 6-7"/></svg></div><div><div class="ck-t">手套、毛帽、圍巾、保暖內衣</div><div class="ck-s">Heattech 或同等級保暖內衣 · 暖暖包可在日本當地便利店購買</div></div></div>
-    <div class="ck" data-id="c14"><div class="box"><svg viewBox="0 0 16 16"><path d="M3.5 8.5l3 3 6-7"/></svg></div><div><div class="ck-t">IC 卡（Suica / ICOCA）</div><div class="ck-s">用於市區地鐵、巴士 · 可在仙台、函館、札幌的 JR 站購買 · 建議各自充值 ¥5,000</div></div></div>
-    <div class="ck" data-id="c15"><div class="box"><svg viewBox="0 0 16 16"><path d="M3.5 8.5l3 3 6-7"/></svg></div><div><div class="ck-t">每日換殼計畫 — 手機殼 × 8</div><div class="ck-s">8 天每天換不同手機殼，出發前備齊並編排順序 · 可配合當日景點或城市主題挑選配色</div></div></div>
+    <div class="ck" data-id="c11"><div class="box"><svg viewBox="0 0 16 16"><path d="M3.5 8.5l3 3 6-7"/></svg></div><div><div class="ck-t">護照・信用卡・日圓</div></div></div>
+    <div class="ck" data-id="c12"><div class="box"><svg viewBox="0 0 16 16"><path d="M3.5 8.5l3 3 6-7"/></svg></div><div><div class="ck-t">羽絨外套・防滑雪靴</div></div></div>
+    <div class="ck" data-id="c13"><div class="box"><svg viewBox="0 0 16 16"><path d="M3.5 8.5l3 3 6-7"/></svg></div><div><div class="ck-t">手套・毛帽・圍巾</div></div></div>
+    <div class="ck" data-id="c14"><div class="box"><svg viewBox="0 0 16 16"><path d="M3.5 8.5l3 3 6-7"/></svg></div><div><div class="ck-t">IC 卡</div></div></div>
+    <div class="ck" data-id="c15"><div class="box"><svg viewBox="0 0 16 16"><path d="M3.5 8.5l3 3 6-7"/></svg></div><div><div class="ck-t">手機殼 × 8</div></div></div>
   </div>
 </section>
 
@@ -941,32 +1208,31 @@ section{scroll-margin-top:8px}
     </li>
     <li class="nt">
       <h3>JR Pass 適用 / 不適用範圍</h3>
-      <p><b>使用方案</b>　JR東日本＋南北海道パス · <b>連續 6 日</b> ¥40,000 · 於 JR東日本官網購買並預訂指定席</p>
-      <p><b>效期提醒</b>　全程 8 天，Pass 只有 6 天。東京組 1/11 啟用 → 用到 1/16，1/17 小樽與 1/18 機場快速需另購票；仙台組可 1/12 啟用 → 用到 1/17，僅 1/18 機場快速需另購票。</p>
-      <p><b>適用</b>　成田特快 N'EX（成田→東京）、東北新幹線（東京→仙台、仙台⇄福島）、山形新幹線つばさ（福島⇄大石田）、北海道新幹線（仙台→新函館北斗）、JR 特急北斗（函館→札幌）、JR 快速エアポート（新千歲機場）</p>
-      <p><b>不適用</b>　仙台地下鐵、福島交通飯坂線、函館市電、札幌市営地下鉄、機場巴士</p>
+      <p><b>使用方案</b>　JR東日本＋南北海道パス · <b>連續 6 日</b> ¥40,000 · 於 JR東日本官網（えきねっと）購買並預訂指定席</p>
+      <p><b>效期提醒</b>　全程 8 天，Pass 只有 6 天。東京組 1/11 啟用 → 用到 1/16，1/17 小樽來回（¥750 × 2）與 1/18 機場快速（¥1,230）需另購；仙台組 1/12 啟用 → 用到 1/17，僅 1/18 機場快速 ¥1,230 需另購。</p>
+      <p><b>適用</b>　N'EX、東北新幹線、山形新幹線つばさ、北海道新幹線、特急北斗、はこだてライナー、仙石線、奥羽本線、快速エアポート</p>
+      <p><b>不適用</b>　仙台空港アクセス線（兌換前）、福島交通飯坂線、函館市電、函館山纜車、札幌市營地下鐵、KKday 巴士</p>
     </li>
     <li class="nt">
       <h3>1/11 兩組出發注意</h3>
-      <p><b>東京組</b>　BR184 成田落地後，於東京站一番街僅預留約 80 分鐘，務必抓緊時間，最晚 <b>15:50</b> 前需登上往仙台新幹線，才能於 <b>18:00</b> 前抵達飯店。</p>
-      <p><b>仙台組</b>　BR118 直飛仙台，因未經東京，JR Pass 需改在 <b>仙台站</b> JR東日本窗口兌換，落地後請優先辦理，避免影響隔日行程。</p>
-      <p>兩組預計於仙台飯店 Check-in 後、善治郎牛舌晚餐時會合。</p>
+      <p><b>東京組</b>　N'EX 14:37 到東京，エリックサウス 午餐約 25 分鐘，目標搭 <b>はやぶさ 31 號 15:20</b>；吃太久就改 <b>33 號 16:20</b>（17:51 到仙台），晚餐仍來得及。1/11 是成人の日，請以祝日時刻表為準。</p>
+      <p><b>仙台組</b>　BR118 直飛仙台，JR Pass 需在 <b>仙台站</b> JR東日本窗口兌換，落地後請優先辦理，順便取出隔天的指定席車票。</p>
     </li>
     <li class="nt">
-      <h3>1/12 松島 + 弘前同天</h3>
-      <p>松島和弘前同天行程跨距大，松島上午限 2～3 小時為佳，<b>13:00 前出發</b>才能下午到弘前。</p>
-      <p>弘前（蘋果派）與青森市（睡魔資料館）有段距離，若時間不夠，可只逛弘前市區，省略青森市。</p>
-      <p>東北冬季天黑早，<b>16:00 即入夜</b>，回仙台新幹線班次需提前查好，避免趕不上末班車。</p>
+      <h3>1/12 松島 + 弘前 + 青森</h3>
+      <p>這天轉乘最多：仙石線 → はやぶさ 17 號 → 奥羽本線 → 奥羽本線 → はやぶさ 42 號。<b>弘前 16:16 往青森</b>是關鍵，青森方向 16:00–17:59 只有這班。</p>
+      <p>睡魔之家冬季最後入館 17:30，到館約 17:05，可看 17:10 的體驗。回仙台約 20:29，居酒屋兩間都不接受或不需預約，直接排隊。</p>
     </li>
     <li class="nt">
       <h3>1/13 福島 + 銀山溫泉</h3>
-      <p>這天的骨幹是 <b>つばさ 137 號（福島 13:37 → 大石田 15:15）</b>，飯坂溫泉與午餐都要在 13:30 前收尾。いい電約 20–30 分一班，回程請預留時間。</p>
-      <p>1/13 是<b>週三</b>：照井飯坂本店、飯坂的 oncafe 等店家週三公休，午餐已改排福島站前的照井東口店。</p>
-      <p>銀山溫泉冬季有交通與入場管制，自行前往需在指定地點換接駁巴士；尾花沢タクシー包車可直接進入。7 人搭一台ジャンボタクシー，車資約 ¥24,000 起，平均每人約 ¥3,500。</p>
+      <p>這天的骨幹是 <b>つばさ 137 號（福島 13:37 → 大石田 15:15）</b>，福島上午只排美術館與午餐，13:30 前回到月台。</p>
+      <p>不泡飯坂溫泉，原本的照井（餃子）也一併取消，改吃十割蕎麥。福島縣立美術館週一休館，1/13 週三照常。</p>
+      <p>銀山溫泉冬季有交通與入場管制，尾花沢タクシー包車可直接進入。回到仙台約 21:20，晚餐建議先訂晴れの日。</p>
     </li>
     <li class="nt">
       <h3>飲食 · 訂位建議</h3>
-      <p><b>善治郎牛舌（仙台）</b>　旺季排隊長，建議開店前到場或確認線上預約管道<br><b>くし路 新北海道ビル店（札幌）</b>　1/15 中午爐端燒，平日限定 11:30–14:00，人少可不訂位<br><b>エビかに合戦（札幌）</b>　7 人用餐建議至少 1 個月前訂位<br><b>小樽壽司通</b>　午餐時段比晚餐等待時間短</p>
+      <p>餐廳以 Tabelog 3.5–3.9 為主，不排中式、台式。</p>
+      <p><b>需訂位</b>　うにむらかみ（2 個月前開放）、エビかに合戦、寿司 よし、いただきます。、晴れの日、かき小屋 MATSU（建議電話確認）<br><b>不接受預約</b>　エリックサウス、源氏、あじさい、ベンベラ · 現場排隊</p>
       <p>北海道海鮮物價偏高，吃到飽行程整體較划算。</p>
     </li>
     <li class="nt">
@@ -986,9 +1252,9 @@ section{scroll-margin-top:8px}
 <nav class="dock" aria-label="章節">
   <a href="#s-home" data-s="s-home" class="on">總覽</a>
   <a href="#s-days" data-s="s-days">行程</a>
-  <a href="#s-cost" data-s="s-cost">預算</a>
   <a href="#s-move" data-s="s-move">交通</a>
   <a href="#s-stay" data-s="s-stay">住宿</a>
+  <a href="#s-cost" data-s="s-cost">預算</a>
   <a href="#s-prep" data-s="s-prep">準備</a>
   <a href="#s-note" data-s="s-note">注意</a>
   <button class="fz" id="fz" aria-label="切換字級">Aa</button>
